@@ -6,13 +6,26 @@
 //  Copyright © 2016 Alessandro Manni. All rights reserved.
 //
 
-//
-//  ErrorHandler.swift
-//  Ostmodern_CodeTest
-//
-//  Created by Alessandro Manni - on 21/06/2016.
-//  Copyright © 2016 Alessandro Manni. All rights reserved.
-//
+
+enum Errors: ErrorType {
+    
+    case noData
+    case jsonError
+    case networkError(nsError: NSError)
+    
+    var description: (title: String, message: String) {
+        switch self {
+        case .noData:
+            return ("Error", "No valid data returned from server")
+        case .jsonError:
+            return ("Error", "Response from server cannot be converted in readable data")
+        case .networkError(let nsError):
+            return ("Error \(nsError.code)", nsError.localizedDescription)
+        }
+    }
+}
+
+
 
 
 import Foundation

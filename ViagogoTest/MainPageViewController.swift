@@ -19,8 +19,9 @@ class MainPageViewController: UIViewController {
             }
             
             if let arr = callback.response {
-        let myName = (arr[0].name)! as String
-                print (myName)
+        let country = (arr[0])
+                print (country.name, country.countryCode, country.flagIconURL, country.population)
+                print (country.translations)
             } else {
                 
             }

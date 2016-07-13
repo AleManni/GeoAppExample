@@ -5,27 +5,6 @@
 //  Created by Alessandro Manni on 13/07/2016.
 //  Copyright © 2016 Alessandro Manni. All rights reserved.
 
-/// let countryCode = NSLocale.currentLocale().objectForKey(NSLocaleCountryCode) as String
-
-//FIXME: Move enum to ErroHandler Class
-
-enum Errors: ErrorType {
-    
-    case noData
-    case jsonError
-    case networkError(nsError: NSError)
-    
-    var description: (title: String, message: String) {
-        switch self {
-        case .noData:
-            return ("Error", "No valid data returned from server")
-        case .jsonError:
-            return ("Error", "Response from server can not be converted in readable data")
-        case .networkError(let nsError):
-            return ("Error \(nsError.code)", nsError.localizedDescription)
-        }
-    }
-}
 
 
 import Foundation
@@ -80,7 +59,6 @@ class ConnectionManager {
                 callback(response: nil, error: Errors.noData)
                 return
             }
-            
             do {
                 guard let jasonArray = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.MutableContainers) as? [[String:AnyObject]] else {
                     callback(response: nil, error: Errors.jsonError)
@@ -90,6 +68,36 @@ class ConnectionManager {
                 let countryDict = jasonArray[0]
                     countryDetail.populateFromResponse(countryDict)
                 callback(response: countryDetail, error: nil)
+            } catch  {
+                callback(response: nil, error: Errors.jsonError)
+                return
+            }
+        }
+        task.resume()
+    }
+
+    
+    static func fetchRegion (regionName: String, callback: (response: Region?, error: Errors?) -> ()) {
+        let url = NSURL(string: baseURL + "/rest/v1/region/\(regionName)")
+        let urlRequest = NSURLRequest(URL: url!)
+        let task = session.dataTaskWithRequest(urlRequest) {
+            (data, response, error) in
+            guard error == nil else {
+                callback(response: nil, error: Errors.networkError(nsError: error!))
+                return
+            }
+            guard let responseData = data else {
+                callback(response: nil, error: Errors.noData)
+                return
+            }
+            do {
+                guard let jasonArray = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.MutableContainers) as? [[String:AnyObject]] else {
+                    callback(response: nil, error: Errors.jsonError)
+                    return
+                }
+                let region = Region()
+                region.populateFromResponse(jasonArray)
+                callback(response: region, error: nil)
             } catch  {
                 callback(response: nil, error: Errors.jsonError)
                 return

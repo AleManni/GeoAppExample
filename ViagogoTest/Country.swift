@@ -13,6 +13,7 @@ class Country {
     var translations: [String:String]?
     var population: Int?
     var countryCode: String?
+    var region: String?
     var flagIconURL: NSURL?
     
     
@@ -25,6 +26,9 @@ class Country {
         }
         if response["population"] as? Int != nil {
             population = response["population"] as? Int
+        }
+        if response["region"] as? String != nil {
+            region = response["region"] as? String
         }
         if response["altSpellings"] as? [String] != nil {
             countryCode = response["altSpellings"]![0] as? String

@@ -10,14 +10,13 @@ import UIKit
 
 class Constants: NSObject {
     
-    let headerHeight: CGFloat = 100.0
-    let cellInsets = UIEdgeInsetsMake (16.0, 8,0, 8.0)
-    let synopsisMissing = "No description available for this item"
+    let stringMissing = "N/A"
     
     struct Fonts {
-    let regular = UIFont(name: "Verdana", size: 14)!
-    let title = UIFont(name: "Verdana-Bold", size: 16)!
-    let titleLarge = UIFont(name: "Verdana-Bold", size: 18)!
+        let regular = UIFont(name: "Verdana", size: 14)!
+        let title = UIFont(name: "Verdana-Bold", size: 16)!
+        let titleLarge = UIFont(name: "Verdana-Bold", size: 18)!
     }
-    
 }
+
+
