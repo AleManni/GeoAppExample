@@ -13,6 +13,7 @@ class Constants: NSObject {
     let stringMissing = "N/A"
     
     struct Fonts {
+        let small = UIFont(name: "Verdana", size: 10)!
         let regular = UIFont(name: "Verdana", size: 14)!
         let title = UIFont(name: "Verdana-Bold", size: 16)!
         let titleLarge = UIFont(name: "Verdana-Bold", size: 18)!

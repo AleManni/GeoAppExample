@@ -11,10 +11,10 @@ import Foundation
 
 class ConnectionManager {
     static let session: NSURLSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-    static let baseURL = "https://restcountries.eu"
+    static let baseURL = "https://restcountries.eu/rest/v1"
 
     static func fetchAllCountries (callback: (response: [Country]?, error: Errors?) -> ()) {
-        let url = NSURL(string: baseURL + "/rest/v1/all")
+        let url = NSURL(string: baseURL + "/all")
         let urlRequest = NSURLRequest(URL: url!)
         let task = session.dataTaskWithRequest(urlRequest) {
             (data, response, error) in
@@ -46,8 +46,8 @@ class ConnectionManager {
         task.resume()
     }
     
-    static func fetchCountryDetails (countryName: String, callback: (response: CountryDetail?, error: Errors?) -> ()) {
-        let url = NSURL(string: baseURL + "/rest/v1/name/\(countryName)?fullText=true")
+    static func fetchCountryDetails (countryCode: String, callback: (response: CountryDetail?, error: Errors?) -> ()) {
+        let url = NSURL(string: baseURL + "/alpha/\(countryCode)")
         let urlRequest = NSURLRequest(URL: url!)
         let task = session.dataTaskWithRequest(urlRequest) {
             (data, response, error) in
@@ -60,13 +60,12 @@ class ConnectionManager {
                 return
             }
             do {
-                guard let jasonArray = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.MutableContainers) as? [[String:AnyObject]] else {
+                guard let jasonDict = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.MutableContainers) as? [String:AnyObject] else {
                     callback(response: nil, error: Errors.jsonError)
                     return
                 }
                     let countryDetail = CountryDetail()
-                let countryDict = jasonArray[0]
-                    countryDetail.populateFromResponse(countryDict)
+                    countryDetail.populateFromResponse(jasonDict)
                 callback(response: countryDetail, error: nil)
             } catch  {
                 callback(response: nil, error: Errors.jsonError)
@@ -78,7 +77,7 @@ class ConnectionManager {
 
     
     static func fetchRegion (regionName: String, callback: (response: Region?, error: Errors?) -> ()) {
-        let url = NSURL(string: baseURL + "/rest/v1/region/\(regionName)")
+        let url = NSURL(string: baseURL + "/region/\(regionName)")
         let urlRequest = NSURLRequest(URL: url!)
         let task = session.dataTaskWithRequest(urlRequest) {
             (data, response, error) in

@@ -16,6 +16,7 @@ var capital: String?
     var callingCodes: [String]?
     var currencies: [String]?
     var languages: [String]?
+    var nativeName: String?
     var borders: [String]?
     
 
@@ -38,6 +39,9 @@ var capital: String?
         }
         if response["languages"] as? [String] != nil {
             languages = response["languages"] as? [String]
+        }
+        if response["nativeName"] as? String != nil {
+            nativeName = response["nativeName"] as? String
         }
         if response["borders"] as? [String] != nil {
             borders = response["borders"] as? [String]

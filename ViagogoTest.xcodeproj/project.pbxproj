@@ -21,6 +21,8 @@
 		1D1F004A1D36AF3100E2EF2C /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F00481D36AF3100E2EF2C /* ErrorView.xib */; };
 		1D1F004C1D36AF9000E2EF2C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F004B1D36AF9000E2EF2C /* Constants.swift */; };
 		1D1F004E1D36D26900E2EF2C /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F004D1D36D26900E2EF2C /* Region.swift */; };
+		1DBF1B7F1D3796BF004BD057 /* CountryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBF1B7E1D3796BF004BD057 /* CountryDetailsViewController.swift */; };
+		1DBF1B811D37F10B004BD057 /* DetailCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBF1B801D37F10B004BD057 /* DetailCollectionCell.swift */; };
 		1DE6C98C1D36FFB200D5ECE7 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6C98B1D36FFB200D5ECE7 /* UIImageView+Extension.swift */; };
 		1DEB8E161D36EB7A008EC2DA /* CountryListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB8E151D36EB7A008EC2DA /* CountryListTableViewCell.xib */; };
 		1DEB8E1A1D36F059008EC2DA /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB8E191D36F059008EC2DA /* String+Extensions.swift */; };
@@ -56,6 +58,8 @@
 		1D1F00481D36AF3100E2EF2C /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		1D1F004B1D36AF9000E2EF2C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1D1F004D1D36D26900E2EF2C /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		1DBF1B7E1D3796BF004BD057 /* CountryDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDetailsViewController.swift; sourceTree = "<group>"; };
+		1DBF1B801D37F10B004BD057 /* DetailCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCollectionCell.swift; sourceTree = "<group>"; };
 		1DE6C98B1D36FFB200D5ECE7 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		1DEB8E151D36EB7A008EC2DA /* CountryListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountryListTableViewCell.xib; sourceTree = "<group>"; };
 		1DEB8E191D36F059008EC2DA /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				1D1F00411D36A37900E2EF2C /* CountryListViewController.swift */,
+				1DBF1B7E1D3796BF004BD057 /* CountryDetailsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -160,6 +165,7 @@
 				1D1F00481D36AF3100E2EF2C /* ErrorView.xib */,
 				1DEB8E151D36EB7A008EC2DA /* CountryListTableViewCell.xib */,
 				1DEB8E1B1D36F918008EC2DA /* CountryListTableViewCell.swift */,
+				1DBF1B801D37F10B004BD057 /* DetailCollectionCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -271,6 +277,7 @@
 				1D1F004E1D36D26900E2EF2C /* Region.swift in Sources */,
 				1D1F00421D36A37900E2EF2C /* CountryListViewController.swift in Sources */,
 				1DEB8E1C1D36F918008EC2DA /* CountryListTableViewCell.swift in Sources */,
+				1DBF1B811D37F10B004BD057 /* DetailCollectionCell.swift in Sources */,
 				1D1F003C1D368EBB00E2EF2C /* Country.swift in Sources */,
 				1D1F00401D36983400E2EF2C /* CountryDetail.swift in Sources */,
 				1DE6C98C1D36FFB200D5ECE7 /* UIImageView+Extension.swift in Sources */,
@@ -278,6 +285,7 @@
 				1D1F00491D36AF3100E2EF2C /* ErrorView.swift in Sources */,
 				1D1F001E1D36577500E2EF2C /* ConnectionManager.swift in Sources */,
 				1D1F001C1D36577500E2EF2C /* AppDelegate.swift in Sources */,
+				1DBF1B7F1D3796BF004BD057 /* CountryDetailsViewController.swift in Sources */,
 				1D1F004C1D36AF9000E2EF2C /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

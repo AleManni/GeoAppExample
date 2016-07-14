@@ -16,7 +16,7 @@ class CountryListViewController: UIViewController {
             countriesTableView.reloadData()
         }
     }
-    var selecteCountry: Country?
+    var selecteCountryDetail: CountryDetail?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +47,9 @@ class CountryListViewController: UIViewController {
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        guard segue.identifier == "detailViewSegue" else {return}
+        let vc = segue.destinationViewController as! CountryDetailsViewController
+        vc.country = selecteCountryDetail
     }    
 }
 
@@ -74,10 +75,16 @@ extension CountryListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selecteCountry = dataSource[indexPath.row]
-        performSegueWithIdentifier("detailViewSegue", sender: self)
+        let selecteCountry = dataSource[indexPath.row]
+        ConnectionManager.fetchCountryDetails(selecteCountry.countryCode!, callback: { (callback) in
+            guard callback.error == nil else {
+                ErrorHandler.handler.showError(callback.error!, sender: self)
+                return
+            }
+            self.selecteCountryDetail = callback.response! as CountryDetail
+            self.performSegueWithIdentifier("detailViewSegue", sender: self)
+        })
     }
-    
 }
 
 

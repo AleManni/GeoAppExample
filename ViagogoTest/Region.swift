@@ -20,6 +20,7 @@ class Region {
                 country.populateFromResponse(item)
                 listOfCountries.append(country)
             }
+            countryList = listOfCountries
         }
     }
 }
