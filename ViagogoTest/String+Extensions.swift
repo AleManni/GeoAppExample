@@ -17,6 +17,7 @@ extension String {
         for key in dictionary.keys {
             if key == countryLocale {
                 localisedString = dictionary[key]!
+                return localisedString
             } else {
                 localisedString = nil
             }
