@@ -551,8 +551,8 @@
                                                         </constraints>
                                                         <variation key="default">
                                                             <mask key="constraints">
-                                                                <exclude reference="ooD-6Q-lsx"/>
                                                                 <exclude reference="GcM-vm-g9B"/>
+                                                                <exclude reference="ooD-6Q-lsx"/>
                                                             </mask>
                                                         </variation>
                                                     </imageView>
@@ -602,9 +602,9 @@
                                                         <exclude reference="YkF-1b-i55"/>
                                                         <exclude reference="h5r-rj-Dlh"/>
                                                         <exclude reference="Wbz-SJ-Zqe"/>
+                                                        <exclude reference="IDA-iv-RUV"/>
                                                         <exclude reference="gSQ-M7-u9r"/>
                                                         <exclude reference="p8J-5w-kEX"/>
-                                                        <exclude reference="IDA-iv-RUV"/>
                                                         <exclude reference="goL-w8-4Zh"/>
                                                     </mask>
                                                 </variation>
@@ -674,8 +674,8 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="Ufs-Lw-M2Q"/>
                                         <exclude reference="Erk-62-e6w"/>
+                                        <exclude reference="Ufs-Lw-M2Q"/>
                                         <exclude reference="VS2-tj-Zfs"/>
                                     </mask>
                                 </variation>
@@ -695,9 +695,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="pIe-nq-OkF"/>
                                 <exclude reference="LcM-DD-JtO"/>
                                 <exclude reference="khl-P9-37M"/>
+                                <exclude reference="pIe-nq-OkF"/>
                                 <exclude reference="uqm-RX-UMF"/>
                             </mask>
                         </variation>
