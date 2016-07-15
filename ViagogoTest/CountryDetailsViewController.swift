@@ -83,7 +83,7 @@ class CountryDetailsViewController: UIViewController {
             flagImageView.image = UIImage(named: "placeholder")
         }
         if let _ = country.languages, let languagesValue = country.languages where languagesValue.count > 0 {
-            languagesLabel.text = String().composeFromArray(country.languages!)
+            languagesLabel.text = String().composeFromArray(country.languages!).uppercaseString
         } else {
             languagesLabel.text = (Constants().stringMissing)
         }
@@ -131,8 +131,10 @@ class CountryDetailsViewController: UIViewController {
                     ErrorHandler.handler.showError(callback.error!, sender: self)
                     return
                 }
+                dispatch_async(dispatch_get_main_queue()) {
                 self.region = callback.response! as Region
                 self.regionCollectionView.reloadData()
+                }
             })
         }
     
@@ -149,8 +151,8 @@ class CountryDetailsViewController: UIViewController {
 
 func showRegionCollectionView() {
     //regionCollectionView.reloadData()
-    UIView.animateWithDuration(0.25, delay: 0, usingSpringWithDamping: 2, initialSpringVelocity: 20, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () in
-        self.regionViewHeightConstr.constant = 108
+    UIView.animateWithDuration(0.75, delay: 0, usingSpringWithDamping: 2, initialSpringVelocity: 50, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () in
+        self.regionViewHeightConstr.constant = 135
         self.view.layoutIfNeeded() },
                                completion: {(finished: Bool) in
                                 self.view.layoutIfNeeded()

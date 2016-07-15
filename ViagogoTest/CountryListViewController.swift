@@ -24,7 +24,8 @@ class CountryListViewController: UIViewController {
         countriesTableView.delegate = self
         countriesTableView.dataSource = self
         populateDataSource()
-        title = "Country List"
+        
+        title = "Countries"
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.Colors().standardBlue, NSFontAttributeName: Constants.Fonts().titleLarge]
     }
     
@@ -34,7 +35,9 @@ class CountryListViewController: UIViewController {
                 ErrorHandler.handler.showError(callback.error!, sender: self)
                 return
             }
+            dispatch_async(dispatch_get_main_queue()) {
             self.dataSource = callback.response! as [Country]
+            }
         }
     }
     
@@ -81,8 +84,10 @@ extension CountryListViewController: UITableViewDelegate, UITableViewDataSource 
                 ErrorHandler.handler.showError(callback.error!, sender: self)
                 return
             }
+            dispatch_async(dispatch_get_main_queue()) {
             self.selecteCountryDetail = callback.response! as CountryDetail
             self.performSegueWithIdentifier("detailViewSegue", sender: self)
+            }
         })
     }
 }

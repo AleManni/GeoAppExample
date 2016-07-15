@@ -53,5 +53,18 @@ class CountryListTableViewCell: UITableViewCell {
         populationLabel.textColor = Constants.Colors().standardBlue
         regionLabel.textColor = Constants.Colors().standardBlue
     }
+    
+    override func setHighlighted(highlighted: Bool, animated:Bool) {
+        super.setHighlighted(highlighted, animated: animated)
+        if (highlighted) {
+            self.backgroundColor = (Constants.Colors().standardBlue)
+        } else {
+            self.backgroundColor = (UIColor.whiteColor())
+        }
+    }
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+    }
+
 }
 
