@@ -8,7 +8,6 @@
 
 
 enum Errors: ErrorType {
-    
     case noData
     case jsonError
     case networkError(nsError: NSError)
@@ -24,8 +23,6 @@ enum Errors: ErrorType {
         }
     }
 }
-
-
 
 
 import Foundation
@@ -53,11 +50,9 @@ class ErrorHandler: NSObject, ErrorViewDelegate {
     
     
     func setUpAlertView (alert:UIView, sender:UIViewController) {
-        
         alert.frame = CGRectMake(1,1,1,1)
         alert.center = sender.view.convertPoint(sender.view.center,
-                                                fromView:sender.view.superview)
-        
+                                            fromView:sender.view.superview)
         let portraitX = sender.view.frame.size.width/8
         let portraitY = sender.view.frame.size.height/3
         let landscapeX = sender.view.frame.size.width/4

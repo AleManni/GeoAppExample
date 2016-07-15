@@ -15,22 +15,24 @@ class CountryListTableViewCell: UITableViewCell {
     @IBOutlet weak var regionImageView: UIImageView!
     @IBOutlet weak var regionLabel: UILabel!
     
-
+    
     static func newFromNib() -> CountryListTableViewCell {
         return UINib(nibName: "CountryListTableViewCell", bundle: nil).instantiateWithOwner(nil, options: nil).first as! CountryListTableViewCell
     }
     
     
     func populateWith(country: Country) {
-        if let countryNameLocalised = country.name!.localisedName(country.translations) {
-            countryNameLabel.text = countryNameLocalised
-        } else {countryNameLabel.text = country.name}
+        if let _ = country.name {
+            if let countryNameLocalised = country.name!.localisedName(country.translations) {
+                countryNameLabel.text = countryNameLocalised
+            } else {countryNameLabel.text = country.name}
+        }
         
         if let _ = country.population, let value = country.population where value != 0 {
             let populationByMillions = Double(country.population!)/1000000
             populationLabel.text = "Population: \(populationByMillions)M"
         } else {
-        populationLabel.text = "Population: \(Constants().stringMissing)"
+            populationLabel.text = "Population: \(Constants().stringMissing)"
         }
         if let _ = country.region, let regionValue = country.region where regionValue.characters.count > 0 {
             regionLabel.text = (country.region!)
@@ -65,6 +67,6 @@ class CountryListTableViewCell: UITableViewCell {
     
     override func setSelected(selected: Bool, animated: Bool) {
     }
-
+    
 }
 

@@ -40,21 +40,15 @@ class CountryListViewController: UIViewController {
             }
         }
     }
-    
-    
-    func displayView() {
-        
-    }
-    
-    
+
     // MARK: - Navigation
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         guard segue.identifier == "detailViewSegue" else {return}
         let vc = segue.destinationViewController as! CountryDetailsViewController
         vc.country = selecteCountryDetail
     }    
 }
+
 
 extension CountryListViewController: UITableViewDelegate, UITableViewDataSource {
     

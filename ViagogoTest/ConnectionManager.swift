@@ -104,7 +104,6 @@ class ConnectionManager {
         }
         task.resume()
     }
-
 }
 
 
