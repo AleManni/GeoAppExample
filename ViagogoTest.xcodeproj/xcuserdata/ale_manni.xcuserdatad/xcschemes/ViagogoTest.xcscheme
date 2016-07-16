@@ -48,6 +48,16 @@
                ReferencedContainer = "container:ViagogoTest.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1D142F0A1D3A08DC0035FDC1"
+               BuildableName = "ViagogoTestUITests2.xctest"
+               BlueprintName = "ViagogoTestUITests2"
+               ReferencedContainer = "container:ViagogoTest.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
