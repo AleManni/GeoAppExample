@@ -11,6 +11,8 @@ import UIKit
 class CountryListViewController: UIViewController {
     
     @IBOutlet weak var countriesTableView: UITableView!
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    
     var dataSource: [Country] = [] {
         didSet {
             countriesTableView.reloadData()
@@ -20,6 +22,7 @@ class CountryListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        indicator.startAnimating()
         countriesTableView.registerNib(UINib(nibName: "CountryListTableViewCell", bundle: nil), forCellReuseIdentifier: "countryCell")
         countriesTableView.delegate = self
         countriesTableView.dataSource = self
@@ -36,17 +39,18 @@ class CountryListViewController: UIViewController {
                 return
             }
             dispatch_async(dispatch_get_main_queue()) {
-            self.dataSource = callback.response! as [Country]
+                self.dataSource = callback.response! as [Country]
+                self.indicator.stopAnimating()
             }
         }
     }
-
+    
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         guard segue.identifier == "detailViewSegue" else {return}
         let vc = segue.destinationViewController as! CountryDetailsViewController
         vc.country = selecteCountryDetail
-    }    
+    }
 }
 
 
@@ -79,8 +83,8 @@ extension CountryListViewController: UITableViewDelegate, UITableViewDataSource 
                 return
             }
             dispatch_async(dispatch_get_main_queue()) {
-            self.selecteCountryDetail = callback.response! as CountryDetail
-            self.performSegueWithIdentifier("detailViewSegue", sender: self)
+                self.selecteCountryDetail = callback.response! as CountryDetail
+                self.performSegueWithIdentifier("detailViewSegue", sender: self)
             }
         })
     }

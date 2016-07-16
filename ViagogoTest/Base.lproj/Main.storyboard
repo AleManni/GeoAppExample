@@ -38,15 +38,24 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ifk-xD-ins"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Zei-2h-tk0">
+                                <rect key="frame" x="280" y="248" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="LKs-om-Uoa"/>
+                                    <constraint firstAttribute="height" constant="40" id="fnn-v8-FAC"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qkX-3p-cV0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="0ld-zj-I7M"/>
                             <constraint firstItem="qkX-3p-cV0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="4KT-wD-eKF"/>
+                            <constraint firstItem="Zei-2h-tk0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9Ic-GH-GBC"/>
                             <constraint firstAttribute="trailing" secondItem="qkX-3p-cV0" secondAttribute="trailing" id="Ic2-zD-erP"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qkX-3p-cV0" secondAttribute="bottom" id="Mga-zo-prx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qkX-3p-cV0" secondAttribute="trailing" id="e8V-C3-iW3"/>
                             <constraint firstItem="qkX-3p-cV0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="oY4-kN-uN6"/>
+                            <constraint firstItem="Zei-2h-tk0" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tFn-Jr-AE3"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -59,6 +68,7 @@
                     <navigationItem key="navigationItem" id="kKT-zR-2AX"/>
                     <connections>
                         <outlet property="countriesTableView" destination="qkX-3p-cV0" id="mlT-QH-43o"/>
+                        <outlet property="indicator" destination="Zei-2h-tk0" id="i5d-IW-Y9F"/>
                         <segue destination="su0-Zz-6kh" kind="show" identifier="detailViewSegue" id="0TO-XE-6PP"/>
                     </connections>
                 </viewController>
