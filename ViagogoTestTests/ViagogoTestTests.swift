@@ -57,7 +57,7 @@ class ViagogoTestTests: XCTestCase {
         //Given
         class TestCountryListViewController: CountryListViewController {
             var expectationForCallBack: XCTestExpectation?
-            var result: [Country]?
+            var result: [CountryDetail]?
             
             override func populateDataSource() {
                 ConnectionManager.fetchAllCountries() { (callback) in
@@ -67,7 +67,7 @@ class ViagogoTestTests: XCTestCase {
                         return
                     }
                     dispatch_async(dispatch_get_main_queue()) {
-                        self.result = callback.response! as [Country]
+                        self.result = callback.response! as [CountryDetail]
                         self.expectationForCallBack?.fulfill()
                         return
                     }

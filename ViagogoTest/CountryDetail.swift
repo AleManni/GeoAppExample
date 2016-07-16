@@ -8,9 +8,14 @@
 
 import Foundation
 
-class CountryDetail: Country {
-
-var capital: String?
+class CountryDetail {
+    var name: String?
+    var translations: [String:String]?
+    var population: Int?
+    var countryCode: String?
+    var region: String?
+    var flagIconURL: NSURL?
+    var capital: String?
     var area: Int?
     var timeZones: [String]?
     var callingCodes: [String]?
@@ -19,9 +24,8 @@ var capital: String?
     var nativeName: String?
     var borders: [String]?
     
-
-    override func populateFromResponse(response: [String: AnyObject]) {
-        super.populateFromResponse(response)
+    
+    func populateFromResponse(response: [String: AnyObject]) {
         if response["capital"] as? String != nil {
             capital = response["capital"] as? String
         }
@@ -45,6 +49,22 @@ var capital: String?
         }
         if response["borders"] as? [String] != nil {
             borders = response["borders"] as? [String]
+        }
+        if response["name"] as? String != nil {
+            name = response["name"] as? String
+        }
+        if response["translations"] as? [String: String] != nil {
+            translations = response["translations"] as? [String: String]
+        }
+        if response["population"] as? Int != nil {
+            population = response["population"] as? Int
+        }
+        if response["region"] as? String != nil {
+            region = response["region"] as? String
+        }
+        if response["altSpellings"] as? [String] != nil {
+            countryCode = response["altSpellings"]![0] as? String
+            flagIconURL = NSURL(string: "http://www.geonames.org/flags/x/\(countryCode!.lowercaseString).gif")
         }
     }
 }

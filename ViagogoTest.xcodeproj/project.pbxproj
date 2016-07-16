@@ -12,7 +12,6 @@
 		1D1F00211D36577500E2EF2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F001F1D36577500E2EF2C /* Main.storyboard */; };
 		1D1F00231D36577500E2EF2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F00221D36577500E2EF2C /* Assets.xcassets */; };
 		1D1F00261D36577500E2EF2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F00241D36577500E2EF2C /* LaunchScreen.storyboard */; };
-		1D1F003C1D368EBB00E2EF2C /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F003B1D368EBB00E2EF2C /* Country.swift */; };
 		1D1F00401D36983400E2EF2C /* CountryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F003F1D36983400E2EF2C /* CountryDetail.swift */; };
 		1D1F00421D36A37900E2EF2C /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F00411D36A37900E2EF2C /* CountryListViewController.swift */; };
 		1D1F00441D36AE9400E2EF2C /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F00431D36AE9400E2EF2C /* ErrorHandler.swift */; };
@@ -55,7 +54,6 @@
 		1D1F00221D36577500E2EF2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1D1F00251D36577500E2EF2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D1F00271D36577500E2EF2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1D1F003B1D368EBB00E2EF2C /* Country.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		1D1F003F1D36983400E2EF2C /* CountryDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDetail.swift; sourceTree = "<group>"; };
 		1D1F00411D36A37900E2EF2C /* CountryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		1D1F00431D36AE9400E2EF2C /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
@@ -141,7 +139,6 @@
 		1D1F003D1D3697F500E2EF2C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				1D1F003B1D368EBB00E2EF2C /* Country.swift */,
 				1D1F003F1D36983400E2EF2C /* CountryDetail.swift */,
 				1D1F004D1D36D26900E2EF2C /* Region.swift */,
 			);
@@ -174,8 +171,8 @@
 			children = (
 				1D1F00471D36AF3100E2EF2C /* ErrorView.swift */,
 				1D1F00481D36AF3100E2EF2C /* ErrorView.xib */,
-				1DEB8E151D36EB7A008EC2DA /* CountryListTableViewCell.xib */,
 				1DEB8E1B1D36F918008EC2DA /* CountryListTableViewCell.swift */,
+				1DEB8E151D36EB7A008EC2DA /* CountryListTableViewCell.xib */,
 				1DBF1B801D37F10B004BD057 /* DetailCollectionCell.swift */,
 			);
 			name = Views;
@@ -337,7 +334,6 @@
 				1D1F00421D36A37900E2EF2C /* CountryListViewController.swift in Sources */,
 				1DEB8E1C1D36F918008EC2DA /* CountryListTableViewCell.swift in Sources */,
 				1DBF1B811D37F10B004BD057 /* DetailCollectionCell.swift in Sources */,
-				1D1F003C1D368EBB00E2EF2C /* Country.swift in Sources */,
 				1D1F00401D36983400E2EF2C /* CountryDetail.swift in Sources */,
 				1DE6C98C1D36FFB200D5ECE7 /* UIImageView+Extensions.swift in Sources */,
 				1D1F00441D36AE9400E2EF2C /* ErrorHandler.swift in Sources */,
@@ -582,6 +578,7 @@
 				1DFCA2711D3A10720003B223 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DFCA27D1D3A11A40003B223 /* Build configuration list for PBXNativeTarget "ViagogoTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -590,6 +587,7 @@
 				1DFCA27F1D3A11A40003B223 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

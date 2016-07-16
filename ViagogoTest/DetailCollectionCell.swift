@@ -22,7 +22,7 @@ class DetailCollectionCell: UICollectionViewCell {
         countryCodeLabel.textColor = UIColor.whiteColor()
     }
     
-    func populateWithCountry(country: Country) {
+    func populateWithCountry(country: CountryDetail) {
         if let _ = country.countryCode {
             countryCodeLabel.text = country.countryCode!.uppercaseString
         }

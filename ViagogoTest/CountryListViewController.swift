@@ -13,7 +13,7 @@ class CountryListViewController: UIViewController {
     @IBOutlet weak var countriesTableView: UITableView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     
-    var dataSource: [Country] = [] {
+    var dataSource: [CountryDetail] = [] {
         didSet {
             countriesTableView.reloadData()
         }
@@ -39,7 +39,7 @@ class CountryListViewController: UIViewController {
                 return
             }
             dispatch_async(dispatch_get_main_queue()) {
-                self.dataSource = callback.response! as [Country]
+                self.dataSource = callback.response! as [CountryDetail]
                 self.indicator.stopAnimating()
             }
         }
@@ -76,17 +76,8 @@ extension CountryListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let selecteCountry = dataSource[indexPath.row]
-        ConnectionManager.fetchCountryDetails(selecteCountry.countryCode!, callback: { (callback) in
-            guard callback.error == nil else {
-                ErrorHandler.handler.showError(callback.error!, sender: self)
-                return
-            }
-            dispatch_async(dispatch_get_main_queue()) {
-                self.selecteCountryDetail = callback.response! as CountryDetail
+       self.selecteCountryDetail = dataSource[indexPath.row]
                 self.performSegueWithIdentifier("detailViewSegue", sender: self)
-            }
-        })
     }
 }
 

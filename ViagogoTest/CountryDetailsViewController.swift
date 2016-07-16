@@ -211,12 +211,12 @@ class CountryDetailsViewController: UIViewController {
         regionIconView.setActive()
         regionTitle.textColor = UIColor.whiteColor()
         regionLabel.textColor = UIColor.whiteColor()
-        
         UIView.animateWithDuration(0.75, delay: 0, usingSpringWithDamping: 2, initialSpringVelocity: 50, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () in
             self.regionViewHeightConstr.constant = 135
             self.separator.hidden = false
             self.view.layoutIfNeeded() },
                                    completion: {(finished: Bool) in
+                                    
         })
     }
     
@@ -232,6 +232,7 @@ class CountryDetailsViewController: UIViewController {
             self.separator.hidden = true
             self.view.layoutIfNeeded() },
                                    completion: {(finished: Bool) in
+                                    self.scroll.scrollRectToVisible(CGRectMake(0, 0, 1, 1), animated: true)
         })
     }
     

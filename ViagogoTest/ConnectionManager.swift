@@ -13,7 +13,7 @@ class ConnectionManager {
     static let session: NSURLSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
     static let baseURL = "https://restcountries.eu/rest/v1"
 
-    static func fetchAllCountries (callback: (response: [Country]?, error: Errors?) -> ()) {
+    static func fetchAllCountries (callback: (response: [CountryDetail]?, error: Errors?) -> ()) {
         let url = NSURL(string: baseURL + "/all")
         let urlRequest = NSURLRequest(URL: url!)
         let task = session.dataTaskWithRequest(urlRequest) {
@@ -26,14 +26,14 @@ class ConnectionManager {
                 callback(response: nil, error: Errors.noData)
                 return
             }
-            var countryList: [Country] = []
+            var countryList: [CountryDetail] = []
             do {
                 guard let jasonArray = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.MutableContainers) as? [[String:AnyObject]] else {
                     callback(response: nil, error: Errors.jsonError)
                     return
                 }
                 for item in jasonArray {
-                    let country = Country()
+                    let country = CountryDetail()
                     country.populateFromResponse(item)
                     countryList.append(country)
                 }

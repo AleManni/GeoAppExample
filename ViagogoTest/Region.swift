@@ -10,13 +10,13 @@ import Foundation
 
 
 class Region {
-    var countryList: [Country]?
+    var countryList: [CountryDetail]?
     
     func populateFromResponse(response: [[String: AnyObject]]) {
-        var listOfCountries: [Country] = []
+        var listOfCountries: [CountryDetail] = []
         if !response.isEmpty {
             for item in response {
-                let country = Country()
+                let country = CountryDetail()
                 country.populateFromResponse(item)
                 listOfCountries.append(country)
             }

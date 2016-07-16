@@ -21,7 +21,7 @@ class CountryListTableViewCell: UITableViewCell {
     }
     
     
-    func populateWith(country: Country) {
+    func populateWith(country: CountryDetail) {
         if let _ = country.name {
             if let countryNameLocalised = country.name!.localisedName(country.translations) {
                 countryNameLabel.text = countryNameLocalised
