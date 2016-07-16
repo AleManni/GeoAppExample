@@ -23,6 +23,7 @@
 		1D1F004E1D36D26900E2EF2C /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F004D1D36D26900E2EF2C /* Region.swift */; };
 		1DBF1B7F1D3796BF004BD057 /* CountryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBF1B7E1D3796BF004BD057 /* CountryDetailsViewController.swift */; };
 		1DBF1B811D37F10B004BD057 /* DetailCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBF1B801D37F10B004BD057 /* DetailCollectionCell.swift */; };
+		1DBF1B891D393046004BD057 /* ViagogoTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBF1B881D393046004BD057 /* ViagogoTestUITests.swift */; };
 		1DE6C98C1D36FFB200D5ECE7 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6C98B1D36FFB200D5ECE7 /* UIImageView+Extensions.swift */; };
 		1DEB8E161D36EB7A008EC2DA /* CountryListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB8E151D36EB7A008EC2DA /* CountryListTableViewCell.xib */; };
 		1DEB8E1A1D36F059008EC2DA /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB8E191D36F059008EC2DA /* String+Extensions.swift */; };
@@ -31,6 +32,13 @@
 
 /* Begin PBXContainerItemProxy section */
 		1D1F002D1D36577500E2EF2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1D1F00101D36577500E2EF2C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1D1F00171D36577500E2EF2C;
+			remoteInfo = ViagogoTest;
+		};
+		1DBF1B8B1D393046004BD057 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1D1F00101D36577500E2EF2C /* Project object */;
 			proxyType = 1;
@@ -60,6 +68,9 @@
 		1D1F004D1D36D26900E2EF2C /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
 		1DBF1B7E1D3796BF004BD057 /* CountryDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDetailsViewController.swift; sourceTree = "<group>"; };
 		1DBF1B801D37F10B004BD057 /* DetailCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCollectionCell.swift; sourceTree = "<group>"; };
+		1DBF1B861D393045004BD057 /* ViagogoTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViagogoTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DBF1B881D393046004BD057 /* ViagogoTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViagogoTestUITests.swift; sourceTree = "<group>"; };
+		1DBF1B8A1D393046004BD057 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DE6C98B1D36FFB200D5ECE7 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		1DEB8E151D36EB7A008EC2DA /* CountryListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountryListTableViewCell.xib; sourceTree = "<group>"; };
 		1DEB8E191D36F059008EC2DA /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
@@ -81,6 +92,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1DBF1B831D393045004BD057 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -89,6 +107,7 @@
 			children = (
 				1D1F001A1D36577500E2EF2C /* ViagogoTest */,
 				1D1F002F1D36577500E2EF2C /* ViagogoTestTests */,
+				1DBF1B871D393046004BD057 /* ViagogoTestUITests */,
 				1D1F00191D36577500E2EF2C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -98,6 +117,7 @@
 			children = (
 				1D1F00181D36577500E2EF2C /* ViagogoTest.app */,
 				1D1F002C1D36577500E2EF2C /* ViagogoTestTests.xctest */,
+				1DBF1B861D393045004BD057 /* ViagogoTestUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -170,6 +190,15 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
+		1DBF1B871D393046004BD057 /* ViagogoTestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1DBF1B881D393046004BD057 /* ViagogoTestUITests.swift */,
+				1DBF1B8A1D393046004BD057 /* Info.plist */,
+			);
+			path = ViagogoTestUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -208,6 +237,24 @@
 			productReference = 1D1F002C1D36577500E2EF2C /* ViagogoTestTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		1DBF1B851D393045004BD057 /* ViagogoTestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DBF1B8F1D393046004BD057 /* Build configuration list for PBXNativeTarget "ViagogoTestUITests" */;
+			buildPhases = (
+				1DBF1B821D393045004BD057 /* Sources */,
+				1DBF1B831D393045004BD057 /* Frameworks */,
+				1DBF1B841D393045004BD057 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1DBF1B8C1D393046004BD057 /* PBXTargetDependency */,
+			);
+			name = ViagogoTestUITests;
+			productName = ViagogoTestUITests;
+			productReference = 1DBF1B861D393045004BD057 /* ViagogoTestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -222,6 +269,10 @@
 						CreatedOnToolsVersion = 7.3.1;
 					};
 					1D1F002B1D36577500E2EF2C = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 1D1F00171D36577500E2EF2C;
+					};
+					1DBF1B851D393045004BD057 = {
 						CreatedOnToolsVersion = 7.3.1;
 						TestTargetID = 1D1F00171D36577500E2EF2C;
 					};
@@ -242,6 +293,7 @@
 			targets = (
 				1D1F00171D36577500E2EF2C /* ViagogoTest */,
 				1D1F002B1D36577500E2EF2C /* ViagogoTestTests */,
+				1DBF1B851D393045004BD057 /* ViagogoTestUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -260,6 +312,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		1D1F002A1D36577500E2EF2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DBF1B841D393045004BD057 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -298,6 +357,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1DBF1B821D393045004BD057 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DBF1B891D393046004BD057 /* ViagogoTestUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -305,6 +372,11 @@
 			isa = PBXTargetDependency;
 			target = 1D1F00171D36577500E2EF2C /* ViagogoTest */;
 			targetProxy = 1D1F002D1D36577500E2EF2C /* PBXContainerItemProxy */;
+		};
+		1DBF1B8C1D393046004BD057 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1D1F00171D36577500E2EF2C /* ViagogoTest */;
+			targetProxy = 1DBF1B8B1D393046004BD057 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -396,6 +468,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -459,6 +532,28 @@
 			};
 			name = Release;
 		};
+		1DBF1B8D1D393046004BD057 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ViagogoTestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "info-alessandromanni.com.ViagogoTestUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ViagogoTest;
+			};
+			name = Debug;
+		};
+		1DBF1B8E1D393046004BD057 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = ViagogoTestUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "info-alessandromanni.com.ViagogoTestUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = ViagogoTest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -488,6 +583,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		1DBF1B8F1D393046004BD057 /* Build configuration list for PBXNativeTarget "ViagogoTestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DBF1B8D1D393046004BD057 /* Debug */,
+				1DBF1B8E1D393046004BD057 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

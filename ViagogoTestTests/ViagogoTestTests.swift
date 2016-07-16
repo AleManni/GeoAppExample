@@ -46,6 +46,7 @@ class ViagogoTestTests: XCTestCase {
                 let  textLabel = errorModel.alert!.subTextLabel.text
                 XCTAssertEqual(textLabel, "The requested URL was not found on this server")
                 errorModel.viewIsShown(false)
+            
             default:
                 XCTFail("Unexpected error in mock array")
             }
