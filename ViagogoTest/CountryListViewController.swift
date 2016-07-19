@@ -35,7 +35,9 @@ class CountryListViewController: UIViewController {
     func populateDataSource() {
         ConnectionManager.fetchAllCountries() { (callback) in
             guard callback.error == nil else {
+                dispatch_async(dispatch_get_main_queue()){
                 ErrorHandler.handler.showError(callback.error!, sender: self)
+                }
                 return
             }
             dispatch_async(dispatch_get_main_queue()) {

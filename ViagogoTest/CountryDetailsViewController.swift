@@ -254,7 +254,7 @@ class CountryDetailsViewController: UIViewController {
         borderTitle.textColor = UIColor.blackColor()
         borderLabel.textColor = UIColor.blackColor()
         
-        UIView.animateWithDuration(0.25, delay: 0, usingSpringWithDamping: 2, initialSpringVelocity: 20, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () in
+        UIView.animateWithDuration(0.2, delay: 0, usingSpringWithDamping: 2.0 , initialSpringVelocity: 20, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () in
             self.neighbouringTVHeightConstr.constant = 0
             self.neighbouringCountriesTableView.layoutIfNeeded() },
                                    completion: {(finished: Bool) in

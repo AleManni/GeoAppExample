@@ -52,7 +52,7 @@
                 <constraint firstAttribute="trailing" secondItem="7Pu-VD-CZ6" secondAttribute="trailing" constant="24" id="M9Z-Ug-y7R"/>
                 <constraint firstItem="XZo-PW-itK" firstAttribute="top" secondItem="7Pu-VD-CZ6" secondAttribute="bottom" constant="16" id="SMf-ET-MDH"/>
                 <constraint firstAttribute="trailing" secondItem="XZo-PW-itK" secondAttribute="trailing" constant="24" id="SaD-xR-7pl"/>
-                <constraint firstItem="z7A-Z4-Csa" firstAttribute="top" secondItem="XZo-PW-itK" secondAttribute="bottom" constant="24" id="aLP-IL-TCd"/>
+                <constraint firstItem="z7A-Z4-Csa" firstAttribute="top" secondItem="XZo-PW-itK" secondAttribute="bottom" priority="750" constant="24" id="aLP-IL-TCd"/>
                 <constraint firstItem="XZo-PW-itK" firstAttribute="leading" secondItem="55w-fH-6as" secondAttribute="leading" constant="24" id="euN-gq-UA9"/>
                 <constraint firstItem="7Pu-VD-CZ6" firstAttribute="leading" secondItem="55w-fH-6as" secondAttribute="leading" constant="24" id="iBJ-fZ-Xzf"/>
                 <constraint firstAttribute="bottom" secondItem="z7A-Z4-Csa" secondAttribute="bottom" constant="16" id="nyE-Nv-jUF"/>
