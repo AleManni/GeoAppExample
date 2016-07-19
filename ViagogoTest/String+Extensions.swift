@@ -11,11 +11,11 @@ import Foundation
 extension String {
     
     func localisedName(localisationDict: [String: String]?) -> String? {
-        let countryLocale = NSLocale.currentLocale().objectForKey(NSLocaleCountryCode)?.lowercaseString
+        let languageLocale = NSLocale.currentLocale().objectForKey(NSLocale.preferredLanguages()[0])?.lowercaseString
         var localisedString: String?
         guard let dictionary = localisationDict else {return nil }
         for key in dictionary.keys {
-            if key == countryLocale {
+            if key == languageLocale {
                 localisedString = dictionary[key]!
                 return localisedString
             } else {

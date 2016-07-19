@@ -150,10 +150,6 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="section" value="countryInfo"/>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="key" value="language"/>
-                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="languagesIcon" translatesAutoresizingMaskIntoConstraints="NO" id="rwO-wE-Ko5">
                                                                 <rect key="frame" x="20" y="0.0" width="18" height="40"/>
@@ -190,10 +186,6 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="section" value="countryInfo"/>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="key" value="currency"/>
-                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pound" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="a0R-mP-mPW" userLabel="Currency">
                                                                 <rect key="frame" x="60" y="21" width="222" height="19"/>
@@ -230,10 +222,6 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="section" value="countryInfo"/>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="key" value="phoneCode"/>
-                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+249" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.75" translatesAutoresizingMaskIntoConstraints="NO" id="tU5-Fa-Uqa" userLabel="Phone">
                                                                 <rect key="frame" x="58" y="21" width="242" height="20"/>
@@ -270,10 +258,6 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="section" value="countryInfo"/>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="key" value="tapWater"/>
-                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2NP-pM-LWK" userLabel="TimeZoneLabel">
                                                                 <rect key="frame" x="60" y="21" width="222" height="19"/>
@@ -303,7 +287,7 @@
                                                             <constraint firstAttribute="width" constant="8" id="5Xq-98-Fxs"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="nativeName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43g-C6-ePM" userLabel="population">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Population" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43g-C6-ePM" userLabel="population">
                                                         <rect key="frame" x="62" y="45" width="91" height="20"/>
                                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="17"/>
                                                         <color key="textColor" red="0.29019609089999998" green="0.29019609089999998" blue="0.29019609089999998" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -359,10 +343,6 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="section" value="countryInfo"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="key" value="capitalCity"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="London" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Pa-17-oNe" userLabel="CapitalCity">
                                                         <rect key="frame" x="20" y="39" width="55" height="19"/>
@@ -392,10 +372,6 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="section" value="countryInfo"/>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="key" value="timezone"/>
-                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Region" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpa-mf-axb" userLabel="Timezone">
                                                                 <rect key="frame" x="58" y="21" width="51" height="19"/>
@@ -459,10 +435,6 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="section" value="countryInfo"/>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="key" value="weather"/>
-                                                                </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neighbouring countries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IQj-Vj-aEE" userLabel="BorderLabel">
                                                                 <rect key="frame" x="60" y="21" width="200" height="19"/>
@@ -495,7 +467,7 @@
                                                             <constraint firstItem="IQj-Vj-aEE" firstAttribute="leading" secondItem="58M-4b-zq2" secondAttribute="leading" id="TT9-cz-nQO"/>
                                                             <constraint firstItem="gym-mH-Qcd" firstAttribute="leading" secondItem="IQj-Vj-aEE" secondAttribute="trailing" constant="16" id="b1v-KS-TOU"/>
                                                             <constraint firstItem="58M-4b-zq2" firstAttribute="leading" secondItem="fag-rh-Z01" secondAttribute="leading" constant="20" id="ikM-FD-BjJ"/>
-                                                            <constraint firstAttribute="trailing" secondItem="Qm9-l8-1fy" secondAttribute="trailing" id="koj-Yu-yDo" customClass="transl"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Qm9-l8-1fy" secondAttribute="trailing" id="koj-Yu-yDo"/>
                                                             <constraint firstAttribute="bottom" secondItem="58M-4b-zq2" secondAttribute="bottom" constant="18" id="meT-ie-giY"/>
                                                             <constraint firstAttribute="trailing" secondItem="gym-mH-Qcd" secondAttribute="trailing" constant="8" id="ncc-RW-2gr"/>
                                                             <constraint firstItem="IQj-Vj-aEE" firstAttribute="top" secondItem="Qm9-l8-1fy" secondAttribute="bottom" constant="10" id="o7H-2v-ffg"/>
@@ -562,10 +534,6 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="section" value="countryInfo"/>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="key" value="riskLevel"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWP-bg-SgG" userLabel="SeparatorView">
                                                         <rect key="frame" x="20" y="37" width="580" height="1"/>
@@ -639,7 +607,7 @@
                                                     <constraint firstAttribute="bottom" secondItem="aST-xU-B50" secondAttribute="bottom" constant="9" id="3kk-eF-sps"/>
                                                     <constraint firstItem="Yfs-cp-mJ6" firstAttribute="leading" secondItem="0Hx-6h-S7G" secondAttribute="leading" id="7i4-1o-pWi"/>
                                                     <constraint firstItem="H9P-t4-oT2" firstAttribute="leading" secondItem="Yfs-cp-mJ6" secondAttribute="trailing" constant="12" id="Bsj-1M-NBq"/>
-                                                    <constraint firstItem="HWP-bg-SgG" firstAttribute="top" secondItem="H9P-t4-oT2" secondAttribute="bottom" constant="8" id="EGB-ij-qfh"/>
+                                                    <constraint firstItem="HWP-bg-SgG" firstAttribute="top" secondItem="H9P-t4-oT2" secondAttribute="bottom" priority="750" constant="8" id="EGB-ij-qfh"/>
                                                     <constraint firstItem="Yfs-cp-mJ6" firstAttribute="top" secondItem="0Hx-6h-S7G" secondAttribute="top" id="F3C-ic-KWw"/>
                                                     <constraint firstItem="HWP-bg-SgG" firstAttribute="top" secondItem="H9P-t4-oT2" secondAttribute="bottom" constant="18" id="IDA-iv-RUV"/>
                                                     <constraint firstItem="H9P-t4-oT2" firstAttribute="top" secondItem="0Hx-6h-S7G" secondAttribute="top" constant="18" id="V6y-yq-Xa5"/>
