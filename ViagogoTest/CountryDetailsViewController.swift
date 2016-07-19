@@ -102,49 +102,49 @@ class CountryDetailsViewController: UIViewController {
         } else {
             nativeNameLabel.text = "\(Constants().stringMissing)"
         }
-        if let _ = country.population, let value = country.population where value != 0 {
-            let populationByMillions = Double(country.population!)/1000000
+        if let population = country.population, let value = country.population where value != 0 {
+            let populationByMillions = Double(population)/1000000
             populationLabel.text = "Population: \(populationByMillions)M"
         } else {
             populationLabel.text = "Population: \(Constants().stringMissing)"
         }
-        if let _ = country.region, let regionValue = country.region where regionValue.characters.count > 0 {
-            regionLabel.text = (country.region!)
+        if let region = country.region, let regionValue = country.region where regionValue.characters.count > 0 {
+            regionLabel.text = region
         } else {
             regionLabel.text = (Constants().stringMissing)
         }
-        if let _ = country.flagIconURL {
-            flagImageView.imageFromUrl(country.flagIconURL!)
+        if let flagURL = country.flagIconURL {
+            flagImageView.imageFromUrl(flagURL)
         } else {
             flagImageView.image = UIImage(named: "placeholder")
         }
-        if let _ = country.languages, let languagesValue = country.languages where languagesValue.count > 0 {
-            languagesLabel.text = String().composeFromArray(country.languages!).uppercaseString
+        if let languages = country.languages, let languagesValue = country.languages where languagesValue.count > 0 {
+            languagesLabel.text = String().composeFromArray(languages).uppercaseString
         } else {
             languagesLabel.text = (Constants().stringMissing)
         }
-        if let _ = country.callingCodes, let codesValue = country.callingCodes where codesValue.count > 0 {
-            phoneLabel.text = String().composeFromArray(country.callingCodes!)
+        if let callingCodes = country.callingCodes, let codesValue = country.callingCodes where codesValue.count > 0 {
+            phoneLabel.text = String().composeFromArray(callingCodes)
         } else {
             phoneLabel.text = (Constants().stringMissing)
         }
-        if let _ = country.capital, let valueCapital = country.capital?.characters.count where valueCapital > 0 {
-            capitalLabel.text = (country.capital)
+        if let capital = country.capital, let valueCapital = country.capital?.characters.count where valueCapital > 0 {
+            capitalLabel.text = (capital)
         } else {
             capitalLabel.text = (Constants().stringMissing)
         }
-        if let _ = country.timeZones, let zonesValue = country.timeZones where zonesValue.count > 0 {
-            timeZoneLabel.text = String().composeFromArray(country.timeZones!)
+        if let timeZones = country.timeZones, let zonesValue = country.timeZones where zonesValue.count > 0 {
+            timeZoneLabel.text = String().composeFromArray(timeZones)
         } else {
             timeZoneLabel.text = (Constants().stringMissing)
         }
-        if let _ = country.currencies, let currencyValue = country.currencies where currencyValue.count > 0 {
-            currencyLabel.text = String().composeFromArray(country.currencies!)
+        if let currencies = country.currencies, let currencyValue = country.currencies where currencyValue.count > 0 {
+            currencyLabel.text = String().composeFromArray(currencies)
         } else {
             currencyLabel.text = (Constants().stringMissing)
         }
-        if let _ = country.region, let regionDetailValue = country.region where regionDetailValue.characters.count > 0 {
-            regionDetailTitle.text = "\(country.region!.uppercaseString): countries"
+        if let region = country.region, let regionDetailValue = country.region where regionDetailValue.characters.count > 0 {
+            regionDetailTitle.text = "\(region.uppercaseString): countries"
         }
         
     }
