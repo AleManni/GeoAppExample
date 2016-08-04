@@ -16,11 +16,11 @@ class ConnectionManager {
     static func fetchAllCountries (callback: (response: [CountryDetail]?, error: Errors?) -> ()) {
         let url = NSURL(string: baseURL + "/all")
         let urlRequest = NSURLRequest(URL: url!)
-        let task = session.dataTaskWithRequest(urlRequest) {
+        let task = session.dataTaskWithRequest(urlRequest, completionHandler: {
             (data, response, error) in
             guard error == nil else {
                 callback(response: nil, error: Errors.networkError(nsError: error!))
-            return
+                return
             }
             guard let responseData = data else {
                 callback(response: nil, error: Errors.noData)
@@ -28,23 +28,24 @@ class ConnectionManager {
             }
             var countryList: [CountryDetail] = []
             do {
-                guard let jasonArray = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.MutableContainers) as? [[String:AnyObject]] else {
-                    callback(response: nil, error: Errors.jsonError)
-                    return
+                let jasonArray = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.MutableContainers) as? [[String:AnyObject]]
+                if jasonArray != nil {
+                    for item in jasonArray! {
+                        let country = CountryDetail()
+                        country.populateFromResponse(item)
+                        countryList.append(country)
+                    }
+                    callback(response: countryList, error: nil)
                 }
-                for item in jasonArray {
-                    let country = CountryDetail()
-                    country.populateFromResponse(item)
-                    countryList.append(country)
-                }
-                callback(response: countryList, error: nil)
-            } catch  {
+            }
+            catch  {
                 callback(response: nil, error: Errors.jsonError)
                 return
             }
-        }
+        })
         task.resume()
     }
+
     
     static func fetchCountryDetails (countryCode: String, callback: (response: CountryDetail?, error: Errors?) -> ()) {
         let url = NSURL(string: baseURL + "/alpha/\(countryCode)")
