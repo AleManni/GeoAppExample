@@ -10,8 +10,8 @@ import Foundation
 
 extension String {
     
-    func localisedName(localisationDict: [String: String]?) -> String? {
-        let languageLocale = NSLocale.currentLocale().objectForKey(NSLocale.preferredLanguages()[0])?.lowercaseString
+    func localisedName(_ localisationDict: [String: String]?) -> String? {
+        let languageLocale = ((Locale.current as NSLocale).object(forKey: NSLocale.Key(rawValue: Locale.preferredLanguages[0])) as AnyObject).lowercased
         var localisedString: String?
         guard let dictionary = localisationDict else {return nil }
         for key in dictionary.keys {
@@ -25,12 +25,12 @@ extension String {
         return localisedString
     }
     
-    func composeFromArray(array: [String]) -> String {
+    func composeFromArray(_ array: [String]) -> String {
         var newString = ""
         for item in array {
-        newString = newString.stringByAppendingString(item)
+        newString = newString + item
             if newString != "" && item != array.last {
-               newString = newString.stringByAppendingString(" ")
+               newString = newString + " "
             }
         }
         return newString

@@ -19,6 +19,8 @@
 		1D1F004A1D36AF3100E2EF2C /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F00481D36AF3100E2EF2C /* ErrorView.xib */; };
 		1D1F004C1D36AF9000E2EF2C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F004B1D36AF9000E2EF2C /* Constants.swift */; };
 		1D1F004E1D36D26900E2EF2C /* Region.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F004D1D36D26900E2EF2C /* Region.swift */; };
+		1D5525171E912C4F009BAEB9 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5525161E912C4F009BAEB9 /* Protocols.swift */; };
+		1D55251B1E91447B009BAEB9 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55251A1E91447B009BAEB9 /* Factory.swift */; };
 		1D5821E41D527AE70059BD2B /* GeoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFCA26A1D3A10710003B223 /* GeoAppTests.swift */; };
 		1DBDD22F1D531EF000D68877 /* GeoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBDD22E1D531EF000D68877 /* GeoAppUITests.swift */; };
 		1DBF1B7F1D3796BF004BD057 /* CountryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBF1B7E1D3796BF004BD057 /* CountryDetailsViewController.swift */; };
@@ -61,6 +63,8 @@
 		1D1F00481D36AF3100E2EF2C /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		1D1F004B1D36AF9000E2EF2C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1D1F004D1D36D26900E2EF2C /* Region.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Region.swift; sourceTree = "<group>"; };
+		1D5525161E912C4F009BAEB9 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		1D55251A1E91447B009BAEB9 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		1DBDD22C1D531EF000D68877 /* GeoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DBDD22E1D531EF000D68877 /* GeoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoAppUITests.swift; sourceTree = "<group>"; };
 		1DBDD2301D531EF000D68877 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 			children = (
 				1D1F001B1D36577500E2EF2C /* AppDelegate.swift */,
 				1D1F003E1D36981200E2EF2C /* Shared */,
+				1D5525151E912C39009BAEB9 /* Protocols */,
 				1D1F003D1D3697F500E2EF2C /* Model */,
 				1D1F00451D36AF0300E2EF2C /* Controllers */,
 				1D1F00461D36AF1000E2EF2C /* Views */,
@@ -148,11 +153,10 @@
 		1D1F003E1D36981200E2EF2C /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				1D1F001D1D36577500E2EF2C /* ConnectionManager.swift */,
+				1D55251C1E9170C2009BAEB9 /* Extensions */,
+				1D55251D1E9170F2009BAEB9 /* Services */,
 				1D1F00431D36AE9400E2EF2C /* ErrorHandler.swift */,
 				1D1F004B1D36AF9000E2EF2C /* Constants.swift */,
-				1DEB8E191D36F059008EC2DA /* String+Extensions.swift */,
-				1DE6C98B1D36FFB200D5ECE7 /* UIImageView+Extensions.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -176,6 +180,32 @@
 				1DBF1B801D37F10B004BD057 /* DetailCollectionCell.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		1D5525151E912C39009BAEB9 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1D5525161E912C4F009BAEB9 /* Protocols.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		1D55251C1E9170C2009BAEB9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1DEB8E191D36F059008EC2DA /* String+Extensions.swift */,
+				1DE6C98B1D36FFB200D5ECE7 /* UIImageView+Extensions.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		1D55251D1E9170F2009BAEB9 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1D1F001D1D36577500E2EF2C /* ConnectionManager.swift */,
+				1D55251A1E91447B009BAEB9 /* Factory.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 		1DBDD22D1D531EF000D68877 /* GeoAppUITests */ = {
@@ -264,13 +294,16 @@
 				TargetAttributes = {
 					1D1F00171D36577500E2EF2C = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0820;
 					};
 					1DBDD22B1D531EF000D68877 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = 1D1F00171D36577500E2EF2C;
 					};
 					1DFCA2671D3A10710003B223 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = 1D1F00171D36577500E2EF2C;
 					};
 				};
@@ -338,10 +371,12 @@
 				1DE6C98C1D36FFB200D5ECE7 /* UIImageView+Extensions.swift in Sources */,
 				1D1F00441D36AE9400E2EF2C /* ErrorHandler.swift in Sources */,
 				1D1F00491D36AF3100E2EF2C /* ErrorView.swift in Sources */,
+				1D5525171E912C4F009BAEB9 /* Protocols.swift in Sources */,
 				1D1F001E1D36577500E2EF2C /* ConnectionManager.swift in Sources */,
 				1D1F001C1D36577500E2EF2C /* AppDelegate.swift in Sources */,
 				1DBF1B7F1D3796BF004BD057 /* CountryDetailsViewController.swift in Sources */,
 				1D1F004C1D36AF9000E2EF2C /* Constants.swift in Sources */,
+				1D55251B1E91447B009BAEB9 /* Factory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -489,6 +524,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "info-alessandromanni.com.GeoApp";
 				PRODUCT_NAME = GeoApp;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -501,6 +537,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "info-alessandromanni.com.GeoApp";
 				PRODUCT_NAME = GeoApp;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -511,6 +548,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "info-alessandromanni.com.GeoAppUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = GeoApp;
 			};
 			name = Debug;
@@ -522,6 +560,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "info-alessandromanni.com.GeoAppUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = GeoApp;
 			};
 			name = Release;
@@ -534,6 +573,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "info-alessandromanni.com.ViagogoTestTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeoApp.app/GeoApp";
 			};
 			name = Debug;
@@ -546,6 +586,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "info-alessandromanni.com.ViagogoTestTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeoApp.app/GeoApp";
 			};
 			name = Release;
@@ -578,6 +619,7 @@
 				1DBDD2341D531EF100D68877 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DFCA26F1D3A10720003B223 /* Build configuration list for PBXNativeTarget "GeoAppTests" */ = {
 			isa = XCConfigurationList;

@@ -10,11 +10,11 @@ import UIKit
 
 extension UIImageView {
     
-    func imageFromUrl(url: NSURL) {
-        let request = NSURLRequest(URL: url)
-        NSURLConnection.sendAsynchronousRequest(request, queue: NSOperationQueue.mainQueue()) {
-            (response: NSURLResponse?, data: NSData?, error: NSError?) -> Void in
-            if let imageData = data as NSData? {
+    func imageFromUrl(_ url: URL) {
+        let request = URLRequest(url: url)
+        NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) {
+            (response: URLResponse?, data: Data?, error: Error?) -> Void in
+            if let imageData = data as Data? {
                 self.image = UIImage(data: imageData)
             } else {
                 self.image = UIImage(named: "placeholder")
@@ -23,12 +23,12 @@ extension UIImageView {
     }
     
     func setActive() {
-        self.image = self.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
-        self.tintColor = UIColor.whiteColor()
+        self.image = self.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
+        self.tintColor = UIColor.white
     }
     
     func setInactive() {
-        self.image = self.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        self.image = self.image?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
     }
 }
 

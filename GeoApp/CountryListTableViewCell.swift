@@ -17,24 +17,24 @@ class CountryListTableViewCell: UITableViewCell {
     
     
     static func newFromNib() -> CountryListTableViewCell {
-        return UINib(nibName: "CountryListTableViewCell", bundle: nil).instantiateWithOwner(nil, options: nil).first as! CountryListTableViewCell
+        return UINib(nibName: "CountryListTableViewCell", bundle: nil).instantiate(withOwner: nil, options: nil).first as! CountryListTableViewCell
     }
     
     
-    func populateWith(country: CountryDetail) {
+    func populateWith(_ country: CountryDetail) {
         if let name = country.name {
             if let countryNameLocalised = name.localisedName(country.translations) {
                 countryNameLabel.text = countryNameLocalised
             } else {countryNameLabel.text = name}
         }
         
-        if let population = country.population, let value = country.population where value != 0 {
+        if let population = country.population, let value = country.population, value != 0 {
             let populationByMillions = Double(population)/1000000
             populationLabel.text = "Population: \(populationByMillions)M"
         } else {
             populationLabel.text = "Population: \(Constants().stringMissing)"
         }
-        if let region = country.region, let regionValue = country.region where regionValue.characters.count > 0 {
+        if let region = country.region, let regionValue = country.region, regionValue.characters.count > 0 {
             regionLabel.text = (region)
         } else {
             regionLabel.text = "Region: \(Constants().stringMissing)"
@@ -56,16 +56,16 @@ class CountryListTableViewCell: UITableViewCell {
         regionLabel.textColor = Constants.Colors().standardBlue
     }
     
-    override func setHighlighted(highlighted: Bool, animated:Bool) {
+    override func setHighlighted(_ highlighted: Bool, animated:Bool) {
         super.setHighlighted(highlighted, animated: animated)
         if (highlighted) {
             self.backgroundColor = (Constants.Colors().standardBlue)
         } else {
-            self.backgroundColor = (UIColor.whiteColor())
+            self.backgroundColor = (UIColor.white)
         }
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
     }
     
 }

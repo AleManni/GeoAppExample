@@ -6,106 +6,109 @@
 //  Copyright © 2016 Alessandro Manni. All rights reserved.
 
 
-
 import Foundation
 
-class ConnectionManager {
-    static let session: NSURLSession = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-    static let baseURL = "https://restcountries.eu/rest/v1"
+enum Endpoints: String {
+    case all = "/all"
 
-    static func fetchAllCountries (callback: (response: [CountryDetail]?, error: Errors?) -> ()) {
-        let url = NSURL(string: baseURL + "/all")
-        let urlRequest = NSURLRequest(URL: url!)
-        let task = session.dataTaskWithRequest(urlRequest, completionHandler: {
+    func countryDetails(_ countryCode: String) -> String {
+        return "/alpha/\(countryCode)"
+    }
+
+    func region(_ regionName: String) -> String {
+        return "/region/\(regionName)"
+    }
+}
+
+class ConnectionManager {
+    static let session: URLSession = URLSession(configuration: URLSessionConfiguration.default)
+    static let baseURL = "https://restcountries.eu/rest/v2"
+
+    static func fetch(endPoint: String, constructor: DataConstructor, callback: @escaping (_ response: InstantiatableFromResponse?, _ error: Errors?) -> ()) {
+        let url = URL(string: baseURL + endPoint)
+        let urlRequest = URLRequest(url: url!)
+        let task = session.dataTask(with: urlRequest, completionHandler: {
             (data, response, error) in
             guard error == nil else {
-                callback(response: nil, error: Errors.networkError(nsError: error!))
+                callback(nil, Errors.networkError(nsError: error! as NSError))
                 return
             }
             guard let responseData = data else {
-                callback(response: nil, error: Errors.noData)
+                callback(nil, .noData)
                 return
             }
-            var countryList: [CountryDetail] = []
-            do {
-                let jasonArray = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.MutableContainers) as? [[String:AnyObject]]
-                if jasonArray != nil {
-                    for item in jasonArray! {
-                        let country = CountryDetail()
-                        country.populateFromResponse(item)
-                        countryList.append(country)
-                    }
-                    callback(response: countryList, error: nil)
+            constructor.populateFromResponse(responseData, callback: { (response, error) in
+                if (error != nil) {
+                    callback(nil, error)
+                } else {
+                    callback(response, nil)
                 }
-            }
-            catch  {
-                callback(response: nil, error: Errors.jsonError)
-                return
-            }
+            })
         })
         task.resume()
     }
-
-    
-    static func fetchCountryDetails (countryCode: String, callback: (response: CountryDetail?, error: Errors?) -> ()) {
-        let url = NSURL(string: baseURL + "/alpha/\(countryCode)")
-        let urlRequest = NSURLRequest(URL: url!)
-        let task = session.dataTaskWithRequest(urlRequest) {
-            (data, response, error) in
-            guard error == nil else {
-                callback(response: nil, error: Errors.networkError(nsError: error!))
-                return
-            }
-            guard let responseData = data else {
-                callback(response: nil, error: Errors.noData)
-                return
-            }
-            do {
-                guard let jasonDict = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.MutableContainers) as? [String:AnyObject] else {
-                    callback(response: nil, error: Errors.jsonError)
-                    return
-                }
-                    let countryDetail = CountryDetail()
-                    countryDetail.populateFromResponse(jasonDict)
-                callback(response: countryDetail, error: nil)
-            } catch  {
-                callback(response: nil, error: Errors.jsonError)
-                return
-            }
-        }
-        task.resume()
-    }
-
-    
-    static func fetchRegion (regionName: String, callback: (response: Region?, error: Errors?) -> ()) {
-        let url = NSURL(string: baseURL + "/region/\(regionName)")
-        let urlRequest = NSURLRequest(URL: url!)
-        let task = session.dataTaskWithRequest(urlRequest) {
-            (data, response, error) in
-            guard error == nil else {
-                callback(response: nil, error: Errors.networkError(nsError: error!))
-                return
-            }
-            guard let responseData = data else {
-                callback(response: nil, error: Errors.noData)
-                return
-            }
-            do {
-                guard let jasonArray = try NSJSONSerialization.JSONObjectWithData(responseData, options: NSJSONReadingOptions.MutableContainers) as? [[String:AnyObject]] else {
-                    callback(response: nil, error: Errors.jsonError)
-                    return
-                }
-                let region = Region()
-                region.populateFromResponse(jasonArray)
-                callback(response: region, error: nil)
-            } catch  {
-                callback(response: nil, error: Errors.jsonError)
-                return
-            }
-        }
-        task.resume()
-    }
 }
+
+    
+//    static func fetchCountryDetails (_ countryCode: String, callback: @escaping (_ response: CountryDetail?, _ error: Errors?) -> ()) {
+//        let url = URL(string: baseURL + "/alpha/\(countryCode)")
+//        let urlRequest = URLRequest(url: url!)
+//        let task = session.dataTask(with: urlRequest, completionHandler: {
+//            (data, response, error) in
+//            guard error == nil else {
+//                callback(nil, Errors.networkError(nsError: error! as NSError))
+//                return
+//            }
+//            guard let responseData = data else {
+//                callback(nil, Errors.noData)
+//                return
+//            }
+//            do {
+//                guard let jasonDict = try JSONSerialization.jsonObject(with: responseData, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String:AnyObject] else {
+//                    callback(nil, Errors.jsonError)
+//                    return
+//                }
+//                    var countryDetail = CountryDetail()
+//                    countryDetail.populateFromResponse(jasonDict)
+//                callback(countryDetail, nil)
+//            } catch  {
+//                callback(nil, Errors.jsonError)
+//                return
+//            }
+//        }) 
+//        task.resume()
+//    }
+//
+//    
+//    static func fetchRegion (_ regionName: String, callback: @escaping (_ response: Region?, _ error: Errors?) -> ()) {
+//        let url = URL(string: baseURL + "/region/\(regionName)")
+//        let urlRequest = URLRequest(url: url!)
+//        let task = session.dataTask(with: urlRequest, completionHandler: {
+//            (data, response, error) in
+//            guard error == nil else {
+//                callback(nil, Errors.networkError(nsError: error! as NSError))
+//                return
+//            }
+//            guard let responseData = data else {
+//                callback(nil, Errors.noData)
+//                return
+//            }
+//            do {
+//                guard let jasonArray = try JSONSerialization.jsonObject(with: responseData, options: JSONSerialization.ReadingOptions.mutableContainers) as? [[String:AnyObject]] else {
+//                    callback(nil, Errors.jsonError)
+//                    return
+//                }
+//                var region = Region()
+//                region.populateFromResponse(jasonArray)
+//                callback(region, nil)
+//            } catch  {
+//                callback(nil, Errors.jsonError)
+//                return
+//            }
+//        }) 
+//        task.resume()
+//    }
+//}
 
 
 

@@ -7,7 +7,7 @@
 //
 
 protocol ErrorViewDelegate: class {
-    func viewIsShown(isShown:Bool)
+    func viewIsShown(_ isShown:Bool)
 }
 
 
@@ -24,19 +24,19 @@ class ErrorView: UIView {
         subTextLabel.font = Constants.Fonts().regular
     }
     
-    @IBAction func didPressCloseButton(sender: AnyObject) {
+    @IBAction func didPressCloseButton(_ sender: AnyObject) {
         removeSelf()
     }
     
     func removeSelf() {
-        UIView.animateWithDuration(0.2, animations: { () -> Void in
+        UIView.animate(withDuration: 0.2, animations: { () -> Void in
             self.alpha = 0
-        }) { (finished) -> Void in
+        }, completion: { (finished) -> Void in
             if(finished) {
                 self.delegate?.viewIsShown(false)
                 self.removeFromSuperview()
             }
-        }
+        }) 
     }
     
     

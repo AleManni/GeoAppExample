@@ -21,14 +21,14 @@ class CountryListViewController: UIViewController {
     var selecteCountryDetail: CountryDetail?
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(CountryListViewController.handleRefresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: #selector(CountryListViewController.handleRefresh(_:)), for: UIControlEvents.valueChanged)
         return refreshControl
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         indicator.startAnimating()
-        countriesTableView.registerNib(UINib(nibName: "CountryListTableViewCell", bundle: nil), forCellReuseIdentifier: "countryCell")
+        countriesTableView.register(UINib(nibName: "CountryListTableViewCell", bundle: nil), forCellReuseIdentifier: "countryCell")
         countriesTableView.delegate = self
         countriesTableView.dataSource = self
         countriesTableView.addSubview(refreshControl)
@@ -38,22 +38,22 @@ class CountryListViewController: UIViewController {
     }
     
     func populateDataSource() {
-        ConnectionManager.fetchAllCountries() { (callback) in
-            guard callback.error == nil else {
-                dispatch_async(dispatch_get_main_queue()){
-                    ErrorHandler.handler.showError(callback.error!, sender: self)
+        ConnectionManager.fetchAllCountries() { (result, error) in
+            guard error != nil else {
+                DispatchQueue.main.async{
+                    ErrorHandler.handler.showError(error!, sender: self)
                     self.indicator.stopAnimating()
                 }
                 return
             }
-            dispatch_async(dispatch_get_main_queue()) {
-                self.dataSource = callback.response! as [CountryDetail]
+            DispatchQueue.main.async {
+                self.dataSource = result! as [CountryDetail]
                 self.indicator.stopAnimating()
             }
         }
     }
     
-    func handleRefresh(refreshControl: UIRefreshControl) {
+    func handleRefresh(_ refreshControl: UIRefreshControl) {
         self.indicator.stopAnimating()
         populateDataSource()
         countriesTableView.reloadData()
@@ -61,9 +61,9 @@ class CountryListViewController: UIViewController {
     }
     
     // MARK: - Navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "detailViewSegue" else {return}
-        let vc = segue.destinationViewController as! CountryDetailsViewController
+        let vc = segue.destination as! CountryDetailsViewController
         vc.country = selecteCountryDetail
     }
 }
@@ -71,28 +71,29 @@ class CountryListViewController: UIViewController {
 
 extension CountryListViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print(dataSource.count)
         return dataSource.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("countryCell") as! CountryListTableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "countryCell") as! CountryListTableViewCell
         cell.populateWith(dataSource[indexPath.row])
         cell.formatCell()
         return cell
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 105.0
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selecteCountryDetail = dataSource[indexPath.row]
-        self.performSegueWithIdentifier("detailViewSegue", sender: self)
+        self.performSegue(withIdentifier: "detailViewSegue", sender: self)
     }
 }
 

@@ -19,12 +19,12 @@ class DetailCollectionCell: UICollectionViewCell {
         layer.masksToBounds = true
         layer.cornerRadius = 8.0
         countryCodeLabel.font = Constants.Fonts().small
-        countryCodeLabel.textColor = UIColor.whiteColor()
+        countryCodeLabel.textColor = UIColor.white
     }
     
-    func populateWithCountry(country: CountryDetail) {
+    func populateWithCountry(_ country: CountryDetail) {
         if let _ = country.countryCode {
-            countryCodeLabel.text = country.countryCode!.uppercaseString
+            countryCodeLabel.text = country.countryCode!.uppercased()
         }
         if let _ = country.flagIconURL {
             flagImageView.imageFromUrl(country.flagIconURL!)

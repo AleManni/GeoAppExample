@@ -9,16 +9,19 @@
 import Foundation
 
 
-class Region {
+class Region: InstantiatableFromResponse {
     var countryList: [CountryDetail]?
-    
-    func populateFromResponse(response: [[String: AnyObject]]) {
+
+    required init?(_ response: AnyObject) {
+        guard let response = response as? [[String: AnyObject]] else {
+            return nil
+        }
         var listOfCountries: [CountryDetail] = []
         if !response.isEmpty {
             for item in response {
-                let country = CountryDetail()
-                country.populateFromResponse(item)
+                if let country = CountryDetail(item as AnyObject) {
                 listOfCountries.append(country)
+                }
             }
             countryList = listOfCountries
         }

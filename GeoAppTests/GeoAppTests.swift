@@ -9,31 +9,31 @@ import XCTest
 @testable import GeoApp
 
 class GeoAppTests: XCTestCase {
-    var mockResponse: [String:AnyObject] = [:]
+    var mockResponse: [String: AnyObject] = [:]
     var navController = UINavigationController()
     var countryListVC = CountryListViewController()
     var countryDetailVC = CountryDetailsViewController()
     
     override func setUp() {
         super.setUp()
-        let story = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let story = UIStoryboard(name: "Main", bundle: Bundle.main)
         navController = story.instantiateInitialViewController() as! UINavigationController
         countryListVC = navController.viewControllers[0] as! CountryListViewController
         let _ = countryListVC.view
         mockResponse = [
-            "capital":"capitalString",
-            "area":0,
-            "timeZones":["timeZonesString"],
-            "callingCodes":["callingCodesString"],
-            "currencies":["currenciesString"],
-            "languages":["languagesString"],
-            "nativeName":"nativeNameString",
-            "borders":["borderStrings"],
-            "name":"nameString",
-            "translations":["language":"translation"],
-            "population":0,
-            "region":"regionString",
-            "altSpellings":["altSpellingsString"]
+            "capital":"capitalString" as AnyObject,
+            "area": 0 as AnyObject,
+            "timeZones": ["timeZonesString"],
+            "callingCodes": ["callingCodesString"],
+            "currencies": ["currenciesString"],
+            "languages": ["languagesString"],
+            "nativeName": "nativeNameString",
+            "borders": ["borderStrings"],
+            "name": "nameString",
+            "translations": ["language":"translation"],
+            "population": 0,
+            "region": "regionString",
+            "altSpellings": ["altSpellingsString"]
         ]
     }
     
@@ -90,17 +90,17 @@ class GeoAppTests: XCTestCase {
         country.populateFromResponse(mockResponse)
         //When
         countryListVC.dataSource = [country]
-        let cell = countryListVC.countriesTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! CountryListTableViewCell
+        let cell = countryListVC.countriesTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! CountryListTableViewCell
         //Then
         XCTAssert(countryListVC.countriesTableView.numberOfSections == 1, "Number of sections should be 1")
-        XCTAssertTrue(countryListVC.countriesTableView.numberOfRowsInSection(0) == 1, "Number of rows in section should be 1")
+        XCTAssertTrue(countryListVC.countriesTableView.numberOfRows(inSection: 0) == 1, "Number of rows in section should be 1")
         XCTAssertTrue(cell.countryNameLabel.text == "nameString", "Cell name is not correct")
     }
     
     func testDetailViewControllerPopulateView() {
         //Given
-        let story = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
-        countryDetailVC = story.instantiateViewControllerWithIdentifier("CountryDetailInfoVC") as! CountryDetailsViewController
+        let story = UIStoryboard(name: "Main", bundle: Bundle.main)
+        countryDetailVC = story.instantiateViewController(withIdentifier: "CountryDetailInfoVC") as! CountryDetailsViewController
         let country = CountryDetail()
         country.populateFromResponse(mockResponse)
         countryDetailVC.country = country
@@ -156,26 +156,28 @@ class GeoAppTests: XCTestCase {
             var result: [CountryDetail]?
             
             override func populateDataSource() {
-                ConnectionManager.fetchAllCountries() { (callback) in
-                    guard callback.error == nil else {
-                        ErrorHandler.handler.showError(callback.error!, sender: self)
+                ConnectionManager.fetchAllCountries() { (result, error) in
+                    if let error = error {
+                        ErrorHandler.handler.showError(error, sender: self)
                         self.expectationForCallBack?.fulfill()
                         return
                     }
-                    dispatch_async(dispatch_get_main_queue()) {
-                        self.result = callback.response! as [CountryDetail]
+                    DispatchQueue.main.async {
+                        if let result = result {
+                        self.result = result
                         self.expectationForCallBack?.fulfill()
                         return
+                    }
                     }
                 }
             }
         }
         let controller = TestCountryListViewController()
         //When
-        controller.expectationForCallBack = expectationWithDescription("Finished fetching all countries")
+        controller.expectationForCallBack = expectation(description: "Finished fetching all countries")
         controller.populateDataSource()
         //Then
-        waitForExpectationsWithTimeout(ConnectionManager.session.configuration.timeoutIntervalForResource, handler: { (error) in
+        waitForExpectations(timeout: ConnectionManager.session.configuration.timeoutIntervalForResource, handler: { (error) in
             XCTAssertNil(error, "Timeout error")})
         XCTAssertNotNil(controller.result)
         if let testResult = controller.result {
