@@ -40,7 +40,7 @@ class CountryDetail: InstantiatableFromResponse {
         translations = response["translations"] as? [String: String]
         population = response["population"] as? Int
         region = response["region"] as? String
-        if let altSpellings = response["altSpellings"] as? [String] {
+        if let altSpellings = response["altSpellings"] as? [String], !altSpellings.isEmpty {
             self.countryCode = altSpellings[0]
         }
         if let flagIcon = response["flag"] as? String {
