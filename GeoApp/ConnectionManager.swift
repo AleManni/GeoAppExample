@@ -8,8 +8,11 @@
 
 import Foundation
 
-enum Endpoints: String {
-    case all = "/all"
+struct Endpoints {
+
+    static let shared = Endpoints()
+    
+    let all = "/all"
 
     func countryDetails(_ countryCode: String) -> String {
         return "/alpha/\(countryCode)"
@@ -17,6 +20,11 @@ enum Endpoints: String {
 
     func region(_ regionName: String) -> String {
         return "/region/\(regionName)"
+    }
+
+    func flagURLString(_ countryCode: String) -> String {
+        let code = countryCode.uppercased()
+        return "http://www.geognos.com/api/en/countries/flag/\(code).png"
     }
 }
 
@@ -47,6 +55,7 @@ class ConnectionManager {
         })
         task.resume()
     }
+
 }
 
     
