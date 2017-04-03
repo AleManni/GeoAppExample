@@ -43,8 +43,8 @@ class CountryDetail: InstantiatableFromResponse {
         if let altSpellings = response["altSpellings"] as? [String], !altSpellings.isEmpty {
             self.countryCode = altSpellings[0]
         }
-        if let flagIcon = response["flag"] as? String {
-            flagIconURL = URL(string:flagIcon)
+        if let code = countryCode {
+            flagIconURL = URL(string: Endpoints.shared.flagURLString(code))
         }
     }
 }

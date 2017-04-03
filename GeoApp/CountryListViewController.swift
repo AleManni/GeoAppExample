@@ -36,61 +36,64 @@ class CountryListViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.Colors().standardBlue, NSFontAttributeName: Constants.Fonts().titleLarge]
         populateDataSource()
     }
-    
+
     func populateDataSource() {
-        ConnectionManager.fetchAllCountries() { (result, error) in
-            guard error != nil else {
+        let constructor = Factory(Region.self)
+        ConnectionManager.fetch(endPoint: Endpoints.shared.all, constructor: constructor, callback: { (result, error) in
+            if let error = error {
                 DispatchQueue.main.async{
-                    ErrorHandler.handler.showError(error!, sender: self)
+                    ErrorHandler.handler.showError(error, sender: self)
                     self.indicator.stopAnimating()
                 }
                 return
             }
-            DispatchQueue.main.async {
-                self.dataSource = result! as [CountryDetail]
-                self.indicator.stopAnimating()
+            if let result = result as? Region, let list = result.countryList {
+                DispatchQueue.main.async {
+                    self.dataSource = list
+                    self.indicator.stopAnimating()
+                }
             }
-        }
+        })
+
     }
-    
+
     func handleRefresh(_ refreshControl: UIRefreshControl) {
         self.indicator.stopAnimating()
         populateDataSource()
         countriesTableView.reloadData()
         refreshControl.endRefreshing()
     }
-    
+
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "detailViewSegue" else {return}
         let vc = segue.destination as! CountryDetailsViewController
-        vc.country = selecteCountryDetail
+      //  vc.country = selecteCountryDetail
     }
 }
 
 
 extension CountryListViewController: UITableViewDelegate, UITableViewDataSource {
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(dataSource.count)
         return dataSource.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "countryCell") as! CountryListTableViewCell
         cell.populateWith(dataSource[indexPath.row])
         cell.formatCell()
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 105.0
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selecteCountryDetail = dataSource[indexPath.row]
         self.performSegue(withIdentifier: "detailViewSegue", sender: self)

@@ -14,11 +14,14 @@ extension UIImageView {
         let request = URLRequest(url: url)
         NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) {
             (response: URLResponse?, data: Data?, error: Error?) -> Void in
-            if let imageData = data as Data? {
-                self.image = UIImage(data: imageData)
-            } else {
-                self.image = UIImage(named: "placeholder")
-            }
+                if let imageData = data as Data? {
+                    self.image = UIImage(data: imageData)
+                    if self.image == nil {
+                        self.image = #imageLiteral(resourceName: "placeholder")
+                    }
+                } else {
+                    self.image = #imageLiteral(resourceName: "placeholder")
+                }
         }
     }
     

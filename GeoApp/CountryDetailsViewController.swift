@@ -10,6 +10,7 @@ import UIKit
 
 
 class CountryDetailsViewController: UIViewController {
+
     
     @IBOutlet weak var flagImageView: UIImageView!
     @IBOutlet weak var nativeNameLabel: UILabel!
@@ -44,7 +45,8 @@ class CountryDetailsViewController: UIViewController {
     @IBOutlet weak var neighbouringCountriesTableView: UITableView!
     @IBOutlet weak var neighbouringTVHeightConstr: NSLayoutConstraint!
     @IBOutlet weak var scroll: UIScrollView!
-    
+}
+    /*
     var country: CountryDetail?
     var region: Region?
     var neighbouringCountries: [CountryDetail] = []
@@ -159,7 +161,8 @@ class CountryDetailsViewController: UIViewController {
             item?.font = Constants.Fonts().small
         }
     }
-    
+}
+
     func populateCVDataSource(_ regionName: String) {
         ConnectionManager.fetchRegion(regionName, callback: { (result, error) in
             if let error = error {
@@ -328,3 +331,4 @@ extension CountryDetailsViewController: UITableViewDelegate, UITableViewDataSour
         view.layoutIfNeeded()
     }
 }
+ */
