@@ -16,14 +16,9 @@ class Region: InstantiatableFromResponse {
         guard let response = response as? [[String: AnyObject]] else {
             return nil
         }
-        var listOfCountries: [CountryDetail] = []
-        if !response.isEmpty {
-            for item in response {
-                if let country = CountryDetail(item as AnyObject) {
-                listOfCountries.append(country)
-                }
-            }
-            countryList = listOfCountries
+
+        countryList = response.flatMap {
+            return CountryDetail($0 as AnyObject)
         }
     }
 }
