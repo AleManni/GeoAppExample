@@ -10,21 +10,18 @@ import UIKit
 
 extension UIImageView {
     
-    func imageFromUrl(_ url: URL) {
+    func imageFromUrl(_ url: URL, placeHolder: UIImage) {
         let request = URLRequest(url: url)
         NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) {
             (response: URLResponse?, data: Data?, error: Error?) -> Void in
-                if let imageData = data as Data? {
-                    self.image = UIImage(data: imageData)
-                    if self.image == nil {
-                        self.image = #imageLiteral(resourceName: "placeholder")
-                    }
-                } else {
-                    self.image = #imageLiteral(resourceName: "placeholder")
-                }
+            if let imageData = data as Data? {
+                self.image = UIImage(data: imageData) ?? placeHolder
+            } else {
+                self.image = placeHolder
+            }
         }
     }
-    
+
     func setActive() {
         self.image = self.image?.withRenderingMode(UIImageRenderingMode.alwaysTemplate)
         self.tintColor = UIColor.white

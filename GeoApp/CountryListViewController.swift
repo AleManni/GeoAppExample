@@ -100,5 +100,19 @@ extension CountryListViewController: UITableViewDelegate, UITableViewDataSource 
     }
 }
 
+extension CountryListViewController: viewModelDelegate {
+    func viewModelDidLoadData<CountryListRepresentable>(data: CountryListRepresentable) {
+        // rootView.setData etc
+    }
+    
+    func viewModelDidFailWithError(error: Error) {
+        DispatchQueue.main.async{
+            ErrorHandler.handler.showError(Errors.networkError(error: error), sender: self)
+            self.indicator.stopAnimating()
+        }
+    }
+
+}
+
 
 

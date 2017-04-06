@@ -16,3 +16,10 @@ protocol DataConstructor: class {
     func populateFromResponse(_ response: Data, callback: (InstantiatableFromResponse?, Errors?) -> Void)
     init(_ objectClass: InstantiatableFromResponse.Type)
 }
+
+protocol viewModelDelegate: class {
+    func viewModelDidLoadData<T>(data: T)
+    func viewModelDidFailWithError(error: Error)
+}
+
+

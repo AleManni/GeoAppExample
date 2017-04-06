@@ -1,0 +1,65 @@
+//
+//  CountryListViewModel.swift
+//  GeoApp
+//
+//  Created by Alessandro Manni on 06/04/2017.
+//  Copyright © 2017 Alessandro Manni. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+struct CountryRepresentable {
+    let name: String
+    let population: String
+    let region: String
+    var flagImageURL: URL?
+
+    init?(_ country: CountryDetail) {
+
+        guard let nameString = country.name else {
+            return nil
+        }
+
+        if let countryNameLocalised = nameString.localisedName(country.translations) {
+            name = countryNameLocalised
+        } else {
+            name = nameString
+        }
+
+        if let populationInt = country.population, let value = country.population, value != 0 {
+            let populationByMillions = Double(populationInt)/1000000
+            population = "Population: \(populationByMillions)M"
+        } else {
+            population = "Population: \(Constants().stringMissing)"
+        }
+
+        if let regionString = country.region, let regionValue = country.region, regionValue.characters.count > 0 {
+            region = regionString
+        } else {
+            region = "Region: \(Constants().stringMissing)"
+        }
+
+        flagImageURL = country.flagIconURL
+    }
+}
+
+
+class CountryListViewModel {
+
+    weak var delegate: viewModelDelegate?
+
+    func loadData() {
+        let constructor = Factory(CountryList.self)
+        ConnectionManager.fetch(endPoint: Endpoints.shared.all, constructor: constructor, callback: { (result, error) in
+            if let result = result as? CountryList, let list = result.list {
+                let representableList = list.flatMap {
+                    return CountryRepresentable($0)
+                }
+                self.delegate?.viewModelDidLoadData(data: representableList)
+            } else {
+                self.delegate?.viewModelDidFailWithError(error: Errors.networkError(nsError: error) ?? Errors.noData)
+            }
+        })
+    }
+}

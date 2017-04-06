@@ -10,7 +10,7 @@
 enum Errors: Error {
     case noData
     case jsonError
-    case networkError(nsError: NSError)
+    case networkError(error: Error)
     
     var description: (title: String, message: String) {
         switch self {
@@ -18,8 +18,8 @@ enum Errors: Error {
             return ("Error", "No valid data returned from server")
         case .jsonError:
             return ("Error", "Response from server cannot be converted in readable data")
-        case .networkError(let nsError):
-            return ("Error \(nsError.code)", nsError.localizedDescription)
+        case .networkError(let error):
+            return ("Error \((error as NSError).code)", error.localizedDescription)
         }
     }
 }
