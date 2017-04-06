@@ -1,5 +1,5 @@
 //
-//  Region.swift
+//  CountryList.swift
 //  GeoApp
 //
 //  Created by Alessandro Manni on 13/07/2016.
@@ -9,15 +9,15 @@
 import Foundation
 
 
-class Region: InstantiatableFromResponse {
-    var countryList: [CountryDetail]?
+class CountryList: InstantiatableFromResponse {
+    var list: [CountryDetail]?
 
     required init?(_ response: AnyObject) {
         guard let response = response as? [[String: AnyObject]] else {
             return nil
         }
 
-        countryList = response.flatMap {
+        list = response.flatMap {
             return CountryDetail($0 as AnyObject)
         }
     }

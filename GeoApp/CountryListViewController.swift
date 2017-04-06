@@ -38,7 +38,7 @@ class CountryListViewController: UIViewController {
     }
 
     func populateDataSource() {
-        let constructor = Factory(Region.self)
+        let constructor = Factory(CountryList.self)
         ConnectionManager.fetch(endPoint: Endpoints.shared.all, constructor: constructor, callback: { (result, error) in
             if let error = error {
                 DispatchQueue.main.async{
@@ -47,7 +47,7 @@ class CountryListViewController: UIViewController {
                 }
                 return
             }
-            if let result = result as? Region, let list = result.countryList {
+            if let result = result as? CountryList, let list = result.list {
                 DispatchQueue.main.async {
                     self.dataSource = list
                     self.indicator.stopAnimating()
