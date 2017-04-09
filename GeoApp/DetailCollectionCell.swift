@@ -26,8 +26,8 @@ class DetailCollectionCell: UICollectionViewCell {
         if let _ = country.countryCode {
             countryCodeLabel.text = country.countryCode!.uppercased()
         }
-        if let _ = country.flagIconURL {
-            flagImageView.imageFromUrl(country.flagIconURL!)
+        if let url = country.flagIconURL {
+            flagImageView.setImageFromURL(url, placeHolder: #imageLiteral(resourceName: "placeholder"))
         }
     }
 }

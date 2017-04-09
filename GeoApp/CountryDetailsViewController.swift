@@ -115,7 +115,7 @@ class CountryDetailsViewController: UIViewController {
             regionLabel.text = (Constants().stringMissing)
         }
         if let flagURL = country.flagIconURL {
-            flagImageView.imageFromUrl(flagURL)
+            flagImageView.setImageFromURL(flagURL)
         } else {
             flagImageView.image = UIImage(named: "placeholder")
         }

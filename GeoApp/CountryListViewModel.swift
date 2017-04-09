@@ -13,7 +13,7 @@ struct CountryRepresentable {
     let name: String
     let population: String
     let region: String
-    var flagImageURL: URL?
+    let flagImageURL: URL?
 
     init?(_ country: CountryDetail) {
 
@@ -44,21 +44,27 @@ struct CountryRepresentable {
     }
 }
 
+typealias CountryListRepresentable = [CountryRepresentable]
 
 class CountryListViewModel {
 
     weak var delegate: viewModelDelegate?
 
     func loadData() {
+        delegate?.viewModelIsLoading()
         let constructor = Factory(CountryList.self)
         ConnectionManager.fetch(endPoint: Endpoints.shared.all, constructor: constructor, callback: { (result, error) in
             if let result = result as? CountryList, let list = result.list {
                 let representableList = list.flatMap {
                     return CountryRepresentable($0)
                 }
+                DispatchQueue.main.async {
                 self.delegate?.viewModelDidLoadData(data: representableList)
-            } else {
-                self.delegate?.viewModelDidFailWithError(error: Errors.networkError(nsError: error) ?? Errors.noData)
+                }
+            } else if let error = error {
+                DispatchQueue.main.async {
+                self.delegate?.viewModelDidFailWithError(error: error)
+                }
             }
         })
     }

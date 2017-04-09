@@ -15,7 +15,7 @@ class Factory: DataConstructor {
         self.objectType = objectClass
     }
 
-    func populateFromResponse(_ response: Data, callback: (InstantiatableFromResponse?, Errors?) -> Void)  {
+    func instantiateFromResponse(_ response: Data, callback: (InstantiatableFromResponse?, Errors?) -> Void)  {
         do {
             let swiftCollection = try JSONSerialization.jsonObject(with: response, options: JSONSerialization.ReadingOptions.mutableContainers)
             if let object = objectType.init(swiftCollection as AnyObject) {

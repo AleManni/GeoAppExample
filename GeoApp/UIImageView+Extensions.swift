@@ -10,9 +10,13 @@ import UIKit
 
 extension UIImageView {
     
-    func imageFromUrl(_ url: URL, placeHolder: UIImage) {
-        let request = URLRequest(url: url)
-        NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) {
+    func setImageFromURL(_ url: URL?, placeHolder: UIImage) {
+        guard let url = url else {
+            self.image = placeHolder
+            return
+        }
+
+        NSURLConnection.sendAsynchronousRequest(URLRequest(url: url), queue: OperationQueue.main) {
             (response: URLResponse?, data: Data?, error: Error?) -> Void in
             if let imageData = data as Data? {
                 self.image = UIImage(data: imageData) ?? placeHolder

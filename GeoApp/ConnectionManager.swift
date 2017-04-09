@@ -34,18 +34,19 @@ class ConnectionManager {
 
     static func fetch(endPoint: String, constructor: DataConstructor, callback: @escaping (_ response: InstantiatableFromResponse?, _ error: Errors?) -> ()) {
         let url = URL(string: baseURL + endPoint)
-        let urlRequest = URLRequest(url: url!)
+        var urlRequest = URLRequest(url: url!)
+        urlRequest.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalCacheData
         let task = session.dataTask(with: urlRequest, completionHandler: {
             (data, response, error) in
             guard error == nil else {
-                callback(nil, Errors.networkError(nsError: error! as NSError))
+                callback(nil, Errors.networkError(error: error! as NSError))
                 return
             }
             guard let responseData = data else {
                 callback(nil, .noData)
                 return
             }
-            constructor.populateFromResponse(responseData, callback: { (response, error) in
+            constructor.instantiateFromResponse(responseData, callback: { (response, error) in
                 if (error != nil) {
                     callback(nil, error)
                 } else {
@@ -78,7 +79,7 @@ class ConnectionManager {
 //                    return
 //                }
 //                    var countryDetail = CountryDetail()
-//                    countryDetail.populateFromResponse(jasonDict)
+//                    countryDetail.instantiateFromResponse(jasonDict)
 //                callback(countryDetail, nil)
 //            } catch  {
 //                callback(nil, Errors.jsonError)
@@ -108,7 +109,7 @@ class ConnectionManager {
 //                    return
 //                }
 //                var region = Region()
-//                region.populateFromResponse(jasonArray)
+//                region.instantiateFromResponse(jasonArray)
 //                callback(region, nil)
 //            } catch  {
 //                callback(nil, Errors.jsonError)

@@ -8,46 +8,32 @@
 
 import UIKit
 
-class CountryListTableViewCell: UITableViewCell {
+final class CountryListTableViewCell: UITableViewCell {
     @IBOutlet weak var flagImageView: UIImageView!
     @IBOutlet weak var countryNameLabel: UILabel!
     @IBOutlet weak var populationLabel: UILabel!
     @IBOutlet weak var regionImageView: UIImageView!
     @IBOutlet weak var regionLabel: UILabel!
-    
-    
+
+
     static func newFromNib() -> CountryListTableViewCell {
         return UINib(nibName: "CountryListTableViewCell", bundle: nil).instantiate(withOwner: nil, options: nil).first as! CountryListTableViewCell
     }
-    
-    
-    func populateWith(_ country: CountryDetail) {
-        if let name = country.name {
-            if let countryNameLocalised = name.localisedName(country.translations) {
-                countryNameLabel.text = countryNameLocalised
-            } else {countryNameLabel.text = name}
-        }
-        
-        if let population = country.population, let value = country.population, value != 0 {
-            let populationByMillions = Double(population)/1000000
-            populationLabel.text = "Population: \(populationByMillions)M"
-        } else {
-            populationLabel.text = "Population: \(Constants().stringMissing)"
-        }
-        if let region = country.region, let regionValue = country.region, regionValue.characters.count > 0 {
-            regionLabel.text = (region)
-        } else {
-            regionLabel.text = "Region: \(Constants().stringMissing)"
-        }
-        
-        if let flagURL = country.flagIconURL {
-            flagImageView.imageFromUrl(flagURL)
-        } else {
-            flagImageView.image = UIImage(named: "placeholder")
-        }
+
+    public func initiateWithData(_ data: CountryRepresentable) {
+        populateWith(data)
+        formatCell()
     }
-    
-    func formatCell() {
+
+
+    private func populateWith(_ data: CountryRepresentable) {
+        countryNameLabel.text = data.name
+        populationLabel.text = data.population
+        regionLabel.text = data.region
+        flagImageView.setImageFromURL(data.flagImageURL, placeHolder: #imageLiteral(resourceName: "placeholder"))
+    }
+
+    private func formatCell() {
         countryNameLabel.font = Constants.Fonts().title
         populationLabel.font = Constants.Fonts().regular
         regionLabel.font = Constants.Fonts().regular
@@ -55,7 +41,7 @@ class CountryListTableViewCell: UITableViewCell {
         populationLabel.textColor = Constants.Colors().standardBlue
         regionLabel.textColor = Constants.Colors().standardBlue
     }
-    
+
     override func setHighlighted(_ highlighted: Bool, animated:Bool) {
         super.setHighlighted(highlighted, animated: animated)
         if (highlighted) {
@@ -64,9 +50,9 @@ class CountryListTableViewCell: UITableViewCell {
             self.backgroundColor = (UIColor.white)
         }
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
     }
-    
+
 }
 

@@ -56,7 +56,7 @@ class GeoAppTests: XCTestCase {
         //Given
         let country = CountryDetail()
         //When
-        country.populateFromResponse(mockResponse)
+        country.instantiateFromResponse(mockResponse)
         //Then
         XCTAssertTrue(country.capital == "capitalString")
         XCTAssertTrue(country.area == 0)
@@ -74,7 +74,7 @@ class GeoAppTests: XCTestCase {
     
     func testPopulateRegionFromResponse() {
         let region = Region()
-        region.populateFromResponse([mockResponse])
+        region.instantiateFromResponse([mockResponse])
         XCTAssertTrue(region.countryList!.first!.name == "nameString")
     }
     
@@ -87,7 +87,7 @@ class GeoAppTests: XCTestCase {
     func testCountryListDataSource() {
         //Given
         let country = CountryDetail()
-        country.populateFromResponse(mockResponse)
+        country.instantiateFromResponse(mockResponse)
         //When
         countryListVC.dataSource = [country]
         let cell = countryListVC.countriesTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! CountryListTableViewCell
@@ -102,7 +102,7 @@ class GeoAppTests: XCTestCase {
         let story = UIStoryboard(name: "Main", bundle: Bundle.main)
         countryDetailVC = story.instantiateViewController(withIdentifier: "CountryDetailInfoVC") as! CountryDetailsViewController
         let country = CountryDetail()
-        country.populateFromResponse(mockResponse)
+        country.instantiateFromResponse(mockResponse)
         countryDetailVC.country = country
         let _ = countryDetailVC.view
         //When
