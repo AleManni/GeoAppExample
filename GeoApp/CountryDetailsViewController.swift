@@ -10,44 +10,15 @@ import UIKit
 
 
 class CountryDetailsViewController: UIViewController {
-
-    
-    @IBOutlet weak var flagImageView: UIImageView!
-    @IBOutlet weak var nativeNameLabel: UILabel!
-    @IBOutlet weak var populationLabel: UILabel!
-    @IBOutlet weak var languagesLabel: UILabel!
-    @IBOutlet weak var currencyLabel: UILabel!
-    @IBOutlet weak var phoneLabel: UILabel!
-    @IBOutlet weak var capitalLabel: UILabel!
-    @IBOutlet weak var timeZoneLabel: UILabel!
-    @IBOutlet weak var regionLabel: UILabel!
-    @IBOutlet weak var borderLabel: UILabel!
-    
-    @IBOutlet weak var languagesTitle: UILabel!
-    @IBOutlet weak var currencyTitle: UILabel!
-    @IBOutlet weak var phoneTitle: UILabel!
-    @IBOutlet weak var timeZoneTitle: UILabel!
-    @IBOutlet weak var capitalTitle: UILabel!
-    @IBOutlet weak var regionTitle: UILabel!
-    @IBOutlet weak var borderTitle: UILabel!
-    @IBOutlet weak var regionDetailTitle: UILabel!
-    
-    @IBOutlet weak var regionView: UIView!
-    @IBOutlet weak var regionIconView: UIImageView!
-    @IBOutlet weak var regionArrowView: UIImageView!
-    @IBOutlet weak var bordersView: UIView!
-    @IBOutlet weak var borderIconView: UIImageView!
-    @IBOutlet weak var borderArrowView: UIImageView!
-    @IBOutlet weak var separator: UIView!
     
     @IBOutlet weak var regionCollectionView: UICollectionView!
     @IBOutlet weak var regionViewHeightConstr: NSLayoutConstraint!
     @IBOutlet weak var neighbouringCountriesTableView: UITableView!
     @IBOutlet weak var neighbouringTVHeightConstr: NSLayoutConstraint!
     @IBOutlet weak var scroll: UIScrollView!
-}
 
     var country: CountryDetail?
+}
 // instantiate vieModel using country
 /*
     var region: Region?

@@ -46,7 +46,7 @@ struct CountryRepresentable {
 
 typealias CountryListRepresentable = [CountryRepresentable]
 
-class CountryListViewModel {
+final class CountryListViewModel {
 
     weak var delegate: viewModelDelegate?
 

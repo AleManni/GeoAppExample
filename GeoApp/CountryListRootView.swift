@@ -69,8 +69,6 @@ extension CountryListRootView: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         delegate?.rootViewDidSelectCountry(countryName: data[indexPath.row].name)
-       // self.selecteCountryDetail = data[indexPath.row]
-       // self.performSegue(withIdentifier: "detailViewSegue", sender: self)
     }
 }
 
