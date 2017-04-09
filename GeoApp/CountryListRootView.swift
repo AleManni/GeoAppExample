@@ -11,7 +11,7 @@ import UIKit
 
 protocol CountryListRootViewDelegate: class {
     func rootViewDidRequestDataUpdate()
-    //func rootViewDidSelectCountry()
+    func rootViewDidSelectCountry(countryName: String)
 }
 
 class CountryListRootView: UIView {
@@ -68,6 +68,7 @@ extension CountryListRootView: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.rootViewDidSelectCountry(countryName: data[indexPath.row].name)
        // self.selecteCountryDetail = data[indexPath.row]
        // self.performSegue(withIdentifier: "detailViewSegue", sender: self)
     }

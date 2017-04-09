@@ -20,6 +20,8 @@ class CountryListViewController: UIViewController {
         return viewModel
     }()
 
+    var selectedCountry: CountryDetail?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.Colors().standardBlue, NSFontAttributeName: Constants.Fonts().titleLarge]
@@ -34,7 +36,7 @@ class CountryListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "detailViewSegue" else {return}
         let vc = segue.destination as! CountryDetailsViewController
-        //  vc.country = selecteCountryDetail
+        vc.country = selectedCountry!
     }
 }
 
@@ -65,7 +67,11 @@ extension CountryListViewController: CountryListRootViewDelegate {
     func rootViewDidRequestDataUpdate() {
         viewModel.loadData()
     }
+
+    func rootViewDidSelectCountry(countryName: String) {
+        if let country = viewModel.loadedCountryList?.list?.first(where: { $0.name == countryName }) {
+            selectedCountry = country
+            self.performSegue(withIdentifier: "detailViewSegue", sender: self)
+        }
+    }
 }
-
-
-

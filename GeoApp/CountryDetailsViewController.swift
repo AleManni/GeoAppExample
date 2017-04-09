@@ -46,8 +46,10 @@ class CountryDetailsViewController: UIViewController {
     @IBOutlet weak var neighbouringTVHeightConstr: NSLayoutConstraint!
     @IBOutlet weak var scroll: UIScrollView!
 }
-    /*
+
     var country: CountryDetail?
+// instantiate vieModel using country
+/*
     var region: Region?
     var neighbouringCountries: [CountryDetail] = []
     

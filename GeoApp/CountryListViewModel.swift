@@ -50,11 +50,14 @@ class CountryListViewModel {
 
     weak var delegate: viewModelDelegate?
 
+    var loadedCountryList: CountryList?
+
     func loadData() {
         delegate?.viewModelIsLoading()
         let constructor = Factory(CountryList.self)
         ConnectionManager.fetch(endPoint: Endpoints.shared.all, constructor: constructor, callback: { (result, error) in
             if let result = result as? CountryList, let list = result.list {
+                self.loadedCountryList = result
                 let representableList = list.flatMap {
                     return CountryRepresentable($0)
                 }
