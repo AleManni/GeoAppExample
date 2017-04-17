@@ -28,7 +28,7 @@ class Store {
             })
         }
 
-    func clear() {
+    private func clear() {
     countries = nil
     }
 }

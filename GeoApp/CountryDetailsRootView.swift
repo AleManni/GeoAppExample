@@ -16,7 +16,7 @@ final class CountryDetailsRootView: UIView {
     @IBOutlet weak var countryDetailsView: CountryDetailsView!
     @IBOutlet weak var capitalCityView: CapitalCityView!
     @IBOutlet weak var regionDetailView: RegionCollectionView!
-    @IBOutlet weak var neighbouringCountriesView: CountryListTableView!
+    @IBOutlet weak var neighbouringCountriesView: BorderingCountriesTableView!
 
     @IBOutlet weak var regionDetailViewHeightConstr: NSLayoutConstraint!
     @IBOutlet weak var neighbouringCountriesViewHeightConstr: NSLayoutConstraint!
@@ -47,8 +47,6 @@ final class CountryDetailsRootView: UIView {
 
     var borderingCountriesData: [CountryRepresentable]? {
         didSet {
-            neighbouringCountriesView.delegate = self
-            neighbouringCountriesView.setUpView()
             neighbouringCountriesView.data = borderingCountriesData
         }
     }

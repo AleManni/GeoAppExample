@@ -110,7 +110,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="1536"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Na9-7J-rv6" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1536"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1586"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8CJ-C8-MuF" userLabel="CountryDetailsView" customClass="CountryDetailsView" customModule="GeoApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="208"/>
@@ -677,59 +677,72 @@
                                                     <outlet property="regionDetailTitle" destination="H9P-t4-oT2" id="hAz-yI-58K"/>
                                                 </connections>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEp-8m-dfE" userLabel="NeighbouringCountriesView" customClass="CountryListTableView" customModule="GeoApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="530" width="600" height="1006"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEp-8m-dfE" userLabel="NeighbouringCountriesView" customClass="BorderingCountriesTableView" customModule="GeoApp" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="530" width="600" height="1056"/>
                                                 <subviews>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TTb-BL-gds">
-                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1006"/>
-                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unD-12-bOu" userLabel="SectionTitleView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bordering Countries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4b-FL-2g2">
+                                                                <rect key="frame" x="203.5" y="13.5" width="194" height="24"/>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" red="0.16538804769515991" green="0.48017919063568115" blue="0.7376670241355896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="1006" id="g4H-aM-tSy"/>
-                                                            <constraint firstAttribute="height" constant="275" id="rjG-dN-GY6"/>
+                                                            <constraint firstItem="H4b-FL-2g2" firstAttribute="centerX" secondItem="unD-12-bOu" secondAttribute="centerX" id="5yU-lx-msk"/>
+                                                            <constraint firstItem="H4b-FL-2g2" firstAttribute="centerY" secondItem="unD-12-bOu" secondAttribute="centerY" id="Ukj-ZK-zfy"/>
+                                                            <constraint firstAttribute="height" constant="50" id="aZW-nA-Bdx"/>
                                                         </constraints>
-                                                        <prototypes>
-                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="sectionHeader" id="zbJ-yj-XW3">
-                                                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zbJ-yj-XW3" id="4i8-TQ-OF8">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                                                    <autoresizingMask key="autoresizingMask"/>
-                                                                    <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neighbouring countries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="00p-w7-BfM">
-                                                                            <rect key="frame" x="194" y="12" width="212" height="20"/>
-                                                                            <fontDescription key="fontDescription" name="Verdana-Bold" family="Verdana" pointSize="16"/>
-                                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                            <nil key="highlightedColor"/>
-                                                                        </label>
-                                                                    </subviews>
-                                                                    <color key="backgroundColor" red="0.16470588235294117" green="0.47843137254901957" blue="0.73725490196078436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <constraints>
-                                                                        <constraint firstItem="00p-w7-BfM" firstAttribute="centerX" secondItem="4i8-TQ-OF8" secondAttribute="centerX" id="MBQ-Ep-bdo"/>
-                                                                        <constraint firstItem="00p-w7-BfM" firstAttribute="centerY" secondItem="4i8-TQ-OF8" secondAttribute="centerY" id="iCl-1p-HxF"/>
-                                                                    </constraints>
-                                                                </tableViewCellContentView>
-                                                            </tableViewCell>
-                                                        </prototypes>
-                                                        <variation key="default">
-                                                            <mask key="constraints">
-                                                                <exclude reference="rjG-dN-GY6"/>
-                                                            </mask>
-                                                        </variation>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4e-8l-fB4" userLabel="CountryListView" customClass="CountryListTableView" customModule="GeoApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="50" width="600" height="1006"/>
+                                                        <subviews>
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TTb-BL-gds">
+                                                                <rect key="frame" x="0.0" y="0.0" width="600" height="1006"/>
+                                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="1006" id="g4H-aM-tSy"/>
+                                                                    <constraint firstAttribute="height" constant="275" id="rjG-dN-GY6"/>
+                                                                </constraints>
+                                                                <variation key="default">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="rjG-dN-GY6"/>
+                                                                    </mask>
+                                                                </variation>
+                                                                <connections>
+                                                                    <outlet property="dataSource" destination="e4e-8l-fB4" id="Qsf-4x-lBJ"/>
+                                                                    <outlet property="delegate" destination="e4e-8l-fB4" id="FEj-x7-Gjo"/>
+                                                                </connections>
+                                                            </tableView>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="TTb-BL-gds" secondAttribute="bottom" id="L4B-qa-J7x"/>
+                                                            <constraint firstItem="TTb-BL-gds" firstAttribute="leading" secondItem="e4e-8l-fB4" secondAttribute="leading" id="ObZ-KR-vqV"/>
+                                                            <constraint firstItem="TTb-BL-gds" firstAttribute="top" secondItem="e4e-8l-fB4" secondAttribute="top" id="bth-wU-bdf"/>
+                                                            <constraint firstAttribute="trailing" secondItem="TTb-BL-gds" secondAttribute="trailing" id="lzD-zy-vZh"/>
+                                                        </constraints>
                                                         <connections>
-                                                            <outlet property="dataSource" destination="TEp-8m-dfE" id="qjC-ZO-exM"/>
-                                                            <outlet property="delegate" destination="TEp-8m-dfE" id="Jf0-hJ-BxJ"/>
+                                                            <outlet property="countriesTableView" destination="TTb-BL-gds" id="Tub-Zh-fHU"/>
                                                         </connections>
-                                                    </tableView>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="TTb-BL-gds" secondAttribute="bottom" id="7xY-Rc-1pe"/>
-                                                    <constraint firstAttribute="trailing" secondItem="TTb-BL-gds" secondAttribute="trailing" id="869-57-1VV"/>
-                                                    <constraint firstItem="TTb-BL-gds" firstAttribute="top" secondItem="TEp-8m-dfE" secondAttribute="top" id="NTm-2B-TrZ"/>
-                                                    <constraint firstItem="TTb-BL-gds" firstAttribute="leading" secondItem="TEp-8m-dfE" secondAttribute="leading" id="q8p-kG-UpB"/>
+                                                    <constraint firstItem="e4e-8l-fB4" firstAttribute="top" secondItem="unD-12-bOu" secondAttribute="bottom" id="6oC-po-wHm"/>
+                                                    <constraint firstItem="e4e-8l-fB4" firstAttribute="leading" secondItem="TEp-8m-dfE" secondAttribute="leading" id="Gg3-hD-bTF"/>
+                                                    <constraint firstItem="unD-12-bOu" firstAttribute="top" secondItem="TEp-8m-dfE" secondAttribute="top" id="Lw6-Zf-96c"/>
+                                                    <constraint firstAttribute="trailing" secondItem="unD-12-bOu" secondAttribute="trailing" id="PPY-oj-2Xi"/>
+                                                    <constraint firstItem="e4e-8l-fB4" firstAttribute="top" secondItem="TEp-8m-dfE" secondAttribute="top" constant="50" id="jUh-V3-dxX"/>
+                                                    <constraint firstItem="unD-12-bOu" firstAttribute="leading" secondItem="TEp-8m-dfE" secondAttribute="leading" id="mvH-Gd-rb4"/>
+                                                    <constraint firstAttribute="bottom" secondItem="e4e-8l-fB4" secondAttribute="bottom" id="nrM-f3-eOP"/>
+                                                    <constraint firstAttribute="trailing" secondItem="e4e-8l-fB4" secondAttribute="trailing" id="p7X-FC-BxO"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outlet property="countriesTableView" destination="TTb-BL-gds" id="9ke-Yy-vAw"/>
+                                                    <outlet property="tableView" destination="e4e-8l-fB4" id="9wN-P9-Nuc"/>
                                                 </connections>
                                             </view>
                                         </subviews>
@@ -823,7 +836,7 @@
                             <outlet property="capitalCityView" destination="Ul7-pH-Drh" id="Qou-Vr-5HL"/>
                             <outlet property="contentView" destination="Na9-7J-rv6" id="fhx-i3-fMU"/>
                             <outlet property="countryDetailsView" destination="8CJ-C8-MuF" id="UEr-ck-QS2"/>
-                            <outlet property="neighbouringCountriesView" destination="TEp-8m-dfE" id="xMd-Rl-m9n"/>
+                            <outlet property="neighbouringCountriesView" destination="TEp-8m-dfE" id="hoM-yk-Tdq"/>
                             <outlet property="regionDetailView" destination="0Hx-6h-S7G" id="z6o-qQ-nr1"/>
                             <outlet property="scrollView" destination="e4d-WO-bT3" id="vSZ-sD-7fh"/>
                         </connections>
