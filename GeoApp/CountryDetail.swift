@@ -9,20 +9,21 @@
 import Foundation
 
 class CountryDetail: InstantiatableFromResponse {
-    var name: String?
-    var translations: [String:String]?
-    var population: Int?
+    let name: String?
+    let translations: [String:String]?
+    let population: Int?
     var countryCode: String?
-    var region: String?
+    let region: String?
     var flagIconURL: URL?
-    var capital: String?
-    var area: Int?
-    var timeZones: [String]?
-    var callingCodes: [String]?
-    var currencies: [String]?
-    var languages: [String]?
-    var nativeName: String?
-    var borders: [String]?
+    let capital: String?
+    let area: Int?
+    let timeZones: [String]?
+    let callingCodes: [String]?
+    let currencies: [String]?
+    let languages: [String]?
+    let nativeName: String?
+    let borders: [String]?
+    var isSelected: Bool = false
 
     required init?(_ response: AnyObject) {
         guard response is [String: AnyObject] else {
@@ -30,10 +31,12 @@ class CountryDetail: InstantiatableFromResponse {
         }
         capital = response["capital"] as? String
         area = response["area"] as? Int
-        timeZones = response["timeZones"] as? [String]
+        timeZones = response["timezones"] as? [String]
         callingCodes = response["callingCodes"] as? [String]
-        currencies = response["currencies"] as? [String]
-        languages = response["languages"] as? [String]
+        let currenciesDict = response["currencies"] as? [[String: Any]]
+        currencies = currenciesDict?.values(of: "name") as? [String]
+        let languagesDict = response["languages"] as? [[String: Any]]
+        languages = languagesDict?.values(of: "name") as? [String]
         nativeName = response["nativeName"] as? String
         borders = response["borders"] as? [String]
         name = response["name"] as? String
@@ -41,10 +44,8 @@ class CountryDetail: InstantiatableFromResponse {
         population = response["population"] as? Int
         region = response["region"] as? String
         if let altSpellings = response["altSpellings"] as? [String], !altSpellings.isEmpty {
-            self.countryCode = altSpellings[0]
+        flagIconURL = URL(string: Endpoints.shared.flagURLString(altSpellings[0]))
         }
-        if let code = countryCode {
-            flagIconURL = URL(string: Endpoints.shared.flagURLString(code))
-        }
+        countryCode = response["alpha3Code"] as? String
     }
 }

@@ -15,11 +15,6 @@ final class CountryListTableViewCell: UITableViewCell {
     @IBOutlet weak var regionImageView: UIImageView!
     @IBOutlet weak var regionLabel: UILabel!
 
-
-    static func newFromNib() -> CountryListTableViewCell {
-        return UINib(nibName: "CountryListTableViewCell", bundle: nil).instantiate(withOwner: nil, options: nil).first as! CountryListTableViewCell
-    }
-
     public func initiateWithData(_ data: CountryRepresentable) {
         populateWith(data)
         formatCell()
@@ -34,18 +29,14 @@ final class CountryListTableViewCell: UITableViewCell {
     }
 
     private func formatCell() {
-        countryNameLabel.font = Constants.Fonts().title
-        populationLabel.font = Constants.Fonts().regular
-        regionLabel.font = Constants.Fonts().regular
-        countryNameLabel.textColor = Constants.Colors().standardBlue
-        populationLabel.textColor = Constants.Colors().standardBlue
-        regionLabel.textColor = Constants.Colors().standardBlue
+        StyleManager.shared.formatLabels([populationLabel, countryNameLabel])
+        StyleManager.shared.formatTitleLabels([regionLabel])
     }
 
     override func setHighlighted(_ highlighted: Bool, animated:Bool) {
         super.setHighlighted(highlighted, animated: animated)
         if (highlighted) {
-            self.backgroundColor = (Constants.Colors().standardBlue)
+            self.backgroundColor = (Colors.standardBlue)
         } else {
             self.backgroundColor = (UIColor.white)
         }

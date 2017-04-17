@@ -31,13 +31,13 @@ struct CountryRepresentable {
             let populationByMillions = Double(populationInt)/1000000
             population = "Population: \(populationByMillions)M"
         } else {
-            population = "Population: \(Constants().stringMissing)"
+            population = "Population: \(StyleManager.shared.stringMissing)"
         }
 
         if let regionString = country.region, let regionValue = country.region, regionValue.characters.count > 0 {
             region = regionString
         } else {
-            region = "Region: \(Constants().stringMissing)"
+            region = "Region: \(StyleManager.shared.stringMissing)"
         }
 
         flagImageURL = country.flagIconURL
@@ -46,29 +46,52 @@ struct CountryRepresentable {
 
 typealias CountryListRepresentable = [CountryRepresentable]
 
-final class CountryListViewModel {
+final class CountryListViewModel: ViewModel {
 
-    weak var delegate: viewModelDelegate?
+    weak var delegate: ViewModelDelegate?
 
-    var loadedCountryList: CountryList?
+    private(set) var loadedCountryList: CountryList?
+
+    init(countryList: CountryList?) {
+        self.loadedCountryList = countryList
+    }
 
     func loadData() {
-        delegate?.viewModelIsLoading()
-        let constructor = Factory(CountryList.self)
-        ConnectionManager.fetch(endPoint: Endpoints.shared.all, constructor: constructor, callback: { (result, error) in
-            if let result = result as? CountryList, let list = result.list {
-                self.loadedCountryList = result
+        if let countryList = loadedCountryList?.list, !countryList.isEmpty {
+            let representableList = countryList.flatMap {
+                return CountryRepresentable($0)
+            }
+            self.delegate?.viewModelDidLoadData(data: representableList, viewModel: self)
+            return
+        }
+
+        delegate?.viewModelIsLoading(viewModel: self)
+
+        Store.shared.fetchAll(completion: { result in
+            switch result {
+            case .success(let countryList):
+            if let countryList = countryList as? CountryList, let list = countryList.list {
                 let representableList = list.flatMap {
                     return CountryRepresentable($0)
                 }
                 DispatchQueue.main.async {
-                self.delegate?.viewModelDidLoadData(data: representableList)
+                self.delegate?.viewModelDidLoadData(data: representableList, viewModel: self)
                 }
-            } else if let error = error {
+            }
+            case .error(let error):
                 DispatchQueue.main.async {
-                self.delegate?.viewModelDidFailWithError(error: error)
+                self.delegate?.viewModelDidFailWithError(error: error, viewModel: self)
                 }
             }
         })
+    }
+
+    func refreshData() {
+        loadedCountryList = nil
+        loadData()
+    }
+
+    func resetSectedState() {
+        loadedCountryList?.list?.forEach({ $0.isSelected = false })
     }
 }

@@ -8,6 +8,13 @@
 
 import Foundation
 
+//TODO: Implement result replacing the tuplet in ConnectionManager 
+
+enum Result {
+    case success(InstantiatableFromResponse)
+    case error(Errors)
+}
+
 struct Endpoints {
 
     static let shared = Endpoints()
@@ -32,25 +39,25 @@ class ConnectionManager {
     static let session: URLSession = URLSession(configuration: URLSessionConfiguration.default)
     static let baseURL = "https://restcountries.eu/rest/v2"
 
-    static func fetch(endPoint: String, constructor: DataConstructor, callback: @escaping (_ response: InstantiatableFromResponse?, _ error: Errors?) -> ()) {
+    static func fetch(endPoint: String, constructor: DataConstructor, callback: @escaping (_ result: Result) -> ()) {
         let url = URL(string: baseURL + endPoint)
         var urlRequest = URLRequest(url: url!)
         urlRequest.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalCacheData
         let task = session.dataTask(with: urlRequest, completionHandler: {
             (data, response, error) in
-            guard error == nil else {
-                callback(nil, Errors.networkError(error: error! as NSError))
+            if let error = error as NSError? {
+                callback(.error(.networkError(error: error)))
                 return
             }
             guard let responseData = data else {
-                callback(nil, .noData)
+                callback(.error(.noData))
                 return
             }
             constructor.instantiateFromResponse(responseData, callback: { (response, error) in
                 if (error != nil) {
-                    callback(nil, error)
+                    callback(.error(.jsonError))
                 } else {
-                    callback(response, nil)
+                    callback(.success(response!))
                 }
             })
         })

@@ -10,45 +10,47 @@ import UIKit
 
 class CountryListViewController: UIViewController {
 
-    lazy var rootView: CountryListRootView = {
-        self.view as! CountryListRootView
+    lazy var rootView: CountryListTableView = {
+        self.view as! CountryListTableView
     }()
 
     lazy var viewModel: CountryListViewModel = {
-        let viewModel = CountryListViewModel()
+        let viewModel = CountryListViewModel(countryList: Store.shared.countries)
         viewModel.delegate = self
         return viewModel
     }()
 
-    var selectedCountry: CountryDetail?
+   // var selectedCountry: CountryDetail?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Constants.Colors().standardBlue, NSFontAttributeName: Constants.Fonts().titleLarge]
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Colors.standardBlue, NSFontAttributeName: StyleManager.Fonts().titleLarge]
         title = "Countries"
         rootView.setUpView()
         rootView.delegate = self
         viewModel.loadData()
     }
 
-
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "detailViewSegue" else {return}
-        let vc = segue.destination as! CountryDetailsViewController
-        vc.country = selectedCountry!
+        if let countryList = viewModel.loadedCountryList {
+        let detailViewController = segue.destination as! CountryDetailsViewController
+        detailViewController.countries = countryList.list
+        }
+        viewModel.resetSectedState()
     }
 }
 
-extension CountryListViewController: viewModelDelegate {
+extension CountryListViewController: ViewModelDelegate {
 
-    func viewModelIsLoading() {
+    func viewModelIsLoading(viewModel: ViewModel) {
         if !rootView.refreshControl.isRefreshing {
             rootView.indicator.startAnimating()
         }
     }
 
-    func viewModelDidLoadData<T>(data: T) {
+    func viewModelDidLoadData<T>(data: T,viewModel: ViewModel) {
         if let data = data as? CountryListRepresentable {
             self.rootView.data = data
             self.rootView.indicator.stopAnimating()
@@ -56,21 +58,21 @@ extension CountryListViewController: viewModelDelegate {
         }
     }
 
-    func viewModelDidFailWithError(error: Errors) {
+    func viewModelDidFailWithError(error: Errors, viewModel: ViewModel) {
         ErrorHandler.handler.showError(error, sender: self)
         self.rootView.indicator.stopAnimating()
         self.rootView.refreshControl.endRefreshing()
     }
 }
 
-extension CountryListViewController: CountryListRootViewDelegate {
-    func rootViewDidRequestDataUpdate() {
-        viewModel.loadData()
+extension CountryListViewController: CountryListViewDelegate {
+    func viewDidRequestDataUpdate() {
+        viewModel.refreshData()
     }
 
-    func rootViewDidSelectCountry(countryName: String) {
+    func viewDidSelectCountry(countryName: String) {
         if let country = viewModel.loadedCountryList?.list?.first(where: { $0.name == countryName }) {
-            selectedCountry = country
+            country.isSelected = true
             self.performSegue(withIdentifier: "detailViewSegue", sender: self)
         }
     }

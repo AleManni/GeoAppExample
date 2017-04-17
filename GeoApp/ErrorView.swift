@@ -20,8 +20,8 @@ class ErrorView: UIView {
     weak var delegate:ErrorViewDelegate?
     
     override func awakeFromNib() {
-        titleLabel.font = Constants.Fonts().title
-        subTextLabel.font = Constants.Fonts().regular
+        titleLabel.font = StyleManager.Fonts().title
+        subTextLabel.font = StyleManager.Fonts().regular
     }
     
     @IBAction func didPressCloseButton(_ sender: AnyObject) {

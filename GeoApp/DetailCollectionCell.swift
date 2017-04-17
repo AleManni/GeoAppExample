@@ -9,25 +9,25 @@
 import UIKit
 
 class DetailCollectionCell: UICollectionViewCell {
-    
+
     @IBOutlet weak var flagImageView: UIImageView!
     @IBOutlet weak var countryCodeLabel: UILabel!
-    
-    func drawLayout() {
-        self.backgroundColor = Constants.Colors().standardBlue
-        let layer = self.layer
+
+    public func initiateWithData(_ data: CountryRegionRepresentable) {
+        populateWith(data)
+        formatCell()
+    }
+
+
+    private func populateWith(_ data: CountryRegionRepresentable) {
+        countryCodeLabel.text = data.countryCode
+        flagImageView.setImageFromURL(data.flagImageURL, placeHolder: #imageLiteral(resourceName: "placeholder"))
+    }
+
+    private func formatCell() {
+        backgroundColor = Colors.standardBlue
         layer.masksToBounds = true
         layer.cornerRadius = 8.0
-        countryCodeLabel.font = Constants.Fonts().small
-        countryCodeLabel.textColor = UIColor.white
-    }
-    
-    func populateWithCountry(_ country: CountryDetail) {
-        if let _ = country.countryCode {
-            countryCodeLabel.text = country.countryCode!.uppercased()
-        }
-        if let url = country.flagIconURL {
-            flagImageView.setImageFromURL(url, placeHolder: #imageLiteral(resourceName: "placeholder"))
-        }
+        StyleManager.shared.formatLabels([countryCodeLabel], color: .white)
     }
 }

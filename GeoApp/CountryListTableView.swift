@@ -1,5 +1,5 @@
 //
-//  CountryListRootView.swift
+//  CountryListTableView.swift
 //  GeoApp
 //
 //  Created by Alessandro Manni on 06/04/2017.
@@ -9,19 +9,18 @@
 import Foundation
 import UIKit
 
-protocol CountryListRootViewDelegate: class {
-    func rootViewDidRequestDataUpdate()
-    func rootViewDidSelectCountry(countryName: String)
+protocol CountryListViewDelegate: class {
+    func viewDidRequestDataUpdate()
+    func viewDidSelectCountry(countryName: String)
 }
 
-class CountryListRootView: UIView {
+class CountryListTableView: UIView {
     @IBOutlet weak var countriesTableView: UITableView!
     @IBOutlet weak var indicator: UIActivityIndicatorView!
 
-    weak var delegate: CountryListRootViewDelegate?
+    weak var delegate: CountryListViewDelegate?
 
-
-    var data: CountryListRepresentable = [] {
+    var data: CountryListRepresentable? {
         didSet {
             countriesTableView.reloadData()
         }
@@ -29,7 +28,7 @@ class CountryListRootView: UIView {
 
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action: #selector(CountryListRootView.handleRefresh(_:)), for: UIControlEvents.valueChanged)
+        refreshControl.addTarget(self, action: #selector(CountryListTableView.handleRefresh(_:)), for: UIControlEvents.valueChanged)
         return refreshControl
     }()
 
@@ -43,23 +42,25 @@ class CountryListRootView: UIView {
     func handleRefresh(_ refreshControl: UIRefreshControl) {
         indicator.stopAnimating()
         data = []
-        delegate?.rootViewDidRequestDataUpdate()
+        delegate?.viewDidRequestDataUpdate()
     }
 }
 
-extension CountryListRootView: UITableViewDelegate, UITableViewDataSource {
+extension CountryListTableView: UITableViewDelegate, UITableViewDataSource {
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return data?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "countryListCell") as! CountryListTableViewCell
-        cell.initiateWithData(data[indexPath.row])
+        if let country = data?[indexPath.row] {
+        cell.initiateWithData(country)
+        }
         return cell
     }
 
@@ -68,7 +69,9 @@ extension CountryListRootView: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.rootViewDidSelectCountry(countryName: data[indexPath.row].name)
+        if let country = data?[indexPath.row] {
+        delegate?.viewDidSelectCountry(countryName: country.name)
+        }
     }
 }
 

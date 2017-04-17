@@ -46,16 +46,16 @@ class ErrorHandler: NSObject, ErrorViewDelegate {
         viewIsShown(true)
         alert!.titleLabel.text = error.description.title
         alert!.subTextLabel.text = error.description.message
-        alert!.titleLabel.textColor = Constants.Colors().standardBlue
-        alert!.subTextLabel.textColor = Constants.Colors().standardBlue
+        alert!.titleLabel.textColor = Colors.standardBlue
+        alert!.subTextLabel.textColor = Colors.standardBlue
         alert!.center = sender.view.center
         sender.view.addSubview(alert!)
         sender.view.bringSubview(toFront: alert!)
-        setUpAlertView(alert!, sender: sender)
+        layoutAlertView(alert!, sender: sender)
     }
     
     
-    func setUpAlertView (_ alert:UIView, sender:UIViewController) {
+    private func layoutAlertView(_ alert:UIView, sender:UIViewController) {
         alert.translatesAutoresizingMaskIntoConstraints = false
         constraintX = NSLayoutConstraint(item: alert, attribute: .centerXWithinMargins, relatedBy: .equal, toItem: sender.view, attribute: .centerXWithinMargins, multiplier: 1, constant: 0)
         constraintY = NSLayoutConstraint(item: alert, attribute: .centerYWithinMargins, relatedBy: .equal, toItem: sender.view, attribute: .centerYWithinMargins, multiplier: 1, constant: 0)
@@ -69,7 +69,7 @@ class ErrorHandler: NSObject, ErrorViewDelegate {
         })
     }
     
-    func setShadow() {
+    private func setShadow() {
         alert!.layer.shadowColor = UIColor.gray.cgColor
         alert!.layer.shadowOpacity = 1
         alert!.layer.shadowOffset = CGSize.zero

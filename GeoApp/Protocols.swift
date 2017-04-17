@@ -17,10 +17,14 @@ protocol DataConstructor: class {
     init(_ objectClass: InstantiatableFromResponse.Type)
 }
 
-protocol viewModelDelegate: class {
-    func viewModelIsLoading()
-    func viewModelDidLoadData<T>(data: T)
-    func viewModelDidFailWithError(error: Errors)
+protocol ViewModelDelegate: class {
+    func viewModelIsLoading(viewModel: ViewModel)
+    func viewModelDidLoadData<T>(data: T, viewModel: ViewModel)
+    func viewModelDidFailWithError(error: Errors, viewModel: ViewModel)
+}
+
+protocol ViewModel: class {
+    func loadData()
 }
 
 

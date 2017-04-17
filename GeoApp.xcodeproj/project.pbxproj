@@ -11,34 +11,38 @@
 		1D1F001E1D36577500E2EF2C /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F001D1D36577500E2EF2C /* ConnectionManager.swift */; };
 		1D1F00211D36577500E2EF2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F001F1D36577500E2EF2C /* Main.storyboard */; };
 		1D1F00231D36577500E2EF2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F00221D36577500E2EF2C /* Assets.xcassets */; };
-		1D1F00261D36577500E2EF2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F00241D36577500E2EF2C /* LaunchScreen.storyboard */; };
 		1D1F00401D36983400E2EF2C /* CountryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F003F1D36983400E2EF2C /* CountryDetail.swift */; };
 		1D1F00421D36A37900E2EF2C /* CountryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F00411D36A37900E2EF2C /* CountryListViewController.swift */; };
 		1D1F00441D36AE9400E2EF2C /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F00431D36AE9400E2EF2C /* ErrorHandler.swift */; };
 		1D1F00491D36AF3100E2EF2C /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F00471D36AF3100E2EF2C /* ErrorView.swift */; };
 		1D1F004A1D36AF3100E2EF2C /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F00481D36AF3100E2EF2C /* ErrorView.xib */; };
-		1D1F004C1D36AF9000E2EF2C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F004B1D36AF9000E2EF2C /* Constants.swift */; };
+		1D1F004C1D36AF9000E2EF2C /* StyleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F004B1D36AF9000E2EF2C /* StyleManager.swift */; };
 		1D1F004E1D36D26900E2EF2C /* CountryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F004D1D36D26900E2EF2C /* CountryList.swift */; };
 		1D5026131E96C0B500DAD325 /* CountryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5026121E96C0B500DAD325 /* CountryListViewModel.swift */; };
-		1D5026191E96C27A00DAD325 /* CountryListRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5026181E96C27A00DAD325 /* CountryListRootView.swift */; };
+		1D5026191E96C27A00DAD325 /* CountryListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5026181E96C27A00DAD325 /* CountryListTableView.swift */; };
 		1D5525171E912C4F009BAEB9 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5525161E912C4F009BAEB9 /* Protocols.swift */; };
 		1D55251B1E91447B009BAEB9 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55251A1E91447B009BAEB9 /* Factory.swift */; };
 		1D5821E41D527AE70059BD2B /* GeoAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFCA26A1D3A10710003B223 /* GeoAppTests.swift */; };
+		1D6AF7C51EA4A07D009B2AE7 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6AF7C41EA4A07D009B2AE7 /* DictionaryExtension.swift */; };
+		1D6AF7C81EA4E352009B2AE7 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6AF7C71EA4E352009B2AE7 /* SplashScreenViewController.swift */; };
+		1D6AF7CA1EA4E5EB009B2AE7 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6AF7C91EA4E5EB009B2AE7 /* Launch.storyboard */; };
+		1D6AF7CF1EA507D0009B2AE7 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6AF7CE1EA507D0009B2AE7 /* Store.swift */; };
+		1D6CDD691EA1439800B53371 /* UIColorExensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6CDD681EA1439800B53371 /* UIColorExensions.swift */; };
 		1DBDD22F1D531EF000D68877 /* GeoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBDD22E1D531EF000D68877 /* GeoAppUITests.swift */; };
 		1DBF1B7F1D3796BF004BD057 /* CountryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBF1B7E1D3796BF004BD057 /* CountryDetailsViewController.swift */; };
 		1DBF1B811D37F10B004BD057 /* DetailCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBF1B801D37F10B004BD057 /* DetailCollectionCell.swift */; };
 		1DC904861E9A408B00D1B5E5 /* CountryDetailsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC904851E9A408B00D1B5E5 /* CountryDetailsRootView.swift */; };
 		1DC904881E9A41A100D1B5E5 /* CountryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC904871E9A41A100D1B5E5 /* CountryDetailsView.swift */; };
-		1DC9048A1E9A41BF00D1B5E5 /* CountryRegionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC904891E9A41BF00D1B5E5 /* CountryRegionCollectionView.swift */; };
+		1DC9048A1E9A41BF00D1B5E5 /* RegionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC904891E9A41BF00D1B5E5 /* RegionCollectionView.swift */; };
 		1DC9048C1E9A41E400D1B5E5 /* BorderingCountriesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9048B1E9A41E400D1B5E5 /* BorderingCountriesTableView.swift */; };
 		1DC9048E1E9A453A00D1B5E5 /* CountryDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9048D1E9A453A00D1B5E5 /* CountryDetailsViewModel.swift */; };
 		1DC904901E9A4A4700D1B5E5 /* CapitalCityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC9048F1E9A4A4700D1B5E5 /* CapitalCityView.swift */; };
 		1DC904921E9A589900D1B5E5 /* CapitalCityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC904911E9A589900D1B5E5 /* CapitalCityViewModel.swift */; };
-		1DC904941E9A591600D1B5E5 /* CountryRegionCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC904931E9A591600D1B5E5 /* CountryRegionCollectionViewModel.swift */; };
+		1DC904941E9A591600D1B5E5 /* RegionCountriesCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC904931E9A591600D1B5E5 /* RegionCountriesCollectionViewModel.swift */; };
 		1DC904961E9A593E00D1B5E5 /* BorderingCountriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC904951E9A593E00D1B5E5 /* BorderingCountriesViewModel.swift */; };
-		1DE6C98C1D36FFB200D5ECE7 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6C98B1D36FFB200D5ECE7 /* UIImageView+Extensions.swift */; };
+		1DE6C98C1D36FFB200D5ECE7 /* UIImageViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DE6C98B1D36FFB200D5ECE7 /* UIImageViewExtensions.swift */; };
 		1DEB8E161D36EB7A008EC2DA /* CountryListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB8E151D36EB7A008EC2DA /* CountryListTableViewCell.xib */; };
-		1DEB8E1A1D36F059008EC2DA /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB8E191D36F059008EC2DA /* String+Extensions.swift */; };
+		1DEB8E1A1D36F059008EC2DA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB8E191D36F059008EC2DA /* StringExtensions.swift */; };
 		1DEB8E1C1D36F918008EC2DA /* CountryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB8E1B1D36F918008EC2DA /* CountryListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,19 +69,23 @@
 		1D1F001D1D36577500E2EF2C /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		1D1F00201D36577500E2EF2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1D1F00221D36577500E2EF2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1D1F00251D36577500E2EF2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1D1F00271D36577500E2EF2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D1F003F1D36983400E2EF2C /* CountryDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDetail.swift; sourceTree = "<group>"; };
 		1D1F00411D36A37900E2EF2C /* CountryListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListViewController.swift; sourceTree = "<group>"; };
 		1D1F00431D36AE9400E2EF2C /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		1D1F00471D36AF3100E2EF2C /* ErrorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		1D1F00481D36AF3100E2EF2C /* ErrorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
-		1D1F004B1D36AF9000E2EF2C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1D1F004B1D36AF9000E2EF2C /* StyleManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleManager.swift; sourceTree = "<group>"; };
 		1D1F004D1D36D26900E2EF2C /* CountryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryList.swift; sourceTree = "<group>"; };
 		1D5026121E96C0B500DAD325 /* CountryListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListViewModel.swift; sourceTree = "<group>"; };
-		1D5026181E96C27A00DAD325 /* CountryListRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListRootView.swift; sourceTree = "<group>"; };
+		1D5026181E96C27A00DAD325 /* CountryListTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListTableView.swift; sourceTree = "<group>"; };
 		1D5525161E912C4F009BAEB9 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		1D55251A1E91447B009BAEB9 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		1D6AF7C41EA4A07D009B2AE7 /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
+		1D6AF7C71EA4E352009B2AE7 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		1D6AF7C91EA4E5EB009B2AE7 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		1D6AF7CE1EA507D0009B2AE7 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		1D6CDD681EA1439800B53371 /* UIColorExensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExensions.swift; sourceTree = "<group>"; };
 		1DBDD22C1D531EF000D68877 /* GeoAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DBDD22E1D531EF000D68877 /* GeoAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoAppUITests.swift; sourceTree = "<group>"; };
 		1DBDD2301D531EF000D68877 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -85,16 +93,16 @@
 		1DBF1B801D37F10B004BD057 /* DetailCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCollectionCell.swift; sourceTree = "<group>"; };
 		1DC904851E9A408B00D1B5E5 /* CountryDetailsRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDetailsRootView.swift; sourceTree = "<group>"; };
 		1DC904871E9A41A100D1B5E5 /* CountryDetailsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDetailsView.swift; sourceTree = "<group>"; };
-		1DC904891E9A41BF00D1B5E5 /* CountryRegionCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryRegionCollectionView.swift; sourceTree = "<group>"; };
+		1DC904891E9A41BF00D1B5E5 /* RegionCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionCollectionView.swift; sourceTree = "<group>"; };
 		1DC9048B1E9A41E400D1B5E5 /* BorderingCountriesTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderingCountriesTableView.swift; sourceTree = "<group>"; };
 		1DC9048D1E9A453A00D1B5E5 /* CountryDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryDetailsViewModel.swift; sourceTree = "<group>"; };
 		1DC9048F1E9A4A4700D1B5E5 /* CapitalCityView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalCityView.swift; sourceTree = "<group>"; };
 		1DC904911E9A589900D1B5E5 /* CapitalCityViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalCityViewModel.swift; sourceTree = "<group>"; };
-		1DC904931E9A591600D1B5E5 /* CountryRegionCollectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryRegionCollectionViewModel.swift; sourceTree = "<group>"; };
+		1DC904931E9A591600D1B5E5 /* RegionCountriesCollectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionCountriesCollectionViewModel.swift; sourceTree = "<group>"; };
 		1DC904951E9A593E00D1B5E5 /* BorderingCountriesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderingCountriesViewModel.swift; sourceTree = "<group>"; };
-		1DE6C98B1D36FFB200D5ECE7 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
+		1DE6C98B1D36FFB200D5ECE7 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		1DEB8E151D36EB7A008EC2DA /* CountryListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountryListTableViewCell.xib; sourceTree = "<group>"; };
-		1DEB8E191D36F059008EC2DA /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		1DEB8E191D36F059008EC2DA /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		1DEB8E1B1D36F918008EC2DA /* CountryListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListTableViewCell.swift; sourceTree = "<group>"; };
 		1DFCA2681D3A10710003B223 /* GeoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DFCA26A1D3A10710003B223 /* GeoAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoAppTests.swift; sourceTree = "<group>"; };
@@ -157,8 +165,8 @@
 				1D1F00451D36AF0300E2EF2C /* Controllers */,
 				1D1F00461D36AF1000E2EF2C /* ExtraViews */,
 				1D1F001F1D36577500E2EF2C /* Main.storyboard */,
+				1D6AF7C91EA4E5EB009B2AE7 /* Launch.storyboard */,
 				1D1F00221D36577500E2EF2C /* Assets.xcassets */,
-				1D1F00241D36577500E2EF2C /* LaunchScreen.storyboard */,
 				1D1F00271D36577500E2EF2C /* Info.plist */,
 			);
 			path = GeoApp;
@@ -179,7 +187,7 @@
 				1D55251C1E9170C2009BAEB9 /* Extensions */,
 				1D55251D1E9170F2009BAEB9 /* Services */,
 				1D1F00431D36AE9400E2EF2C /* ErrorHandler.swift */,
-				1D1F004B1D36AF9000E2EF2C /* Constants.swift */,
+				1D1F004B1D36AF9000E2EF2C /* StyleManager.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -187,6 +195,7 @@
 		1D1F00451D36AF0300E2EF2C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1D6AF7C61EA4E339009B2AE7 /* SplashScreen */,
 				1D5026141E96C1E400DAD325 /* CountryListViewController */,
 				1D5026161E96C21500DAD325 /* CountryDetailsViewController */,
 			);
@@ -208,7 +217,7 @@
 				1D5026121E96C0B500DAD325 /* CountryListViewModel.swift */,
 				1DC9048D1E9A453A00D1B5E5 /* CountryDetailsViewModel.swift */,
 				1DC904911E9A589900D1B5E5 /* CapitalCityViewModel.swift */,
-				1DC904931E9A591600D1B5E5 /* CountryRegionCollectionViewModel.swift */,
+				1DC904931E9A591600D1B5E5 /* RegionCountriesCollectionViewModel.swift */,
 				1DC904951E9A593E00D1B5E5 /* BorderingCountriesViewModel.swift */,
 			);
 			name = ViewModels;
@@ -228,7 +237,7 @@
 			children = (
 				1DEB8E1B1D36F918008EC2DA /* CountryListTableViewCell.swift */,
 				1DEB8E151D36EB7A008EC2DA /* CountryListTableViewCell.xib */,
-				1D5026181E96C27A00DAD325 /* CountryListRootView.swift */,
+				1D5026181E96C27A00DAD325 /* CountryListTableView.swift */,
 			);
 			name = viewControllerViews;
 			sourceTree = "<group>";
@@ -249,7 +258,7 @@
 				1DC904851E9A408B00D1B5E5 /* CountryDetailsRootView.swift */,
 				1DC904871E9A41A100D1B5E5 /* CountryDetailsView.swift */,
 				1DC9048F1E9A4A4700D1B5E5 /* CapitalCityView.swift */,
-				1DC904891E9A41BF00D1B5E5 /* CountryRegionCollectionView.swift */,
+				1DC904891E9A41BF00D1B5E5 /* RegionCollectionView.swift */,
 				1DC9048B1E9A41E400D1B5E5 /* BorderingCountriesTableView.swift */,
 			);
 			name = viewControllerViews;
@@ -266,8 +275,10 @@
 		1D55251C1E9170C2009BAEB9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				1DEB8E191D36F059008EC2DA /* String+Extensions.swift */,
-				1DE6C98B1D36FFB200D5ECE7 /* UIImageView+Extensions.swift */,
+				1DEB8E191D36F059008EC2DA /* StringExtensions.swift */,
+				1DE6C98B1D36FFB200D5ECE7 /* UIImageViewExtensions.swift */,
+				1D6CDD681EA1439800B53371 /* UIColorExensions.swift */,
+				1D6AF7C41EA4A07D009B2AE7 /* DictionaryExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -277,8 +288,17 @@
 			children = (
 				1D1F001D1D36577500E2EF2C /* ConnectionManager.swift */,
 				1D55251A1E91447B009BAEB9 /* Factory.swift */,
+				1D6AF7CE1EA507D0009B2AE7 /* Store.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		1D6AF7C61EA4E339009B2AE7 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1D6AF7C71EA4E352009B2AE7 /* SplashScreenViewController.swift */,
+			);
+			name = SplashScreen;
 			sourceTree = "<group>";
 		};
 		1DBDD22D1D531EF000D68877 /* GeoAppUITests */ = {
@@ -367,6 +387,7 @@
 				TargetAttributes = {
 					1D1F00171D36577500E2EF2C = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = DY95X747ZU;
 						LastSwiftMigration = 0820;
 					};
 					1DBDD22B1D531EF000D68877 = {
@@ -406,10 +427,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1D1F00261D36577500E2EF2C /* LaunchScreen.storyboard in Resources */,
 				1D1F00231D36577500E2EF2C /* Assets.xcassets in Resources */,
 				1D1F00211D36577500E2EF2C /* Main.storyboard in Resources */,
 				1DEB8E161D36EB7A008EC2DA /* CountryListTableViewCell.xib in Resources */,
+				1D6AF7CA1EA4E5EB009B2AE7 /* Launch.storyboard in Resources */,
 				1D1F004A1D36AF3100E2EF2C /* ErrorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,29 +457,33 @@
 			buildActionMask = 2147483647;
 			files = (
 				1DC904961E9A593E00D1B5E5 /* BorderingCountriesViewModel.swift in Sources */,
-				1DEB8E1A1D36F059008EC2DA /* String+Extensions.swift in Sources */,
+				1DEB8E1A1D36F059008EC2DA /* StringExtensions.swift in Sources */,
 				1D5026131E96C0B500DAD325 /* CountryListViewModel.swift in Sources */,
 				1D1F004E1D36D26900E2EF2C /* CountryList.swift in Sources */,
-				1D5026191E96C27A00DAD325 /* CountryListRootView.swift in Sources */,
-				1DC904941E9A591600D1B5E5 /* CountryRegionCollectionViewModel.swift in Sources */,
+				1D5026191E96C27A00DAD325 /* CountryListTableView.swift in Sources */,
+				1DC904941E9A591600D1B5E5 /* RegionCountriesCollectionViewModel.swift in Sources */,
 				1D1F00421D36A37900E2EF2C /* CountryListViewController.swift in Sources */,
 				1DEB8E1C1D36F918008EC2DA /* CountryListTableViewCell.swift in Sources */,
 				1DBF1B811D37F10B004BD057 /* DetailCollectionCell.swift in Sources */,
+				1D6AF7C81EA4E352009B2AE7 /* SplashScreenViewController.swift in Sources */,
 				1D1F00401D36983400E2EF2C /* CountryDetail.swift in Sources */,
 				1DC904861E9A408B00D1B5E5 /* CountryDetailsRootView.swift in Sources */,
-				1DC9048A1E9A41BF00D1B5E5 /* CountryRegionCollectionView.swift in Sources */,
-				1DE6C98C1D36FFB200D5ECE7 /* UIImageView+Extensions.swift in Sources */,
+				1D6CDD691EA1439800B53371 /* UIColorExensions.swift in Sources */,
+				1DC9048A1E9A41BF00D1B5E5 /* RegionCollectionView.swift in Sources */,
+				1DE6C98C1D36FFB200D5ECE7 /* UIImageViewExtensions.swift in Sources */,
+				1D6AF7CF1EA507D0009B2AE7 /* Store.swift in Sources */,
 				1D1F00441D36AE9400E2EF2C /* ErrorHandler.swift in Sources */,
 				1D1F00491D36AF3100E2EF2C /* ErrorView.swift in Sources */,
 				1D5525171E912C4F009BAEB9 /* Protocols.swift in Sources */,
 				1DC904921E9A589900D1B5E5 /* CapitalCityViewModel.swift in Sources */,
 				1DC904901E9A4A4700D1B5E5 /* CapitalCityView.swift in Sources */,
+				1D6AF7C51EA4A07D009B2AE7 /* DictionaryExtension.swift in Sources */,
 				1D1F001E1D36577500E2EF2C /* ConnectionManager.swift in Sources */,
 				1DC904881E9A41A100D1B5E5 /* CountryDetailsView.swift in Sources */,
 				1D1F001C1D36577500E2EF2C /* AppDelegate.swift in Sources */,
 				1DBF1B7F1D3796BF004BD057 /* CountryDetailsViewController.swift in Sources */,
 				1DC9048E1E9A453A00D1B5E5 /* CountryDetailsViewModel.swift in Sources */,
-				1D1F004C1D36AF9000E2EF2C /* Constants.swift in Sources */,
+				1D1F004C1D36AF9000E2EF2C /* StyleManager.swift in Sources */,
 				1DC9048C1E9A41E400D1B5E5 /* BorderingCountriesTableView.swift in Sources */,
 				1D55251B1E91447B009BAEB9 /* Factory.swift in Sources */,
 			);
@@ -502,14 +527,6 @@
 				1D1F00201D36577500E2EF2C /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		1D1F00241D36577500E2EF2C /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				1D1F00251D36577500E2EF2C /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -603,6 +620,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DY95X747ZU;
 				INFOPLIST_FILE = GeoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -616,6 +634,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = DY95X747ZU;
 				INFOPLIST_FILE = GeoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

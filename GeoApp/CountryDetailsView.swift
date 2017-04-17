@@ -26,4 +26,30 @@ final class CountryDetailsView: UIView {
     @IBOutlet weak var timeZoneTitle: UILabel!
     @IBOutlet weak var separator: UIView!
 
+    func initiate(data: CountryDetailsRepresentable?) {
+        populate(data: data)
+        formatText()
+    }
+
+    private func populate(data: CountryDetailsRepresentable?) {
+        guard let data = data else {
+            return
+        }
+        if let url = data.flagImageURL {
+            flagImageView.setImageFromURL(url, placeHolder: #imageLiteral(resourceName: "placeholder"))
+        }
+        nativeNameLabel.text = data.nativeName
+        populationLabel.text = data.population
+        languagesLabel.text = data.languages
+        currencyLabel.text = data.currency
+        phoneLabel.text = data.phoneLabel
+        timeZoneLabel.text = data.timeZone
+    }
+
+    private func formatText() {
+        let labelsArray = [nativeNameLabel, populationLabel, languagesLabel, currencyLabel, phoneLabel, timeZoneLabel]
+        let titlesArray = [languagesTitle, currencyTitle, phoneTitle, timeZoneTitle]
+        StyleManager.shared.formatLabels(labelsArray as! [UILabel])
+        StyleManager.shared.formatTitleLabels(titlesArray as! [UILabel])
+    }
 }

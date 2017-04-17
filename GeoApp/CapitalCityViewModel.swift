@@ -8,6 +8,37 @@
 
 import Foundation
 
-final class CapitalCityViewModel {
-    
+struct CapitalCityRepresentable {
+    let capital: String
+    let region: String
+
+    init(_ country: CountryDetail) {
+        if let capital = country.capital {
+            self.capital = capital
+        } else {
+            self.capital = StyleManager.shared.stringMissing
+        }
+
+        if let region = country.region {
+            self.region = region
+        } else {
+            self.region = StyleManager.shared.stringMissing
+        }
+    }
+}
+
+
+final class CapitalCityViewModel: ViewModel {
+
+    weak var delegate: ViewModelDelegate?
+    let country: CountryDetail
+
+    init(country: CountryDetail) {
+        self.country = country
+    }
+
+    func loadData() {
+        let representableCapitalCity = CapitalCityRepresentable(country)
+        self.delegate?.viewModelDidLoadData(data: representableCapitalCity, viewModel: self)
+    }
 }
