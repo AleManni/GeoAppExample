@@ -26,6 +26,10 @@ class CountryListTableView: UIView {
         }
     }
 
+    var intrinsicHeight: CGFloat {
+        return CGFloat(tableView(countriesTableView, numberOfRowsInSection: 0) * 120)
+    }
+
     lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(CountryListTableView.handleRefresh(_:)), for: UIControlEvents.valueChanged)

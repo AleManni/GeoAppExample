@@ -12,6 +12,7 @@ import UIKit
 final class RegionCollectionView: UIView {
     @IBOutlet weak var regionDetailTitle: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var separator: UIView!
 
     var data: [CountryRegionRepresentable]? {
         didSet {

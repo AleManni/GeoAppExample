@@ -23,8 +23,10 @@ final class CountryDetailsRootView: UIView {
 
     weak var delegate: CountryListViewDelegate?
 
-    func setUpSubViews() {
-
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        regionDetailViewHeightConstr.constant = 0
+        neighbouringCountriesViewHeightConstr.constant = 0
     }
 
     var countryDetailsData: CountryDetailsRepresentable? {
@@ -36,6 +38,7 @@ final class CountryDetailsRootView: UIView {
     var capitalCityData: CapitalCityRepresentable? {
         didSet {
             capitalCityView.initiate(data: capitalCityData)
+            capitalCityView.delegate = self
         }
     }
 
@@ -50,6 +53,11 @@ final class CountryDetailsRootView: UIView {
             neighbouringCountriesView.data = borderingCountriesData
         }
     }
+
+    fileprivate let topOffset = CGPoint(x: 0,  y: 0)
+    fileprivate var bottomOffSet: CGPoint {
+        return CGPoint(x: 0, y: countryDetailsView.bounds.size.height)
+    }
 }
 
 extension CountryDetailsRootView: CountryListViewDelegate {
@@ -61,3 +69,30 @@ extension CountryDetailsRootView: CountryListViewDelegate {
         delegate?.viewDidSelectCountry(countryName: countryName)
     }
 }
+
+extension CountryDetailsRootView: CapitalCityViewDelegate {
+
+    func capitalViewDidSelectRegion(_ didSelect: Bool) {
+        UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 4, initialSpringVelocity: 50, options: UIViewAnimationOptions(), animations: { () in
+            self.regionDetailViewHeightConstr.constant = didSelect ? 135 : 0
+            self.regionDetailView.separator.isHidden = !didSelect
+            self.layoutIfNeeded() },
+                       completion: {(finished: Bool) in
+        })
+    }
+
+    func capitalViewDidSelectBorders(_ didSelect: Bool) {
+        UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 4, initialSpringVelocity: 50, options: UIViewAnimationOptions(), animations: { () in
+            self.neighbouringCountriesViewHeightConstr.constant = didSelect ? self.neighbouringCountriesView.intrinsicHeight : 0
+            if didSelect {
+                self.scrollView.setContentOffset(self.bottomOffSet, animated: true)
+            }
+            self.layoutIfNeeded() },
+                       completion: {(finished: Bool) in
+                        if !didSelect {
+                            self.scrollView.setContentOffset(self.topOffset, animated: true)
+                        }
+        })
+    }
+}
+

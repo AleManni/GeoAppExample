@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 final class BorderingCountriesTableView: UIView {
-     @IBOutlet weak var tableView: CountryListTableView!
+    @IBOutlet weak var tableView: CountryListTableView!
 
     var data: CountryListRepresentable? {
         didSet {
@@ -19,15 +19,18 @@ final class BorderingCountriesTableView: UIView {
             tableView.delegate = self
         }
     }
-    
+
+    var intrinsicHeight: CGFloat {
+        return tableView.intrinsicHeight
+    }
 }
 
-extension BorderingCountriesTableView: CountryListViewDelegate {
-    func viewDidRequestDataUpdate() {
+    extension BorderingCountriesTableView: CountryListViewDelegate {
+        func viewDidRequestDataUpdate() {
 
-    }
-    func viewDidSelectCountry(countryName: String) {
-
-    }
-    
+        }
+        func viewDidSelectCountry(countryName: String) {
+            
+        }
+        
 }

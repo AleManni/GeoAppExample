@@ -110,7 +110,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="1536"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Na9-7J-rv6" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="1586"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="530"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8CJ-C8-MuF" userLabel="CountryDetailsView" customClass="CountryDetailsView" customModule="GeoApp" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="208"/>
@@ -300,6 +300,7 @@
                                                     <constraint firstItem="JhU-Zh-CxV" firstAttribute="leading" secondItem="8CJ-C8-MuF" secondAttribute="leading" id="3eI-dy-bRs"/>
                                                     <constraint firstItem="tGf-1D-zH7" firstAttribute="width" secondItem="JhU-Zh-CxV" secondAttribute="width" id="5VL-l7-iga"/>
                                                     <constraint firstItem="vR0-wK-rmd" firstAttribute="leading" secondItem="8CJ-C8-MuF" secondAttribute="leading" constant="20" id="79F-fq-6WU"/>
+                                                    <constraint firstAttribute="height" constant="208" id="7Cs-g0-5P7"/>
                                                     <constraint firstItem="JhU-Zh-CxV" firstAttribute="top" secondItem="3xq-wr-nmx" secondAttribute="bottom" constant="18" id="7Qw-aB-qyq"/>
                                                     <constraint firstItem="3EP-dP-e4G" firstAttribute="top" secondItem="JhU-Zh-CxV" secondAttribute="bottom" id="9Rm-aG-sQQ"/>
                                                     <constraint firstAttribute="bottom" secondItem="BgX-8j-or5" secondAttribute="bottom" id="9SE-UA-orS"/>
@@ -422,9 +423,6 @@
                                                                 <exclude reference="RU7-sh-bAy"/>
                                                             </mask>
                                                         </variation>
-                                                        <connections>
-                                                            <outletCollection property="gestureRecognizers" destination="1Jk-LH-Am2" appends="YES" id="ihS-WK-TjH"/>
-                                                        </connections>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pJ5-eY-BSX" userLabel="SideView">
                                                         <rect key="frame" x="0.0" y="0.0" width="8" height="171"/>
@@ -493,9 +491,6 @@
                                                                 <exclude reference="TT9-cz-nQO"/>
                                                             </mask>
                                                         </variation>
-                                                        <connections>
-                                                            <outletCollection property="gestureRecognizers" destination="MGh-Qc-Rc8" appends="YES" id="UXb-as-c6E"/>
-                                                        </connections>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -519,13 +514,12 @@
                                                     <constraint firstItem="pJ5-eY-BSX" firstAttribute="leading" secondItem="Ul7-pH-Drh" secondAttribute="leading" id="oAv-sM-akS"/>
                                                     <constraint firstItem="uhc-Pb-aY5" firstAttribute="leading" secondItem="Ul7-pH-Drh" secondAttribute="leading" constant="20" id="omc-ak-n7K"/>
                                                     <constraint firstItem="fag-rh-Z01" firstAttribute="width" secondItem="mD7-Kz-aXB" secondAttribute="width" id="uVV-a0-LMq"/>
-                                                    <constraint firstItem="uhc-Pb-aY5" firstAttribute="top" secondItem="x43-ft-1AR" secondAttribute="bottom" constant="18" id="v82-yR-Yeb"/>
                                                     <constraint firstItem="fag-rh-Z01" firstAttribute="leading" secondItem="mD7-Kz-aXB" secondAttribute="leading" id="yax-Jo-cdC"/>
+                                                    <constraint firstAttribute="height" constant="171" id="zyr-3V-73E"/>
                                                 </constraints>
                                                 <variation key="default">
                                                     <mask key="constraints">
                                                         <exclude reference="IxU-sj-aUc"/>
-                                                        <exclude reference="v82-yR-Yeb"/>
                                                         <exclude reference="yax-Jo-cdC"/>
                                                     </mask>
                                                 </variation>
@@ -568,7 +562,7 @@
                                                         <rect key="frame" x="20" y="37" width="580" height="1"/>
                                                         <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="1" id="FbE-cY-eUe"/>
+                                                            <constraint firstAttribute="height" priority="750" constant="1" id="FbE-cY-eUe"/>
                                                         </constraints>
                                                     </view>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aST-xU-B50">
@@ -641,50 +635,29 @@
                                                     <constraint firstItem="H9P-t4-oT2" firstAttribute="leading" secondItem="Yfs-cp-mJ6" secondAttribute="trailing" constant="12" id="Bsj-1M-NBq"/>
                                                     <constraint firstItem="HWP-bg-SgG" firstAttribute="top" secondItem="H9P-t4-oT2" secondAttribute="bottom" priority="750" constant="8" id="EGB-ij-qfh"/>
                                                     <constraint firstItem="Yfs-cp-mJ6" firstAttribute="top" secondItem="0Hx-6h-S7G" secondAttribute="top" id="F3C-ic-KWw"/>
-                                                    <constraint firstItem="HWP-bg-SgG" firstAttribute="top" secondItem="H9P-t4-oT2" secondAttribute="bottom" constant="18" id="IDA-iv-RUV"/>
                                                     <constraint firstItem="H9P-t4-oT2" firstAttribute="top" secondItem="0Hx-6h-S7G" secondAttribute="top" constant="18" id="V6y-yq-Xa5"/>
-                                                    <constraint firstItem="H9P-t4-oT2" firstAttribute="leading" secondItem="0Hx-6h-S7G" secondAttribute="leading" constant="20" id="Wbz-SJ-Zqe"/>
-                                                    <constraint firstAttribute="height" constant="192" id="YkF-1b-i55"/>
                                                     <constraint firstItem="Yfs-cp-mJ6" firstAttribute="leading" secondItem="0Hx-6h-S7G" secondAttribute="leading" id="dHw-Y1-rY7"/>
-                                                    <constraint firstAttribute="trailing" secondItem="HWP-bg-SgG" secondAttribute="trailing" id="gSQ-M7-u9r"/>
-                                                    <constraint firstItem="Yfs-cp-mJ6" firstAttribute="top" secondItem="0Hx-6h-S7G" secondAttribute="top" id="h5r-rj-Dlh"/>
                                                     <constraint firstAttribute="height" constant="135" id="hWs-ER-HX6"/>
-                                                    <constraint firstItem="H9P-t4-oT2" firstAttribute="leading" secondItem="Yfs-cp-mJ6" secondAttribute="trailing" constant="8" id="lH1-hI-cPn"/>
-                                                    <constraint firstAttribute="bottom" secondItem="aST-xU-B50" secondAttribute="bottom" id="mSa-MD-vcA"/>
                                                     <constraint firstItem="aST-xU-B50" firstAttribute="leading" secondItem="H9P-t4-oT2" secondAttribute="leading" id="mk3-Uc-J9V"/>
                                                     <constraint firstAttribute="trailing" secondItem="HWP-bg-SgG" secondAttribute="trailing" id="n7y-Il-tvs"/>
                                                     <constraint firstAttribute="bottom" secondItem="Yfs-cp-mJ6" secondAttribute="bottom" id="opd-sc-Oav"/>
-                                                    <constraint firstItem="HWP-bg-SgG" firstAttribute="leading" secondItem="0Hx-6h-S7G" secondAttribute="leading" constant="20" id="p8J-5w-kEX"/>
                                                     <constraint firstItem="aST-xU-B50" firstAttribute="top" secondItem="HWP-bg-SgG" secondAttribute="bottom" constant="8" id="poM-gB-tqT"/>
-                                                    <constraint firstItem="HWP-bg-SgG" firstAttribute="leading" secondItem="Yfs-cp-mJ6" secondAttribute="leading" constant="28" id="qaz-Mo-FFf"/>
                                                     <constraint firstItem="HWP-bg-SgG" firstAttribute="leading" secondItem="H9P-t4-oT2" secondAttribute="leading" id="rGe-Uz-qnH"/>
                                                 </constraints>
-                                                <variation key="default">
-                                                    <mask key="constraints">
-                                                        <exclude reference="YkF-1b-i55"/>
-                                                        <exclude reference="h5r-rj-Dlh"/>
-                                                        <exclude reference="Wbz-SJ-Zqe"/>
-                                                        <exclude reference="lH1-hI-cPn"/>
-                                                        <exclude reference="IDA-iv-RUV"/>
-                                                        <exclude reference="gSQ-M7-u9r"/>
-                                                        <exclude reference="p8J-5w-kEX"/>
-                                                        <exclude reference="qaz-Mo-FFf"/>
-                                                        <exclude reference="mSa-MD-vcA"/>
-                                                    </mask>
-                                                </variation>
                                                 <connections>
                                                     <outlet property="collectionView" destination="aST-xU-B50" id="nqV-eh-Skh"/>
                                                     <outlet property="regionDetailTitle" destination="H9P-t4-oT2" id="hAz-yI-58K"/>
+                                                    <outlet property="separator" destination="HWP-bg-SgG" id="4XR-z6-hnO"/>
                                                 </connections>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TEp-8m-dfE" userLabel="NeighbouringCountriesView" customClass="BorderingCountriesTableView" customModule="GeoApp" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="530" width="600" height="1056"/>
+                                                <rect key="frame" x="0.0" y="530" width="600" height="0.0"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unD-12-bOu" userLabel="SectionTitleView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unD-12-bOu" userLabel="SectionTitleView">
+                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="0.0"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bordering Countries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4b-FL-2g2">
-                                                                <rect key="frame" x="203.5" y="13.5" width="194" height="24"/>
+                                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bordering Countries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4b-FL-2g2">
+                                                                <rect key="frame" x="203.5" y="-11.5" width="194" height="24"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -694,24 +667,15 @@
                                                         <constraints>
                                                             <constraint firstItem="H4b-FL-2g2" firstAttribute="centerX" secondItem="unD-12-bOu" secondAttribute="centerX" id="5yU-lx-msk"/>
                                                             <constraint firstItem="H4b-FL-2g2" firstAttribute="centerY" secondItem="unD-12-bOu" secondAttribute="centerY" id="Ukj-ZK-zfy"/>
-                                                            <constraint firstAttribute="height" constant="50" id="aZW-nA-Bdx"/>
+                                                            <constraint firstAttribute="height" priority="750" constant="50" id="aZW-nA-Bdx"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4e-8l-fB4" userLabel="CountryListView" customClass="CountryListTableView" customModule="GeoApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="50" width="600" height="1006"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="0.0"/>
                                                         <subviews>
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TTb-BL-gds">
-                                                                <rect key="frame" x="0.0" y="0.0" width="600" height="1006"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="600" height="0.0"/>
                                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="1006" id="g4H-aM-tSy"/>
-                                                                    <constraint firstAttribute="height" constant="275" id="rjG-dN-GY6"/>
-                                                                </constraints>
-                                                                <variation key="default">
-                                                                    <mask key="constraints">
-                                                                        <exclude reference="rjG-dN-GY6"/>
-                                                                    </mask>
-                                                                </variation>
                                                                 <connections>
                                                                     <outlet property="dataSource" destination="e4e-8l-fB4" id="Qsf-4x-lBJ"/>
                                                                     <outlet property="delegate" destination="e4e-8l-fB4" id="FEj-x7-Gjo"/>
@@ -720,7 +684,7 @@
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="bottom" secondItem="TTb-BL-gds" secondAttribute="bottom" id="L4B-qa-J7x"/>
+                                                            <constraint firstAttribute="bottom" secondItem="TTb-BL-gds" secondAttribute="bottom" id="DC7-2c-ean"/>
                                                             <constraint firstItem="TTb-BL-gds" firstAttribute="leading" secondItem="e4e-8l-fB4" secondAttribute="leading" id="ObZ-KR-vqV"/>
                                                             <constraint firstItem="TTb-BL-gds" firstAttribute="top" secondItem="e4e-8l-fB4" secondAttribute="top" id="bth-wU-bdf"/>
                                                             <constraint firstAttribute="trailing" secondItem="TTb-BL-gds" secondAttribute="trailing" id="lzD-zy-vZh"/>
@@ -736,7 +700,7 @@
                                                     <constraint firstItem="e4e-8l-fB4" firstAttribute="leading" secondItem="TEp-8m-dfE" secondAttribute="leading" id="Gg3-hD-bTF"/>
                                                     <constraint firstItem="unD-12-bOu" firstAttribute="top" secondItem="TEp-8m-dfE" secondAttribute="top" id="Lw6-Zf-96c"/>
                                                     <constraint firstAttribute="trailing" secondItem="unD-12-bOu" secondAttribute="trailing" id="PPY-oj-2Xi"/>
-                                                    <constraint firstItem="e4e-8l-fB4" firstAttribute="top" secondItem="TEp-8m-dfE" secondAttribute="top" constant="50" id="jUh-V3-dxX"/>
+                                                    <constraint firstAttribute="height" id="kS9-uE-QN1"/>
                                                     <constraint firstItem="unD-12-bOu" firstAttribute="leading" secondItem="TEp-8m-dfE" secondAttribute="leading" id="mvH-Gd-rb4"/>
                                                     <constraint firstAttribute="bottom" secondItem="e4e-8l-fB4" secondAttribute="bottom" id="nrM-f3-eOP"/>
                                                     <constraint firstAttribute="trailing" secondItem="e4e-8l-fB4" secondAttribute="trailing" id="p7X-FC-BxO"/>
@@ -749,42 +713,20 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="8CJ-C8-MuF" firstAttribute="leading" secondItem="Na9-7J-rv6" secondAttribute="leading" id="6nT-ZX-dYa"/>
-                                            <constraint firstItem="Ul7-pH-Drh" firstAttribute="leading" secondItem="Na9-7J-rv6" secondAttribute="leading" id="91Q-ms-CdH"/>
                                             <constraint firstAttribute="trailing" secondItem="TEp-8m-dfE" secondAttribute="trailing" id="9NR-YP-WBP"/>
                                             <constraint firstAttribute="trailing" secondItem="8CJ-C8-MuF" secondAttribute="trailing" id="9O7-eQ-Imm"/>
                                             <constraint firstAttribute="trailing" secondItem="Ul7-pH-Drh" secondAttribute="trailing" id="AK3-LK-9km"/>
-                                            <constraint firstAttribute="height" constant="1020" id="BAt-2j-gcG"/>
                                             <constraint firstItem="TEp-8m-dfE" firstAttribute="leading" secondItem="Na9-7J-rv6" secondAttribute="leading" id="DM1-Ms-ST6"/>
                                             <constraint firstItem="0Hx-6h-S7G" firstAttribute="top" secondItem="Ul7-pH-Drh" secondAttribute="bottom" constant="8" id="HnC-Wx-qJQ"/>
                                             <constraint firstItem="Ul7-pH-Drh" firstAttribute="leading" secondItem="Na9-7J-rv6" secondAttribute="leading" id="LqG-Jw-2bF"/>
-                                            <constraint firstAttribute="bottom" secondItem="Ul7-pH-Drh" secondAttribute="bottom" id="Toh-qv-HTG"/>
                                             <constraint firstItem="Ul7-pH-Drh" firstAttribute="top" secondItem="8CJ-C8-MuF" secondAttribute="bottom" constant="8" id="VJo-tF-si7"/>
                                             <constraint firstItem="aST-xU-B50" firstAttribute="trailing" secondItem="gym-mH-Qcd" secondAttribute="trailing" id="WrH-Yb-yCj"/>
                                             <constraint firstItem="8CJ-C8-MuF" firstAttribute="top" secondItem="Na9-7J-rv6" secondAttribute="top" id="Zj2-Yq-vu4"/>
-                                            <constraint firstItem="8CJ-C8-MuF" firstAttribute="leading" secondItem="Na9-7J-rv6" secondAttribute="leading" id="awL-9e-Zjl"/>
-                                            <constraint firstAttribute="bottom" secondItem="0Hx-6h-S7G" secondAttribute="bottom" id="bUX-Nc-TP1"/>
                                             <constraint firstAttribute="trailing" secondItem="0Hx-6h-S7G" secondAttribute="trailing" id="c7d-NT-7cs"/>
                                             <constraint firstAttribute="bottom" secondItem="TEp-8m-dfE" secondAttribute="bottom" id="f4Q-wA-eps"/>
                                             <constraint firstItem="0Hx-6h-S7G" firstAttribute="leading" secondItem="Na9-7J-rv6" secondAttribute="leading" id="iXl-Nb-fry"/>
                                             <constraint firstItem="TEp-8m-dfE" firstAttribute="top" secondItem="0Hx-6h-S7G" secondAttribute="bottom" id="mWL-RD-Hhr"/>
-                                            <constraint firstAttribute="bottom" secondItem="8CJ-C8-MuF" secondAttribute="bottom" id="oKB-yT-V24"/>
-                                            <constraint firstAttribute="trailing" secondItem="8CJ-C8-MuF" secondAttribute="trailing" id="yAT-Eg-hIg"/>
-                                            <constraint firstItem="8CJ-C8-MuF" firstAttribute="top" secondItem="Na9-7J-rv6" secondAttribute="top" id="zh8-tG-Nb5"/>
-                                            <constraint firstAttribute="trailing" secondItem="Ul7-pH-Drh" secondAttribute="trailing" id="zyL-XS-zmD"/>
                                         </constraints>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="BAt-2j-gcG"/>
-                                                <exclude reference="awL-9e-Zjl"/>
-                                                <exclude reference="oKB-yT-V24"/>
-                                                <exclude reference="yAT-Eg-hIg"/>
-                                                <exclude reference="zh8-tG-Nb5"/>
-                                                <exclude reference="91Q-ms-CdH"/>
-                                                <exclude reference="Toh-qv-HTG"/>
-                                                <exclude reference="zyL-XS-zmD"/>
-                                                <exclude reference="bUX-Nc-TP1"/>
-                                            </mask>
-                                        </variation>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -821,7 +763,6 @@
                             <constraint firstItem="e4d-WO-bT3" firstAttribute="leading" secondItem="wpg-Ah-xdh" secondAttribute="leading" id="mLB-Ke-uWN"/>
                             <constraint firstItem="e4d-WO-bT3" firstAttribute="top" secondItem="Jp1-d6-1Q3" secondAttribute="bottom" id="pIe-nq-OkF"/>
                             <constraint firstItem="kyr-L2-K7W" firstAttribute="top" secondItem="e4d-WO-bT3" secondAttribute="bottom" id="uqm-RX-UMF"/>
-                            <constraint firstItem="e4d-WO-bT3" firstAttribute="centerX" secondItem="wpg-Ah-xdh" secondAttribute="centerX" id="w5O-KJ-dCL"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -837,7 +778,9 @@
                             <outlet property="contentView" destination="Na9-7J-rv6" id="fhx-i3-fMU"/>
                             <outlet property="countryDetailsView" destination="8CJ-C8-MuF" id="UEr-ck-QS2"/>
                             <outlet property="neighbouringCountriesView" destination="TEp-8m-dfE" id="hoM-yk-Tdq"/>
+                            <outlet property="neighbouringCountriesViewHeightConstr" destination="kS9-uE-QN1" id="wHV-Td-fxf"/>
                             <outlet property="regionDetailView" destination="0Hx-6h-S7G" id="z6o-qQ-nr1"/>
+                            <outlet property="regionDetailViewHeightConstr" destination="hWs-ER-HX6" id="zqF-OY-1FV"/>
                             <outlet property="scrollView" destination="e4d-WO-bT3" id="vSZ-sD-7fh"/>
                         </connections>
                     </view>
@@ -846,8 +789,6 @@
                     <size key="freeformSize" width="600" height="1600"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Atv-39-Mwi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="1Jk-LH-Am2"/>
-                <tapGestureRecognizer id="MGh-Qc-Rc8"/>
             </objects>
             <point key="canvasLocation" x="-2522" y="321"/>
         </scene>
