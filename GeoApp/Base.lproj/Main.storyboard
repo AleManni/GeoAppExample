@@ -549,7 +549,7 @@
                                                             <constraint firstAttribute="width" constant="8" id="k4Y-Z0-5AP"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asia: countries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9P-t4-oT2" userLabel="RegionDetailLabel">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="Asia: countries" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9P-t4-oT2" userLabel="RegionDetailLabel">
                                                         <rect key="frame" x="20" y="18" width="136" height="11"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="136" id="FBd-Xh-Xeh"/>
@@ -706,6 +706,7 @@
                                                     <constraint firstAttribute="trailing" secondItem="e4e-8l-fB4" secondAttribute="trailing" id="p7X-FC-BxO"/>
                                                 </constraints>
                                                 <connections>
+                                                    <outlet property="sectionTitleView" destination="unD-12-bOu" id="3aI-Ov-C5U"/>
                                                     <outlet property="tableView" destination="e4e-8l-fB4" id="9wN-P9-Nuc"/>
                                                 </connections>
                                             </view>
