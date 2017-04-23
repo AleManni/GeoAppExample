@@ -31,7 +31,7 @@ struct CapitalCityRepresentable {
 final class CapitalCityViewModel: ViewModel {
 
     weak var delegate: ViewModelDelegate?
-    let country: CountryDetail
+    var country: CountryDetail
 
     init(country: CountryDetail) {
         self.country = country

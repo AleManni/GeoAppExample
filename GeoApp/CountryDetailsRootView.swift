@@ -51,6 +51,7 @@ final class CountryDetailsRootView: UIView {
     var borderingCountriesData: [CountryRepresentable]? {
         didSet {
             neighbouringCountriesView.data = borderingCountriesData
+            neighbouringCountriesView.delegate = self
         }
     }
 
@@ -60,10 +61,7 @@ final class CountryDetailsRootView: UIView {
     }
 }
 
-extension CountryDetailsRootView: CountryListViewDelegate {
-    func viewDidRequestDataUpdate() {
-        delegate?.viewDidRequestDataUpdate()
-    }
+extension CountryDetailsRootView: BorderingCountriesTableViewDelegate {
 
     func viewDidSelectCountry(countryName: String) {
         delegate?.viewDidSelectCountry(countryName: countryName)

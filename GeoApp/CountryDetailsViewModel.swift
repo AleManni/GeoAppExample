@@ -59,7 +59,7 @@ struct CountryDetailsRepresentable {
 final class CountryDetailsViewModel: ViewModel {
 
     weak var delegate: ViewModelDelegate?
-    let country: CountryDetail
+    var country: CountryDetail
     
     init(country: CountryDetail) {
         self.country = country

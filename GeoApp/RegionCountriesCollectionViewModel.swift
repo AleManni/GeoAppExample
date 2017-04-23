@@ -30,7 +30,7 @@ struct CountryRegionRepresentable {
 
 final class RegionCountriesCollectionViewModel: ViewModel {
 
-    fileprivate let regionName: String
+    var regionName: String
     weak var delegate: ViewModelDelegate?
 
     init(region: String) {

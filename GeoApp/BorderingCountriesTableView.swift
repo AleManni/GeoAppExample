@@ -9,8 +9,14 @@
 import Foundation
 import UIKit
 
+protocol BorderingCountriesTableViewDelegate: class {
+    func viewDidSelectCountry(countryName: String)
+}
+
 final class BorderingCountriesTableView: UIView {
     @IBOutlet weak var tableView: CountryListTableView!
+
+    weak var delegate: BorderingCountriesTableViewDelegate?
 
     var data: CountryListRepresentable? {
         didSet {
@@ -30,7 +36,7 @@ final class BorderingCountriesTableView: UIView {
 
         }
         func viewDidSelectCountry(countryName: String) {
-            
+            delegate?.viewDidSelectCountry(countryName: countryName)
         }
         
 }

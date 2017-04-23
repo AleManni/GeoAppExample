@@ -143,23 +143,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeoApp/CapitalCityView.swift"
-            timestampString = "514574575.628112"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "regionViewIsSelected(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GeoApp/CapitalCityView.swift"
-            timestampString = "514574576.748937"
+            timestampString = "514636213.762947"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "117"
@@ -175,11 +159,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeoApp/CapitalCityView.swift"
-            timestampString = "514574579.170868"
+            timestampString = "514636213.762947"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "123"
+            endingLineNumber = "123"
+            landmarkName = "regionViewIsSelected(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GeoApp/CapitalCityView.swift"
+            timestampString = "514636213.762947"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "bordersViewIsSelected(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -191,11 +191,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "GeoApp/CapitalCityView.swift"
-            timestampString = "514574581.326406"
+            timestampString = "514636213.762947"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "138"
-            endingLineNumber = "138"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "bordersViewIsSelected(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -223,7 +223,7 @@
                   moduleName = "GeoApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/DataDisk/iOS/GeoAppExample/GeoApp/SplashScreenViewController.swift"
-                  timestampString = "514583262.1612"
+                  timestampString = "514635165.548571"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
@@ -238,7 +238,7 @@
                   moduleName = "GeoApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/DataDisk/iOS/GeoAppExample/GeoApp/SplashScreenViewController.swift"
-                  timestampString = "514583262.165499"
+                  timestampString = "514635165.55262"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "22"
@@ -271,7 +271,7 @@
                   moduleName = "GeoApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/DataDisk/iOS/GeoAppExample/GeoApp/SplashScreenViewController.swift"
-                  timestampString = "514583262.176164"
+                  timestampString = "514635165.569147"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "27"
@@ -286,7 +286,7 @@
                   moduleName = "GeoApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/DataDisk/iOS/GeoAppExample/GeoApp/SplashScreenViewController.swift"
-                  timestampString = "514583262.180613"
+                  timestampString = "514635165.573629"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "28"
@@ -325,54 +325,6 @@
             startingLineNumber = "26"
             endingLineNumber = "26"
             landmarkName = "fetchAll(completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GeoApp/ConnectionManager.swift"
-            timestampString = "514583142.477371"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "fetch(endPoint:constructor:callback:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GeoApp/ConnectionManager.swift"
-            timestampString = "514583144.391139"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "fetch(endPoint:constructor:callback:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "GeoApp/ConnectionManager.swift"
-            timestampString = "514583147.019049"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "fetch(endPoint:constructor:callback:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

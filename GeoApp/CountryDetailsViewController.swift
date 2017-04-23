@@ -11,7 +11,17 @@ import UIKit
 
 class CountryDetailsViewController: UIViewController {
 
-    var selectedCountry: CountryDetail?
+    var selectedCountry: CountryDetail? {
+        didSet {
+            guard let country = selectedCountry else {
+                return
+            }
+            oldValue?.isSelected = false
+            refreshViewModels(selectedContry: country)
+            viewDidLoad()
+        }
+    }
+    
     var countries: [CountryDetail]? {
         didSet {
             self.selectedCountry = countries?.first(where: { $0.isSelected })
@@ -55,7 +65,7 @@ class CountryDetailsViewController: UIViewController {
     lazy var borderingCountriesViewModel: BorderingCountriesViewModel? = {
         if let selectedCountry = self.selectedCountry {
             let viewModel = BorderingCountriesViewModel(country: selectedCountry)
-            viewModel?.delegate = self
+            viewModel.delegate = self
             return viewModel
         } else {
             return nil
@@ -79,6 +89,15 @@ class CountryDetailsViewController: UIViewController {
         } else {
             title = selectedCountry?.name ?? ""
         }
+    }
+
+    private func refreshViewModels(selectedContry: CountryDetail) {
+        countryDetailsViewModel?.country = selectedContry
+        capitalCityViewModel?.country = selectedContry
+        if let region = selectedContry.region {
+        countryRegionViewModel?.regionName = region
+        }
+        borderingCountriesViewModel?.country = selectedContry
     }
 }
 
@@ -112,6 +131,8 @@ extension CountryDetailsViewController: CountryListViewDelegate {
     }
 
     func viewDidSelectCountry(countryName: String) {
-       // TO BE IMPLEMENTED
+        if let country = countries?.first(where: { $0.name == countryName }) {
+            selectedCountry = country
+        }
     }
 }

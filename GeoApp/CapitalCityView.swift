@@ -73,8 +73,14 @@ class CapitalCityView: UIView, UIGestureRecognizerDelegate {
     weak var delegate: CapitalCityViewDelegate?
 
     func initiate(data: CapitalCityRepresentable?) {
+        resetSelected()
         populate(data: data)
         formatText()
+    }
+
+    private func resetSelected() {
+        isRegionViewSelected = false
+        isBordersViewSelected = false
     }
 
     private func populate(data: CapitalCityRepresentable?) {
