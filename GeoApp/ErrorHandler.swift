@@ -45,24 +45,21 @@ class ErrorHandler: NSObject {
     weak var delegate: ErrorHandlerDelegate?
 
     fileprivate func layoutAlertView(_ alert: UIView, sender: UIViewController) {
+        alert.alpha = 0
         alert.translatesAutoresizingMaskIntoConstraints = false
         constraintX = NSLayoutConstraint(item: alert, attribute: .centerXWithinMargins, relatedBy: .equal, toItem: sender.view, attribute: .centerXWithinMargins, multiplier: 1, constant: 0)
         constraintY = NSLayoutConstraint(item: alert, attribute: .centerYWithinMargins, relatedBy: .equal, toItem: sender.view, attribute: .centerYWithinMargins, multiplier: 1, constant: 0)
-        constraintWidth = NSLayoutConstraint(item: alert, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 200)
+        constraintWidth = NSLayoutConstraint(item: alert, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 0)
         constraintHeight = NSLayoutConstraint(item: alert, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 150)
+        sender.view.addConstraints([self.constraintX!, self.constraintY!, self.constraintWidth!, self.constraintHeight!])
+
         UIView.animate(withDuration: 0.2, animations: {
-            sender.view.addConstraints([self.constraintX!, self.constraintY!, self.constraintWidth!, self.constraintHeight!])
+            alert.alpha = 1
+            self.constraintWidth?.constant = 200
             alert.layoutIfNeeded()
             }, completion: { (true) in
-                self.setShadow()
+              //  self.setShadow()
         })
-    }
-    
-    private func setShadow() {
-        alert!.layer.shadowColor = UIColor.gray.cgColor
-        alert!.layer.shadowOpacity = 1
-        alert!.layer.shadowOffset = CGSize.zero
-        alert!.layer.shadowRadius = 10
     }
     
     func viewIsShown(_ isShown:Bool) {
@@ -79,14 +76,13 @@ extension ErrorHandler: ErrorViewDelegate {
         self.delegate = delegate
         alert = Bundle.main.loadNibNamed("ErrorView", owner: self, options: nil)?[0] as? ErrorView
         alert?.delegate = self
-        alert?.frame = CGRect.zero
         viewIsShown(true)
         alert!.titleLabel.text = error.description.title
         alert!.subTextLabel.text = error.description.message
-        alert!.center = sender.view.center
         sender.view.addSubview(alert!)
-        sender.view.bringSubview(toFront: alert!)
+        alert!.center = sender.view.center
         layoutAlertView(alert!, sender: sender)
+        sender.view.bringSubview(toFront: alert!)
     }
 
     func viewDidCancel() {

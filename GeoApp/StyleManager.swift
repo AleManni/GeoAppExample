@@ -41,4 +41,5 @@ class StyleManager: NSObject {
 
 struct Colors {
     static let standardBlue = UIColor(red: 34, green: 92, blue: 198)
+    static let darkBlue = UIColor(red: 42, green: 122, blue: 188)
 }

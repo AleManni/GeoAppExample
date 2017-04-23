@@ -23,6 +23,15 @@ class ErrorView: UIView {
     override func awakeFromNib() {
         StyleManager.shared.formatLabels([titleLabel])
         StyleManager.shared.formatLabels([subTextLabel])
+        layer.cornerRadius = 10
+
+        layer.borderWidth = 3.0
+        layer.borderColor = Colors.darkBlue.cgColor
+
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 3, height: 3)
+        layer.shadowOpacity = 0.7
+        layer.shadowRadius = 4.0
     }
     
     @IBAction func didPressCloseButton(_ sender: AnyObject) {
