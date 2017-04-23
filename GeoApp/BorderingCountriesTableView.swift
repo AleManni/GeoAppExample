@@ -16,6 +16,8 @@ protocol BorderingCountriesTableViewDelegate: class {
 final class BorderingCountriesTableView: UIView {
     @IBOutlet weak var tableView: CountryListTableView!
 
+    @IBOutlet weak var sectionTitleView: UIView!
+
     weak var delegate: BorderingCountriesTableViewDelegate?
 
     var data: CountryListRepresentable? {
@@ -27,7 +29,8 @@ final class BorderingCountriesTableView: UIView {
     }
 
     var intrinsicHeight: CGFloat {
-        return tableView.intrinsicHeight
+        let padding: CGFloat = 40
+        return (tableView.intrinsicHeight + sectionTitleView.bounds.size.height + padding)
     }
 }
 
