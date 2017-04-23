@@ -30,18 +30,23 @@ struct CountryRegionRepresentable {
 
 final class RegionCountriesCollectionViewModel: ViewModel {
 
-    private var regionName: String
+    typealias T = CountryDetail
+    private var regionName: String?
     weak var delegate: ViewModelDelegate?
 
-    init(region: String) {
-        regionName = region
+    init<T>(_ data: T) where T : InstantiatableFromResponse {
+        let data = data as! CountryDetail
+        regionName = data.region
     }
-
+ 
     func swapSource(_ region: String) {
         regionName = region
     }
 
     func loadData() {
+        guard let regionName = regionName else {
+            return
+        }
         delegate?.viewModelIsLoading(viewModel: self)
         let constructor = Factory(CountryList.self)
         ConnectionManager.fetch(endPoint: Endpoints.shared.region(regionName), constructor: constructor, callback: { result in

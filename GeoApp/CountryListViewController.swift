@@ -15,7 +15,7 @@ class CountryListViewController: UIViewController {
     }()
 
     lazy var viewModel: CountryListViewModel = {
-        let viewModel = CountryListViewModel(countryList: Store.shared.countries)
+        let viewModel = CountryListViewModel(Store.shared.countries)
         viewModel.delegate = self
         return viewModel
     }()
@@ -59,9 +59,9 @@ extension CountryListViewController: ViewModelDelegate {
     }
 
     func viewModelDidFailWithError(error: Errors, viewModel: ViewModel) {
-        ErrorHandler.handler.showError(error, sender: self)
         self.rootView.indicator.stopAnimating()
         self.rootView.refreshControl.endRefreshing()
+        ErrorHandler.handler.showError(error, sender: self, delegate: self)
     }
 }
 
@@ -75,5 +75,11 @@ extension CountryListViewController: CountryListViewDelegate {
             country.isSelected = true
             self.performSegue(withIdentifier: "detailViewSegue", sender: self)
         }
+    }
+}
+
+extension CountryListViewController: ErrorHandlerDelegate {
+    func viewDidCancel() {
+        viewModel.loadData()
     }
 }

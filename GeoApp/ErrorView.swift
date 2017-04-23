@@ -8,6 +8,7 @@
 
 protocol ErrorViewDelegate: class {
     func viewIsShown(_ isShown:Bool)
+    func viewDidCancel()
 }
 
 
@@ -20,12 +21,13 @@ class ErrorView: UIView {
     weak var delegate:ErrorViewDelegate?
     
     override func awakeFromNib() {
-        titleLabel.font = StyleManager.Fonts().title
-        subTextLabel.font = StyleManager.Fonts().regular
+        StyleManager.shared.formatLabels([titleLabel])
+        StyleManager.shared.formatLabels([subTextLabel])
     }
     
     @IBAction func didPressCloseButton(_ sender: AnyObject) {
         removeSelf()
+        delegate?.viewDidCancel()
     }
     
     func removeSelf() {
@@ -38,6 +40,4 @@ class ErrorView: UIView {
             }
         }) 
     }
-    
-    
 }

@@ -20,5 +20,11 @@ class CountryList: InstantiatableFromResponse {
         list = response.flatMap {
             return CountryDetail($0 as AnyObject)
         }
+
+    }
+
+    convenience init() {
+        let nilObject: [[String: AnyObject]] = [[:]]
+        self.init(nilObject as AnyObject)!
     }
 }

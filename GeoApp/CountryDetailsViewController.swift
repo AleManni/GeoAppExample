@@ -34,7 +34,7 @@ class CountryDetailsViewController: UIViewController {
 
     lazy var countryDetailsViewModel: CountryDetailsViewModel? = {
         if let selectedCountry = self.selectedCountry {
-            let viewModel = CountryDetailsViewModel(country: selectedCountry)
+            let viewModel = CountryDetailsViewModel(selectedCountry)
             viewModel.delegate = self
             return viewModel
         } else {
@@ -44,7 +44,7 @@ class CountryDetailsViewController: UIViewController {
 
     lazy var capitalCityViewModel: CapitalCityViewModel? = {
         if let selectedCountry = self.selectedCountry {
-            let viewModel = CapitalCityViewModel(country: selectedCountry)
+            let viewModel = CapitalCityViewModel(selectedCountry)
             viewModel.delegate = self
             return viewModel
         } else {
@@ -53,8 +53,8 @@ class CountryDetailsViewController: UIViewController {
     }()
 
     lazy var countryRegionViewModel: RegionCountriesCollectionViewModel? = {
-        if let region = self.selectedCountry?.region {
-            let viewModel = RegionCountriesCollectionViewModel(region: region)
+        if let selectedCountry = self.selectedCountry {
+            let viewModel = RegionCountriesCollectionViewModel(selectedCountry)
             viewModel.delegate = self
             return viewModel
         } else {
@@ -64,7 +64,7 @@ class CountryDetailsViewController: UIViewController {
 
     lazy var borderingCountriesViewModel: BorderingCountriesViewModel? = {
         if let selectedCountry = self.selectedCountry {
-            let viewModel = BorderingCountriesViewModel(country: selectedCountry)
+            let viewModel = BorderingCountriesViewModel(selectedCountry)
             viewModel.delegate = self
             return viewModel
         } else {
@@ -77,6 +77,10 @@ class CountryDetailsViewController: UIViewController {
         rootView.delegate = self
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Colors.standardBlue, NSFontAttributeName: StyleManager.Fonts().titleLarge]
         setTitle()
+        populateViewModels()
+    }
+
+    fileprivate func populateViewModels() {
         countryDetailsViewModel?.loadData()
         capitalCityViewModel?.loadData()
         countryRegionViewModel?.loadData()
@@ -122,7 +126,7 @@ extension CountryDetailsViewController: ViewModelDelegate {
     }
 
     func viewModelDidFailWithError(error: Errors, viewModel: ViewModel) {
-        ErrorHandler.handler.showError(error, sender: self)
+        ErrorHandler.handler.showError(error, sender: self, delegate: self)
     }
 }
 
@@ -134,5 +138,11 @@ extension CountryDetailsViewController: CountryListViewDelegate {
         if let country = countries?.first(where: { $0.name == countryName }) {
             selectedCountry = country
         }
+    }
+}
+
+extension CountryDetailsViewController: ErrorHandlerDelegate {
+    func viewDidCancel() {
+        populateViewModels()
     }
 }

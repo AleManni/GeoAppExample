@@ -126,7 +126,6 @@ class CapitalCityView: UIView, UIGestureRecognizerDelegate {
             regionIconView.setInactive()
             regionArrowView.setInactive()
         }
-        //self.separator.isHidden = !isSelected
     }
 
     private func bordersViewIsSelected(_ isSelected: Bool) {

@@ -29,12 +29,17 @@ struct CapitalCityRepresentable {
 
 
 final class CapitalCityViewModel: ViewModel {
+    typealias T = CountryDetail
+    init<T>(_ data: T) where T : InstantiatableFromResponse {
+        self.country = data as! CountryDetail
+    }
+
 
     weak var delegate: ViewModelDelegate?
-    private var country: CountryDetail
-
-    init(country: CountryDetail) {
-        self.country = country
+    private var country: CountryDetail {
+        didSet {
+            loadData()
+        }
     }
 
     func swapSource(_ country: CountryDetail) {

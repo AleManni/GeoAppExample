@@ -58,11 +58,17 @@ struct CountryDetailsRepresentable {
 
 final class CountryDetailsViewModel: ViewModel {
 
+    typealias T = CountryDetail
+
     weak var delegate: ViewModelDelegate?
-    private var country: CountryDetail
-    
-    init(country: CountryDetail) {
-        self.country = country
+    private var country: CountryDetail {
+        didSet {
+        loadData()
+        }
+    }
+
+    init<T>(_ data: T) where T : InstantiatableFromResponse {
+        self.country = data as! CountryDetail
     }
 
     func swapSource(_ country: CountryDetail) {

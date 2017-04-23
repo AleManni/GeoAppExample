@@ -24,11 +24,15 @@ enum Errors: Error {
     }
 }
 
+protocol ErrorHandlerDelegate: class {
+    func viewDidCancel()
+}
+
 
 import Foundation
 import UIKit
 
-class ErrorHandler: NSObject, ErrorViewDelegate {
+class ErrorHandler: NSObject {
     
     static var handler = ErrorHandler()
     var alert:ErrorView?
@@ -37,25 +41,10 @@ class ErrorHandler: NSObject, ErrorViewDelegate {
     var constraintHeight: NSLayoutConstraint?
     var constraintX: NSLayoutConstraint?
     var constraintY: NSLayoutConstraint?
-    
-    func showError(_ error: Errors, sender: UIViewController) {
-        guard alertIsShown == false else {return}
-        alert = Bundle.main.loadNibNamed("ErrorView", owner: self, options: nil)?[0] as? ErrorView
-        alert?.delegate = self
-        alert?.frame = CGRect.zero
-        viewIsShown(true)
-        alert!.titleLabel.text = error.description.title
-        alert!.subTextLabel.text = error.description.message
-        alert!.titleLabel.textColor = Colors.standardBlue
-        alert!.subTextLabel.textColor = Colors.standardBlue
-        alert!.center = sender.view.center
-        sender.view.addSubview(alert!)
-        sender.view.bringSubview(toFront: alert!)
-        layoutAlertView(alert!, sender: sender)
-    }
-    
-    
-    private func layoutAlertView(_ alert:UIView, sender:UIViewController) {
+
+    weak var delegate: ErrorHandlerDelegate?
+
+    fileprivate func layoutAlertView(_ alert: UIView, sender: UIViewController) {
         alert.translatesAutoresizingMaskIntoConstraints = false
         constraintX = NSLayoutConstraint(item: alert, attribute: .centerXWithinMargins, relatedBy: .equal, toItem: sender.view, attribute: .centerXWithinMargins, multiplier: 1, constant: 0)
         constraintY = NSLayoutConstraint(item: alert, attribute: .centerYWithinMargins, relatedBy: .equal, toItem: sender.view, attribute: .centerYWithinMargins, multiplier: 1, constant: 0)
@@ -78,5 +67,29 @@ class ErrorHandler: NSObject, ErrorViewDelegate {
     
     func viewIsShown(_ isShown:Bool) {
         alertIsShown = isShown
+    }
+}
+
+extension ErrorHandler: ErrorViewDelegate {
+
+    func showError(_ error: Errors, sender: UIViewController, delegate: ErrorHandlerDelegate) {
+        guard alertIsShown == false else {
+            return
+        }
+        self.delegate = delegate
+        alert = Bundle.main.loadNibNamed("ErrorView", owner: self, options: nil)?[0] as? ErrorView
+        alert?.delegate = self
+        alert?.frame = CGRect.zero
+        viewIsShown(true)
+        alert!.titleLabel.text = error.description.title
+        alert!.subTextLabel.text = error.description.message
+        alert!.center = sender.view.center
+        sender.view.addSubview(alert!)
+        sender.view.bringSubview(toFront: alert!)
+        layoutAlertView(alert!, sender: sender)
+    }
+
+    func viewDidCancel() {
+        delegate?.viewDidCancel()
     }
 }

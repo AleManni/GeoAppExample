@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+typealias CountryListRepresentable = [CountryRepresentable]
+
 struct CountryRepresentable {
     let name: String
     let population: String
@@ -34,7 +36,7 @@ struct CountryRepresentable {
             population = "Population: \(StyleManager.shared.stringMissing)"
         }
 
-        if let regionString = country.region, let regionValue = country.region, regionValue.characters.count > 0 {
+        if let regionString = country.region, regionString.characters.count > 0 {
             region = regionString
         } else {
             region = "Region: \(StyleManager.shared.stringMissing)"
@@ -44,51 +46,52 @@ struct CountryRepresentable {
     }
 }
 
-typealias CountryListRepresentable = [CountryRepresentable]
-
 final class CountryListViewModel: ViewModel {
+
+    typealias T = CountryList
+    
+    init<T>(_ data: T) where T : InstantiatableFromResponse {
+        self.loadedCountryList = data as? CountryList
+    }
 
     weak var delegate: ViewModelDelegate?
 
-    private(set) var loadedCountryList: CountryList?
-
-    init(countryList: CountryList?) {
-        self.loadedCountryList = countryList
+    private(set) var loadedCountryList: CountryList? {
+        didSet {
+            loadData()
+        }
     }
 
     func loadData() {
+        delegate?.viewModelIsLoading(viewModel: self)
         if let countryList = loadedCountryList?.list, !countryList.isEmpty {
             let representableList = countryList.flatMap {
                 return CountryRepresentable($0)
             }
             self.delegate?.viewModelDidLoadData(data: representableList, viewModel: self)
             return
+        } else {
+            refreshStore()
         }
+    }
 
-        delegate?.viewModelIsLoading(viewModel: self)
-
+    private func refreshStore() {
         Store.shared.fetchAll(completion: { result in
             switch result {
             case .success(let countryList):
-            if let countryList = countryList as? CountryList, let list = countryList.list {
-                let representableList = list.flatMap {
-                    return CountryRepresentable($0)
+                if let countryList = countryList as? CountryList {
+                    self.loadedCountryList = countryList
                 }
-                DispatchQueue.main.async {
-                self.delegate?.viewModelDidLoadData(data: representableList, viewModel: self)
-                }
-            }
             case .error(let error):
                 DispatchQueue.main.async {
-                self.delegate?.viewModelDidFailWithError(error: error, viewModel: self)
+                    self.delegate?.viewModelDidFailWithError(error: error, viewModel: self)
                 }
             }
         })
     }
 
     func refreshData() {
-        loadedCountryList = nil
-        loadData()
+        refreshStore()
     }
 
     func resetSectedState() {

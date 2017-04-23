@@ -10,7 +10,7 @@ import Foundation
 
 class Store {
     static let shared = Store()
-    private(set) var countries: CountryList?
+    private(set) var countries: CountryList = CountryList()
 
     func fetchAll(completion: @escaping (Result) -> Void) {
         clear()
@@ -29,6 +29,6 @@ class Store {
         }
 
     private func clear() {
-    countries = nil
+    countries.list?.removeAll()
     }
 }

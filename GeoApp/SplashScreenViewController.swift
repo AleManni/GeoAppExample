@@ -15,28 +15,37 @@ class SplashScreenViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         indicator.startAnimating()
+        populateStore()
+    }
+
+    fileprivate func populateStore() {
         Store.shared.fetchAll { result in
             switch result {
-            case .success(let _):
+            case .success(_):
                 DispatchQueue.main.async {
-                self.indicator.stopAnimating()
-                self.dismissAndSegue()
+                    self.indicator.stopAnimating()
+                    self.dismissAndSegue()
                 }
                 break
             case .error(let error):
                 DispatchQueue.main.async {
-                self.indicator.stopAnimating()
-                ErrorHandler.handler.showError(error, sender: self)
+                    self.indicator.stopAnimating()
+                    ErrorHandler.handler.showError(error, sender: self, delegate: self)
                 }
                 break
             }
         }
     }
 
-    func dismissAndSegue() {
+    private func dismissAndSegue() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "NavigationController")
         UIApplication.shared.windows[0].rootViewController = controller
     }
-    
+}
+
+extension SplashScreenViewController: ErrorHandlerDelegate {
+    func viewDidCancel() {
+        populateStore()
+    }
 }

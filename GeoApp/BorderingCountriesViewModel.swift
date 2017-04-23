@@ -9,9 +9,14 @@
    import Foundation
 
    final class BorderingCountriesViewModel: ViewModel {
+    typealias T = CountryDetail
+    init<T>(_ data: T) where T : InstantiatableFromResponse {
+        self.country = data as! CountryDetail
+    }
+
     private var country: CountryDetail {
         didSet {
-            if let countries = Store.shared.countries?.list {
+            if let countries = Store.shared.countries.list {
                 let countryBorders = country.borders ?? []
                 var countriesArray: [CountryDetail] = []
                 countryBorders.forEach { countryCode in
@@ -21,14 +26,12 @@
                 }
                 self.borderingCountries = countriesArray
             }
+            loadData()
         }
     }
+
     private var borderingCountries: [CountryDetail]?
     weak var delegate: ViewModelDelegate?
-
-    init(country: CountryDetail) {
-        self.country = country
-    }
 
     func swapSource(_ country: CountryDetail) {
         self.country = country

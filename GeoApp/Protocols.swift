@@ -24,7 +24,7 @@ protocol ViewModelDelegate: class {
 }
 
 protocol ViewModel: class {
-    func loadData()
+    init<T: InstantiatableFromResponse>(_ data: T)
 }
 
 
