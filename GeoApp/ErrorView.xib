@@ -65,6 +65,7 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="button" destination="z7A-Z4-Csa" id="zTF-OX-zxo"/>
                 <outlet property="subTextLabel" destination="XZo-PW-itK" id="pu5-Uh-wUJ"/>
                 <outlet property="titleLabel" destination="7Pu-VD-CZ6" id="VDI-FS-Qan"/>
             </connections>

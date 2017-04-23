@@ -30,7 +30,7 @@ class SplashScreenViewController: UIViewController {
             case .error(let error):
                 DispatchQueue.main.async {
                     self.indicator.stopAnimating()
-                    ErrorHandler.handler.showError(error, sender: self, delegate: self)
+                    ErrorHandler.handler.showError(error, sender: self, delegate: self, buttonTitle: "Retry")
                 }
                 break
             }

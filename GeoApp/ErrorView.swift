@@ -18,6 +18,9 @@ class ErrorView: UIView {
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subTextLabel: UILabel!
+    
+    @IBOutlet weak var button: UIButton!
+    
     weak var delegate:ErrorViewDelegate?
     
     override func awakeFromNib() {

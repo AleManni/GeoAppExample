@@ -126,7 +126,7 @@ extension CountryDetailsViewController: ViewModelDelegate {
     }
 
     func viewModelDidFailWithError(error: Errors, viewModel: ViewModel) {
-        ErrorHandler.handler.showError(error, sender: self, delegate: self)
+        ErrorHandler.handler.showError(error, sender: self, delegate: self, buttonTitle: "Close")
     }
 }
 
@@ -143,6 +143,5 @@ extension CountryDetailsViewController: CountryListViewDelegate {
 
 extension CountryDetailsViewController: ErrorHandlerDelegate {
     func viewDidCancel() {
-        populateViewModels()
     }
 }

@@ -57,9 +57,8 @@ class ErrorHandler: NSObject {
             alert.alpha = 1
             self.constraintWidth?.constant = 200
             alert.layoutIfNeeded()
-            }, completion: { (true) in
-              //  self.setShadow()
-        })
+            }, completion: nil
+        )
     }
     
     func viewIsShown(_ isShown:Bool) {
@@ -69,13 +68,14 @@ class ErrorHandler: NSObject {
 
 extension ErrorHandler: ErrorViewDelegate {
 
-    func showError(_ error: Errors, sender: UIViewController, delegate: ErrorHandlerDelegate) {
+    func showError(_ error: Errors, sender: UIViewController, delegate: ErrorHandlerDelegate, buttonTitle: String) {
         guard alertIsShown == false else {
             return
         }
         self.delegate = delegate
         alert = Bundle.main.loadNibNamed("ErrorView", owner: self, options: nil)?[0] as? ErrorView
         alert?.delegate = self
+        alert?.button.setTitle(buttonTitle, for: .normal)
         viewIsShown(true)
         alert!.titleLabel.text = error.description.title
         alert!.subTextLabel.text = error.description.message
@@ -87,5 +87,6 @@ extension ErrorHandler: ErrorViewDelegate {
 
     func viewDidCancel() {
         delegate?.viewDidCancel()
+        alertIsShown = false 
     }
 }

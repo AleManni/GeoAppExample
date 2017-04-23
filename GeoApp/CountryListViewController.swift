@@ -61,7 +61,7 @@ extension CountryListViewController: ViewModelDelegate {
     func viewModelDidFailWithError(error: Errors, viewModel: ViewModel) {
         self.rootView.indicator.stopAnimating()
         self.rootView.refreshControl.endRefreshing()
-        ErrorHandler.handler.showError(error, sender: self, delegate: self)
+        ErrorHandler.handler.showError(error, sender: self, delegate: self, buttonTitle: "Retry")
     }
 }
 
