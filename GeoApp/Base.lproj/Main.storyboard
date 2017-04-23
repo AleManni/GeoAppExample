@@ -707,6 +707,7 @@
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="sectionTitleView" destination="unD-12-bOu" id="3aI-Ov-C5U"/>
+                                                    <outlet property="sectionTitleViewLabel" destination="H4b-FL-2g2" id="Cam-TL-7TT"/>
                                                     <outlet property="tableView" destination="e4e-8l-fB4" id="9wN-P9-Nuc"/>
                                                 </connections>
                                             </view>
