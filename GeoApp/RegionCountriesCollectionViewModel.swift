@@ -30,10 +30,14 @@ struct CountryRegionRepresentable {
 
 final class RegionCountriesCollectionViewModel: ViewModel {
 
-    var regionName: String
+    private var regionName: String
     weak var delegate: ViewModelDelegate?
 
     init(region: String) {
+        regionName = region
+    }
+
+    func swapSource(_ region: String) {
         regionName = region
     }
 

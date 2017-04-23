@@ -31,9 +31,13 @@ struct CapitalCityRepresentable {
 final class CapitalCityViewModel: ViewModel {
 
     weak var delegate: ViewModelDelegate?
-    var country: CountryDetail
+    private var country: CountryDetail
 
     init(country: CountryDetail) {
+        self.country = country
+    }
+
+    func swapSource(_ country: CountryDetail) {
         self.country = country
     }
 

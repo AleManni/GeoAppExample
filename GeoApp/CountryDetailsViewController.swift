@@ -92,12 +92,12 @@ class CountryDetailsViewController: UIViewController {
     }
 
     private func refreshViewModels(selectedContry: CountryDetail) {
-        countryDetailsViewModel?.country = selectedContry
-        capitalCityViewModel?.country = selectedContry
+        countryDetailsViewModel?.swapSource(selectedContry)
+        capitalCityViewModel?.swapSource(selectedContry)
         if let region = selectedContry.region {
-        countryRegionViewModel?.regionName = region
+        countryRegionViewModel?.swapSource(region)
         }
-        borderingCountriesViewModel?.country = selectedContry
+        borderingCountriesViewModel?.swapSource(selectedContry)
     }
 }
 
@@ -122,7 +122,7 @@ extension CountryDetailsViewController: ViewModelDelegate {
     }
 
     func viewModelDidFailWithError(error: Errors, viewModel: ViewModel) {
-
+        ErrorHandler.handler.showError(error, sender: self)
     }
 }
 

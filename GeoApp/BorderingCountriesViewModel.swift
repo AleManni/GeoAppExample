@@ -9,7 +9,7 @@
    import Foundation
 
    final class BorderingCountriesViewModel: ViewModel {
-    var country: CountryDetail {
+    private var country: CountryDetail {
         didSet {
             if let countries = Store.shared.countries?.list {
                 let countryBorders = country.borders ?? []
@@ -27,6 +27,10 @@
     weak var delegate: ViewModelDelegate?
 
     init(country: CountryDetail) {
+        self.country = country
+    }
+
+    func swapSource(_ country: CountryDetail) {
         self.country = country
     }
 

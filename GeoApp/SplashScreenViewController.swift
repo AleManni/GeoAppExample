@@ -17,7 +17,7 @@ class SplashScreenViewController: UIViewController {
         indicator.startAnimating()
         Store.shared.fetchAll { result in
             switch result {
-            case .success(let countries):
+            case .success(let _):
                 DispatchQueue.main.async {
                 self.indicator.stopAnimating()
                 self.dismissAndSegue()
