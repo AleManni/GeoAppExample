@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0730"
+   LastUpgradeVersion = "0830"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -42,7 +42,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1DFCA2751D3A11A30003B223"
+               BlueprintIdentifier = "1DBDD22B1D531EF000D68877"
                BuildableName = "GeoAppUITests.xctest"
                BlueprintName = "GeoAppUITests"
                ReferencedContainer = "container:GeoApp.xcodeproj">
