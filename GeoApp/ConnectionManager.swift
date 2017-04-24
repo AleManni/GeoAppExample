@@ -8,8 +8,6 @@
 
 import Foundation
 
-//TODO: Implement result replacing the tuplet in ConnectionManager 
-
 enum Result {
     case success(InstantiatableFromResponse)
     case error(Errors)
@@ -35,7 +33,7 @@ struct Endpoints {
     }
 }
 
-class ConnectionManager {
+final class ConnectionManager {
     static let session: URLSession = URLSession(configuration: URLSessionConfiguration.default)
     static let baseURL = "https://restcountries.eu/rest/v2"
 

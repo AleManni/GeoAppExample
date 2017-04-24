@@ -160,7 +160,7 @@
 				1D1F001B1D36577500E2EF2C /* AppDelegate.swift */,
 				1D1F003E1D36981200E2EF2C /* Shared */,
 				1D5525151E912C39009BAEB9 /* Protocols */,
-				1D1F003D1D3697F500E2EF2C /* Model */,
+				1D1F003D1D3697F500E2EF2C /* Models */,
 				1D5026111E96C08900DAD325 /* ViewModels */,
 				1D1F00451D36AF0300E2EF2C /* Controllers */,
 				1D1F00461D36AF1000E2EF2C /* ExtraViews */,
@@ -172,13 +172,13 @@
 			path = GeoApp;
 			sourceTree = "<group>";
 		};
-		1D1F003D1D3697F500E2EF2C /* Model */ = {
+		1D1F003D1D3697F500E2EF2C /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				1D1F003F1D36983400E2EF2C /* CountryDetail.swift */,
 				1D1F004D1D36D26900E2EF2C /* CountryList.swift */,
 			);
-			name = Model;
+			name = Models;
 			sourceTree = "<group>";
 		};
 		1D1F003E1D36981200E2EF2C /* Shared */ = {

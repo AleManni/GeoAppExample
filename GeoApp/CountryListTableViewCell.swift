@@ -38,7 +38,7 @@ final class CountryListTableViewCell: UITableViewCell {
         if (highlighted) {
             self.backgroundColor = (Colors.standardBlue)
         } else {
-            self.backgroundColor = (UIColor.white)
+            self.backgroundColor = (.white)
         }
     }
 
