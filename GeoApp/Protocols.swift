@@ -8,12 +8,17 @@
 
 import Foundation
 
-protocol InstantiatableFromResponse: class {
+public enum DataConstructorResult {
+    case success(InstantiatableFromResponse)
+    case failure(Errors)
+}
+
+public protocol InstantiatableFromResponse: class {
     init?(_ response: AnyObject)
 }
 
 protocol DataConstructor: class {
-    func instantiateFromResponse(_ response: Data, callback: (InstantiatableFromResponse?, Errors?) -> Void)
+    func instantiateFromResponse(_ response: Data, callback: (DataConstructorResult) -> Void)
     init(_ objectClass: InstantiatableFromResponse.Type)
 }
 

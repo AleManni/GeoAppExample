@@ -58,11 +58,12 @@ final class ConnectionManager {
                 callback(.error(.noData))
                 return
             }
-            constructor.instantiateFromResponse(responseData, callback: { (response, error) in
-                if (error != nil) {
+            constructor.instantiateFromResponse(responseData, callback: { response in
+                switch response {
+                case .failure:
                     callback(.error(.jsonError))
-                } else {
-                    callback(.success(response!))
+                case let .success(object):
+                    callback(.success(object))
                 }
             })
         })

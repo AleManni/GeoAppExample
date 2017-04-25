@@ -7,7 +7,7 @@
 //
 
 
-enum Errors: Error {
+public enum Errors: Error {
     case noData
     case jsonError
     case networkError(error: NSError)

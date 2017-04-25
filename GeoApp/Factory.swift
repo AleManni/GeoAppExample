@@ -15,16 +15,16 @@ class Factory: DataConstructor {
         self.objectType = objectClass
     }
 
-    func instantiateFromResponse(_ response: Data, callback: (InstantiatableFromResponse?, Errors?) -> Void)  {
+    func instantiateFromResponse(_ response: Data, callback: (DataConstructorResult) -> Void)  {
         do {
             let swiftCollection = try JSONSerialization.jsonObject(with: response, options: JSONSerialization.ReadingOptions.mutableContainers)
-            if let object = objectType.init(swiftCollection as AnyObject) {
-                callback(object, nil)
-            } else {
-                callback(nil, Errors.jsonError)
+            guard let object = objectType.init(swiftCollection as AnyObject) else {
+                callback(.failure(Errors.jsonError))
+                return
             }
+            callback(.success(object))
         } catch  {
-            callback(nil, Errors.jsonError)
+            callback(.failure(Errors.jsonError))
             return
         }
     }

@@ -44,7 +44,7 @@ class CountryDetail: InstantiatableFromResponse {
         population = response["population"] as? Int
         region = response["region"] as? String
         if let altSpellings = response["altSpellings"] as? [String], !altSpellings.isEmpty {
-        flagIconURL = URL(string: Endpoints.shared.flagURLString(altSpellings[0]))
+        flagIconURL = URL(string: Endpoints.flagURLString(altSpellings[0]))
         }
         countryCode = response["alpha3Code"] as? String
     }
