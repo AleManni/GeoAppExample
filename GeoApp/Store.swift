@@ -15,7 +15,8 @@ class Store {
     func fetchAll(completion: @escaping (Result) -> Void) {
         clear()
         let constructor = Factory(CountryList.self)
-        ConnectionManager.fetch(endPoint: Endpoints.shared.all, constructor: constructor, callback: { result in
+        let url = Endpoints.url(from: Endpoints.allCountries)
+        ConnectionManager.fetch(url: url, constructor: constructor, callback: { result in
             switch result {
             case .success(let countryList):
                 if let countryList = countryList as? CountryList {

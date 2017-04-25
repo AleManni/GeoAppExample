@@ -49,7 +49,8 @@ final class RegionCountriesCollectionViewModel: ViewModel {
         }
         delegate?.viewModelIsLoading(viewModel: self)
         let constructor = Factory(CountryList.self)
-        ConnectionManager.fetch(endPoint: Endpoints.shared.region(regionName), constructor: constructor, callback: { result in
+        let url = Endpoints.url(from: Endpoints.region(regionName))
+        ConnectionManager.fetch(url: url, constructor: constructor, callback: { result in
             switch result {
             case .success(let countries):
             if let countries = countries as? CountryList, let list = countries.list {

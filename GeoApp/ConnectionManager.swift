@@ -15,31 +15,38 @@ enum Result {
 
 struct Endpoints {
 
-    static let shared = Endpoints()
+    private static let baseURL = "https://restcountries.eu/rest/v2"
     
-    let all = "/all"
+    static let allCountries = "/all"
 
-    func countryDetails(_ countryCode: String) -> String {
+    static func countryDetails(_ countryCode: String) -> String {
         return "/alpha/\(countryCode)"
     }
 
-    func region(_ regionName: String) -> String {
+    static func region(_ regionName: String) -> String {
         return "/region/\(regionName)"
     }
 
-    func flagURLString(_ countryCode: String) -> String {
+    static func flagURLString(_ countryCode: String) -> String {
         let code = countryCode.uppercased()
         return "http://www.geognos.com/api/en/countries/flag/\(code).png"
+    }
+
+    static func url(from endpoint: String) -> URL? {
+        return URL(string: baseURL + endpoint)
     }
 }
 
 final class ConnectionManager {
     static let session: URLSession = URLSession(configuration: URLSessionConfiguration.default)
-    static let baseURL = "https://restcountries.eu/rest/v2"
 
-    static func fetch(endPoint: String, constructor: DataConstructor, callback: @escaping (_ result: Result) -> ()) {
-        let url = URL(string: baseURL + endPoint)
-        var urlRequest = URLRequest(url: url!)
+
+    static func fetch(url: URL?, constructor: DataConstructor, callback: @escaping (_ result: Result) -> ()) {
+        guard let url = url else {
+            callback(.error(.invalidURL))
+            return
+        }
+        var urlRequest = URLRequest(url: url)
         urlRequest.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalCacheData
         let task = session.dataTask(with: urlRequest, completionHandler: {
             (data, response, error) in
