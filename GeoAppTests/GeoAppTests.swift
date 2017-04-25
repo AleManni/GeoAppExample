@@ -27,9 +27,33 @@ class GeoAppTests: XCTestCase {
         XCTAssertTrue(composedString == "Hello World", "Composed string should be: Hello World, not \(composedString)")
     }
     
-    //MARK: - Model tests
+    //MARK: - Factory tests
     
-    func testPopulateCountryFromResponse() {
+    func testFactory_1() {
+        // GIVEN
+        var countryList: CountryList?
+        let factory = Factory(CountryList.self)
+        let mockResourceURL = Mockfiles.url(for: .testFile)
+        let unsafeData = try? Data(contentsOf: mockResourceURL)
+        guard let data = unsafeData else {
+            XCTFail("Could not load data from mock file")
+            return
+        }
+        let expectationForCallBack = XCTestExpectation()
+
+        // WHEN
+        factory.instantiateFromResponse(data, callback: { result in
+            switch result {
+            case let .success(object):
+                countryList = object as? CountryList
+                break
+            case let .failure(error):
+                XCTFail(error.description)
+            }
+            expectationForCallBack.fulfill()
+    })
+        //THEN
+        XCTAssertEqual(countryList?.list?[0].name, "Afghanistan")
 
     }
     

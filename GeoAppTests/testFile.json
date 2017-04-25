@@ -1,0 +1,827 @@
+ [
+  {
+  "name": "Afghanistan",
+  "topLevelDomain": [
+                     ".af"
+                     ],
+  "alpha2Code": "AF",
+  "alpha3Code": "AFG",
+  "callingCodes": [
+                   "93"
+                   ],
+  "capital": "Kabul",
+  "altSpellings": [
+                   "AF",
+                   "Afġānistān"
+                   ],
+  "region": "Asia",
+  "population": 27657145,
+  "latlng": [
+             33,
+             65
+             ],
+  "demonym": "Afghan",
+  "area": 652230,
+  "gini": 27.8,
+  "timezones": [
+                "UTC+04:30"
+                ],
+  "borders": [
+              "IRN",
+              "PAK",
+              "TKM",
+              "UZB",
+              "TJK",
+              "CHN"
+              ],
+  "nativeName": "افغانستان",
+  "numericCode": "004",
+  "currencies": [
+                 {
+                 "code": "AFN",
+                 "name": "Afghan afghani",
+                 "symbol": "؋"
+                 }
+                 ],
+  "languages": [
+                {
+                "iso639_1": "ps",
+                "iso639_2": "pus",
+                "name": "Pashto",
+                "nativeName": "پښتو"
+                },
+                {
+                "iso639_1": "uz",
+                "iso639_2": "uzb",
+                "name": "Uzbek",
+                "nativeName": "Oʻzbek"
+                },
+                {
+                "iso639_1": "tk",
+                "iso639_2": "tuk",
+                "name": "Turkmen",
+                "nativeName": "Türkmen"
+                }
+                ],
+  "translations": {
+  "de": "Afghanistan",
+  "es": "Afganistán",
+  "fr": "Afghanistan",
+  "ja": "アフガニスタン",
+  "it": "Afghanistan",
+  "br": "Afeganistão",
+  "pt": "Afeganistão"
+  },
+  "flag": "https://restcountries.eu/data/afg.svg"
+  },
+  {
+  "name": "Åland Islands",
+  "topLevelDomain": [
+                     ".ax"
+                     ],
+  "alpha2Code": "AX",
+  "alpha3Code": "ALA",
+  "callingCodes": [
+                   "358"
+                   ],
+  "capital": "Mariehamn",
+  "altSpellings": [
+                   "AX",
+                   "Aaland",
+                   "Aland",
+                   "Ahvenanmaa"
+                   ],
+  "region": "Europe",
+  "population": 28875,
+  "latlng": [
+             60.116667,
+             19.9
+             ],
+  "demonym": "Ålandish",
+  "area": 1580,
+  "gini": null,
+  "timezones": [
+                "UTC+02:00"
+                ],
+  "borders": [],
+  "nativeName": "Åland",
+  "numericCode": "248",
+  "currencies": [
+                 {
+                 "code": "EUR",
+                 "name": "Euro",
+                 "symbol": "€"
+                 }
+                 ],
+  "languages": [
+                {
+                "iso639_1": "sv",
+                "iso639_2": "swe",
+                "name": "Swedish",
+                "nativeName": "svenska"
+                }
+                ],
+  "translations": {
+  "de": "Åland",
+  "es": "Alandia",
+  "fr": "Åland",
+  "ja": "オーランド諸島",
+  "it": "Isole Aland",
+  "br": "Ilhas de Aland",
+  "pt": "Ilhas de Aland"
+  },
+  "flag": "https://restcountries.eu/data/ala.svg"
+  },
+  {
+  "name": "Albania",
+  "topLevelDomain": [
+                     ".al"
+                     ],
+  "alpha2Code": "AL",
+  "alpha3Code": "ALB",
+  "callingCodes": [
+                   "355"
+                   ],
+  "capital": "Tirana",
+  "altSpellings": [
+                   "AL",
+                   "Shqipëri",
+                   "Shqipëria",
+                   "Shqipnia"
+                   ],
+  "region": "Europe",
+  "population": 2886026,
+  "latlng": [
+             41,
+             20
+             ],
+  "demonym": "Albanian",
+  "area": 28748,
+  "gini": 34.5,
+  "timezones": [
+                "UTC+01:00"
+                ],
+  "borders": [
+              "MNE",
+              "GRC",
+              "MKD",
+              "KOS"
+              ],
+  "nativeName": "Shqipëria",
+  "numericCode": "008",
+  "currencies": [
+                 {
+                 "code": "ALL",
+                 "name": "Albanian lek",
+                 "symbol": "L"
+                 }
+                 ],
+  "languages": [
+                {
+                "iso639_1": "sq",
+                "iso639_2": "sqi",
+                "name": "Albanian",
+                "nativeName": "Shqip"
+                }
+                ],
+  "translations": {
+  "de": "Albanien",
+  "es": "Albania",
+  "fr": "Albanie",
+  "ja": "アルバニア",
+  "it": "Albania",
+  "br": "Albânia",
+  "pt": "Albânia"
+  },
+  "flag": "https://restcountries.eu/data/alb.svg"
+  },
+  {
+  "name": "Algeria",
+  "topLevelDomain": [
+                     ".dz"
+                     ],
+  "alpha2Code": "DZ",
+  "alpha3Code": "DZA",
+  "callingCodes": [
+                   "213"
+                   ],
+  "capital": "Algiers",
+  "altSpellings": [
+                   "DZ",
+                   "Dzayer",
+                   "Algérie"
+                   ],
+  "region": "Africa",
+  "population": 40400000,
+  "latlng": [
+             28,
+             3
+             ],
+  "demonym": "Algerian",
+  "area": 2381741,
+  "gini": 35.3,
+  "timezones": [
+                "UTC+01:00"
+                ],
+  "borders": [
+              "TUN",
+              "LBY",
+              "NER",
+              "ESH",
+              "MRT",
+              "MLI",
+              "MAR"
+              ],
+  "nativeName": "الجزائر",
+  "numericCode": "012",
+  "currencies": [
+                 {
+                 "code": "DZD",
+                 "name": "Algerian dinar",
+                 "symbol": "د.ج"
+                 }
+                 ],
+  "languages": [
+                {
+                "iso639_1": "ar",
+                "iso639_2": "ara",
+                "name": "Arabic",
+                "nativeName": "العربية"
+                }
+                ],
+  "translations": {
+  "de": "Algerien",
+  "es": "Argelia",
+  "fr": "Algérie",
+  "ja": "アルジェリア",
+  "it": "Algeria",
+  "br": "Argélia",
+  "pt": "Argélia"
+  },
+  "flag": "https://restcountries.eu/data/dza.svg"
+  },
+  {
+  "name": "American Samoa",
+  "topLevelDomain": [
+                     ".as"
+                     ],
+  "alpha2Code": "AS",
+  "alpha3Code": "ASM",
+  "callingCodes": [
+                   "1684"
+                   ],
+  "capital": "Pago Pago",
+  "altSpellings": [
+                   "AS",
+                   "Amerika Sāmoa",
+                   "Amelika Sāmoa",
+                   "Sāmoa Amelika"
+                   ],
+  "region": "Oceania",
+  "population": 57100,
+  "latlng": [
+             -14.33333333,
+             -170
+             ],
+  "demonym": "American Samoan",
+  "area": 199,
+  "gini": null,
+  "timezones": [
+                "UTC-11:00"
+                ],
+  "borders": [],
+  "nativeName": "American Samoa",
+  "numericCode": "016",
+  "currencies": [
+                 {
+                 "code": "USD",
+                 "name": "United State Dollar",
+                 "symbol": "$"
+                 }
+                 ],
+  "languages": [
+                {
+                "iso639_1": "en",
+                "iso639_2": "eng",
+                "name": "English",
+                "nativeName": "English"
+                },
+                {
+                "iso639_1": "sm",
+                "iso639_2": "smo",
+                "name": "Samoan",
+                "nativeName": "gagana fa'a Samoa"
+                }
+                ],
+  "translations": {
+  "de": "Amerikanisch-Samoa",
+  "es": "Samoa Americana",
+  "fr": "Samoa américaines",
+  "ja": "アメリカ領サモア",
+  "it": "Samoa Americane",
+  "br": "Samoa Americana",
+  "pt": "Samoa Americana"
+  },
+  "flag": "https://restcountries.eu/data/asm.svg"
+  },
+  {
+  "name": "Andorra",
+  "topLevelDomain": [
+                     ".ad"
+                     ],
+  "alpha2Code": "AD",
+  "alpha3Code": "AND",
+  "callingCodes": [
+                   "376"
+                   ],
+  "capital": "Andorra la Vella",
+  "altSpellings": [
+                   "AD",
+                   "Principality of Andorra",
+                   "Principat d'Andorra"
+                   ],
+  "region": "Europe",
+  "population": 78014,
+  "latlng": [
+             42.5,
+             1.5
+             ],
+  "demonym": "Andorran",
+  "area": 468,
+  "gini": null,
+  "timezones": [
+                "UTC+01:00"
+                ],
+  "borders": [
+              "FRA",
+              "ESP"
+              ],
+  "nativeName": "Andorra",
+  "numericCode": "020",
+  "currencies": [
+                 {
+                 "code": "EUR",
+                 "name": "Euro",
+                 "symbol": "€"
+                 }
+                 ],
+  "languages": [
+                {
+                "iso639_1": "ca",
+                "iso639_2": "cat",
+                "name": "Catalan",
+                "nativeName": "català"
+                }
+                ],
+  "translations": {
+  "de": "Andorra",
+  "es": "Andorra",
+  "fr": "Andorre",
+  "ja": "アンドラ",
+  "it": "Andorra",
+  "br": "Andorra",
+  "pt": "Andorra"
+  },
+  "flag": "https://restcountries.eu/data/and.svg"
+  },
+  {
+  "name": "Angola",
+  "topLevelDomain": [
+                     ".ao"
+                     ],
+  "alpha2Code": "AO",
+  "alpha3Code": "AGO",
+  "callingCodes": [
+                   "244"
+                   ],
+  "capital": "Luanda",
+  "altSpellings": [
+                   "AO",
+                   "República de Angola",
+                   "ʁɛpublika de an'ɡɔla"
+                   ],
+  "region": "Africa",
+  "population": 25868000,
+  "latlng": [
+             -12.5,
+             18.5
+             ],
+  "demonym": "Angolan",
+  "area": 1246700,
+  "gini": 58.6,
+  "timezones": [
+                "UTC+01:00"
+                ],
+  "borders": [
+              "COG",
+              "COD",
+              "ZMB",
+              "NAM"
+              ],
+  "nativeName": "Angola",
+  "numericCode": "024",
+  "currencies": [
+                 {
+                 "code": "AOA",
+                 "name": "Angolan kwanza",
+                 "symbol": "Kz"
+                 }
+                 ],
+  "languages": [
+                {
+                "iso639_1": "pt",
+                "iso639_2": "por",
+                "name": "Portuguese",
+                "nativeName": "Português"
+                }
+                ],
+  "translations": {
+  "de": "Angola",
+  "es": "Angola",
+  "fr": "Angola",
+  "ja": "アンゴラ",
+  "it": "Angola",
+  "br": "Angola",
+  "pt": "Angola"
+  },
+  "flag": "https://restcountries.eu/data/ago.svg"
+  },
+  {
+  "name": "Anguilla",
+  "topLevelDomain": [
+                     ".ai"
+                     ],
+  "alpha2Code": "AI",
+  "alpha3Code": "AIA",
+  "callingCodes": [
+                   "1264"
+                   ],
+  "capital": "The Valley",
+  "altSpellings": [
+                   "AI"
+                   ],
+  "region": "Americas",
+  "population": 13452,
+  "latlng": [
+             18.25,
+             -63.16666666
+             ],
+  "demonym": "Anguillian",
+  "area": 91,
+  "gini": null,
+  "timezones": [
+                "UTC-04:00"
+                ],
+  "borders": [],
+  "nativeName": "Anguilla",
+  "numericCode": "660",
+  "currencies": [
+                 {
+                 "code": "XCD",
+                 "name": "East Caribbean dollar",
+                 "symbol": "$"
+                 }
+                 ],
+  "languages": [
+                {
+                "iso639_1": "en",
+                "iso639_2": "eng",
+                "name": "English",
+                "nativeName": "English"
+                }
+                ],
+  "translations": {
+  "de": "Anguilla",
+  "es": "Anguilla",
+  "fr": "Anguilla",
+  "ja": "アンギラ",
+  "it": "Anguilla",
+  "br": "Anguila",
+  "pt": "Anguila"
+  },
+  "flag": "https://restcountries.eu/data/aia.svg"
+  },
+  {
+  "name": "Antarctica",
+  "topLevelDomain": [
+                     ".aq"
+                     ],
+  "alpha2Code": "AQ",
+  "alpha3Code": "ATA",
+  "callingCodes": [],
+  "capital": "",
+  "altSpellings": [],
+  "region": "Polar",
+  "population": 1000,
+  "latlng": [
+             -74.65,
+             4.48
+             ],
+  "demonym": "",
+  "area": 14000000,
+  "gini": null,
+  "timezones": [
+                "UTC-03:00",
+                "UTC+03:00",
+                "UTC+05:00",
+                "UTC+06:00",
+                "UTC+07:00",
+                "UTC+08:00",
+                "UTC+10:00",
+                "UTC+12:00"
+                ],
+  "borders": [],
+  "nativeName": "Antarctica",
+  "numericCode": "010",
+  "currencies": [
+                 {
+                 "code": "AUD",
+                 "name": "Australian dollar",
+                 "symbol": "$"
+                 },
+                 {
+                 "code": "GBP",
+                 "name": "British pound",
+                 "symbol": "£"
+                 }
+                 ],
+  "languages": [
+                {
+                "iso639_1": "en",
+                "iso639_2": "eng",
+                "name": "English",
+                "nativeName": "English"
+                },
+                {
+                "iso639_1": "ru",
+                "iso639_2": "rus",
+                "name": "Russian",
+                "nativeName": "Русский"
+                }
+                ],
+  "translations": {
+  "de": "Antarktika",
+  "es": "Antártida",
+  "fr": "Antarctique",
+  "ja": "南極大陸",
+  "it": "Antartide",
+  "br": "Antártida",
+  "pt": "Antárctida"
+  },
+  "flag": "https://restcountries.eu/data/ata.svg"
+  },
+  {
+  "name": "Antigua and Barbuda",
+  "topLevelDomain": [
+                     ".ag"
+                     ],
+  "alpha2Code": "AG",
+  "alpha3Code": "ATG",
+  "callingCodes": [
+                   "1268"
+                   ],
+  "capital": "Saint John's",
+  "altSpellings": [
+                   "AG"
+                   ],
+  "region": "Americas",
+  "population": 86295,
+  "latlng": [
+             17.05,
+             -61.8
+             ],
+  "demonym": "Antiguan, Barbudan",
+  "area": 442,
+  "gini": null,
+  "timezones": [
+                "UTC-04:00"
+                ],
+  "borders": [],
+  "nativeName": "Antigua and Barbuda",
+  "numericCode": "028",
+  "currencies": [
+                 {
+                 "code": "XCD",
+                 "name": "East Caribbean dollar",
+                 "symbol": "$"
+                 }
+                 ],
+  "languages": [
+                {
+                "iso639_1": "en",
+                "iso639_2": "eng",
+                "name": "English",
+                "nativeName": "English"
+                }
+                ],
+  "translations": {
+  "de": "Antigua und Barbuda",
+  "es": "Antigua y Barbuda",
+  "fr": "Antigua-et-Barbuda",
+  "ja": "アンティグア・バーブーダ",
+  "it": "Antigua e Barbuda",
+  "br": "Antígua e Barbuda",
+  "pt": "Antígua e Barbuda"
+  },
+  "flag": "https://restcountries.eu/data/atg.svg"
+  },
+  {
+  "name": "Argentina",
+  "topLevelDomain": [
+                     ".ar"
+                     ],
+  "alpha2Code": "AR",
+  "alpha3Code": "ARG",
+  "callingCodes": [
+                   "54"
+                   ],
+  "capital": "Buenos Aires",
+  "altSpellings": [
+                   "AR",
+                   "Argentine Republic",
+                   "República Argentina"
+                   ],
+  "region": "Americas",
+  "population": 43590400,
+  "latlng": [
+             -34,
+             -64
+             ],
+  "demonym": "Argentinean",
+  "area": 2780400,
+  "gini": 44.5,
+  "timezones": [
+                "UTC-03:00"
+                ],
+  "borders": [
+              "BOL",
+              "BRA",
+              "CHL",
+              "PRY",
+              "URY"
+              ],
+  "nativeName": "Argentina",
+  "numericCode": "032",
+  "currencies": [
+                 {
+                 "code": "ARS",
+                 "name": "Argentine peso",
+                 "symbol": "$"
+                 }
+                 ],
+  "languages": [
+                {
+                "iso639_1": "es",
+                "iso639_2": "spa",
+                "name": "Spanish",
+                "nativeName": "Español"
+                },
+                {
+                "iso639_1": "gn",
+                "iso639_2": "grn",
+                "name": "Guaraní",
+                "nativeName": "Avañe'ẽ"
+                }
+                ],
+  "translations": {
+  "de": "Argentinien",
+  "es": "Argentina",
+  "fr": "Argentine",
+  "ja": "アルゼンチン",
+  "it": "Argentina",
+  "br": "Argentina",
+  "pt": "Argentina"
+  },
+  "flag": "https://restcountries.eu/data/arg.svg"
+  },
+  {
+  "name": "Armenia",
+  "topLevelDomain": [
+                     ".am"
+                     ],
+  "alpha2Code": "AM",
+  "alpha3Code": "ARM",
+  "callingCodes": [
+                   "374"
+                   ],
+  "capital": "Yerevan",
+  "altSpellings": [
+                   "AM",
+                   "Hayastan",
+                   "Republic of Armenia",
+                   "Հայաստանի Հանրապետություն"
+                   ],
+  "region": "Asia",
+  "population": 2994400,
+  "latlng": [
+             40,
+             45
+             ],
+  "demonym": "Armenian",
+  "area": 29743,
+  "gini": 30.9,
+  "timezones": [
+                "UTC+04:00"
+                ],
+  "borders": [
+              "AZE",
+              "GEO",
+              "IRN",
+              "TUR"
+              ],
+  "nativeName": "Հայաստան",
+  "numericCode": "051",
+  "currencies": [
+                 {
+                 "code": "AMD",
+                 "name": "Armenian dram",
+                 "symbol": null
+                 }
+                 ],
+  "languages": [
+                {
+                "iso639_1": "hy",
+                "iso639_2": "hye",
+                "name": "Armenian",
+                "nativeName": "Հայերեն"
+                },
+                {
+                "iso639_1": "ru",
+                "iso639_2": "rus",
+                "name": "Russian",
+                "nativeName": "Русский"
+                }
+                ],
+  "translations": {
+  "de": "Armenien",
+  "es": "Armenia",
+  "fr": "Arménie",
+  "ja": "アルメニア",
+  "it": "Armenia",
+  "br": "Armênia",
+  "pt": "Arménia"
+  },
+  "flag": "https://restcountries.eu/data/arm.svg"
+  },
+  {
+  "name": "Aruba",
+  "topLevelDomain": [
+                     ".aw"
+                     ],
+  "alpha2Code": "AW",
+  "alpha3Code": "ABW",
+  "callingCodes": [
+                   "297"
+                   ],
+  "capital": "Oranjestad",
+  "altSpellings": [
+                   "AW"
+                   ],
+  "region": "Americas",
+  "population": 107394,
+  "latlng": [
+             12.5,
+             -69.96666666
+             ],
+  "demonym": "Aruban",
+  "area": 180,
+  "gini": null,
+  "timezones": [
+                "UTC-04:00"
+                ],
+  "borders": [],
+  "nativeName": "Aruba",
+  "numericCode": "533",
+  "currencies": [
+                 {
+                 "code": "AWG",
+                 "name": "Aruban florin",
+                 "symbol": "ƒ"
+                 }
+                 ],
+  "languages": [
+                {
+                "iso639_1": "nl",
+                "iso639_2": "nld",
+                "name": "Dutch",
+                "nativeName": "Nederlands"
+                },
+                {
+                "iso639_1": "pa",
+                "iso639_2": "pan",
+                "name": "(Eastern) Punjabi",
+                "nativeName": "ਪੰਜਾਬੀ"
+                }
+                ],
+  "translations": {
+  "de": "Aruba",
+  "es": "Aruba",
+  "fr": "Aruba",
+  "ja": "アルバ",
+  "it": "Aruba",
+  "br": "Aruba",
+  "pt": "Aruba"
+  },
+  "flag": "https://restcountries.eu/data/abw.svg"
+  }
+  ]

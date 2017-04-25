@@ -23,4 +23,15 @@ func randomString(withLength length: Int) -> String {
     return randomString
 }
 
+enum Mockfiles: String {
+    case testFile
+
+    static func url(for mockfile: Mockfiles) -> URL {
+        switch mockfile {
+        case .testFile:
+            return Bundle.main.url(forResource: Mockfiles.testFile.rawValue, withExtension: "json")!
+        }
+    }
+}
+
 
