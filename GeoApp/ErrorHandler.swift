@@ -11,15 +11,21 @@ enum Errors: Error {
     case noData
     case jsonError
     case networkError(error: NSError)
-    
-    var description: (title: String, message: String) {
+    case invalidURL
+}
+
+extension Errors: CustomStringConvertible {
+
+    public var description: String {
         switch self {
         case .noData:
-            return ("Error", "No valid data returned from server")
+            return "No valid data returned from server"
         case .jsonError:
-            return ("Error", "Response from server cannot be converted in readable data")
+            return "Response from server cannot be converted in readable data"
         case .networkError(let error):
-            return ("Error \(error.code)", error.localizedDescription)
+            return (error.localizedDescription)
+        case .invalidURL:
+            return "The provided url is not valid"
         }
     }
 }
@@ -77,8 +83,8 @@ extension ErrorHandler: ErrorViewDelegate {
         alert?.delegate = self
         alert?.button.setTitle(buttonTitle, for: .normal)
         viewIsShown(true)
-        alert!.titleLabel.text = error.description.title
-        alert!.subTextLabel.text = error.description.message
+        alert!.titleLabel.text = "Error"
+        alert!.subTextLabel.text = error.description
         sender.view.addSubview(alert!)
         alert!.center = sender.view.center
         layoutAlertView(alert!, sender: sender)
