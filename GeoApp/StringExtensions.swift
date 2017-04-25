@@ -13,14 +13,14 @@ extension String {
     func localisedName(_ localisationDict: [String: String]?) -> String? {
         let languageLocale = ((Locale.current as NSLocale).object(forKey: NSLocale.Key(rawValue: Locale.preferredLanguages[0])) as AnyObject).lowercased
         var localisedString: String?
-        guard let dictionary = localisationDict else {return nil }
-        for key in dictionary.keys {
-            if key == languageLocale {
-                localisedString = dictionary[key]!
-                return localisedString
-            } else {
-                localisedString = nil
-            }
+        guard let dictionary = localisationDict else {
+            return nil
+        }
+        let stringKey = dictionary.keys.first(where: {
+            $0 == languageLocale
+        })
+        if let key = stringKey {
+        localisedString = dictionary[key]
         }
         return localisedString
     }
