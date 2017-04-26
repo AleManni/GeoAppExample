@@ -166,7 +166,6 @@
 			children = (
 				1D1F001B1D36577500E2EF2C /* AppDelegate.swift */,
 				1D1F003E1D36981200E2EF2C /* Shared */,
-				1D5525151E912C39009BAEB9 /* Protocols */,
 				1D1F003D1D3697F500E2EF2C /* Models */,
 				1D5026111E96C08900DAD325 /* ViewModels */,
 				1D1F00451D36AF0300E2EF2C /* ViewControllers */,
@@ -191,6 +190,7 @@
 		1D1F003E1D36981200E2EF2C /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				1D5525151E912C39009BAEB9 /* Protocols */,
 				1D55251C1E9170C2009BAEB9 /* Extensions */,
 				1D55251D1E9170F2009BAEB9 /* Services */,
 				1D1F00431D36AE9400E2EF2C /* ErrorHandler.swift */,
