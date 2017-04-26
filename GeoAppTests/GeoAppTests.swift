@@ -28,21 +28,20 @@ class GeoAppTests: XCTestCase {
     }
     
     //MARK: - Factory tests
+    // TODO: Extension for Equatable for the models so that you can compare them easily 
     
     func testFactory_1() {
         // GIVEN
         var countryList: CountryList?
         let factory = Factory(CountryList.self)
-        let mockResourceURL = Mockfiles.url(for: .testFile)
-        let unsafeData = try? Data(contentsOf: mockResourceURL)
-        guard let data = unsafeData else {
-            XCTFail("Could not load data from mock file")
+        guard let mockCountryListData = MockDataURLFactory.data(from: .countryList) else {
+            XCTFail("Failed loading data from json file")
             return
         }
         let expectationForCallBack = XCTestExpectation()
 
         // WHEN
-        factory.instantiateFromResponse(data, callback: { result in
+        factory.instantiateFromResponse(mockCountryListData, callback: { result in
             switch result {
             case let .success(object):
                 countryList = object as? CountryList
@@ -54,24 +53,6 @@ class GeoAppTests: XCTestCase {
     })
         //THEN
         XCTAssertEqual(countryList?.list?[0].name, "Afghanistan")
-
     }
-    
-    func testPopulateRegionFromResponse() {
 
-    }
-    
-    //MARK: - Controllers test
-
-    func testCountryListDataSource() {
-
-    }
-    
-    
-    
-    //MARK: - Networking test
-    
-    func testShowNetworkError() {
-
-    }
 }

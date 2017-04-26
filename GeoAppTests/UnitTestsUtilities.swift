@@ -8,6 +8,30 @@
 
 import Foundation
 
+enum Mockfiles: String {
+    case countryList
+
+}
+
+class MockDataURLFactory {
+
+    static func url(for mockfile: Mockfiles) -> URL? {
+        let bundle = Bundle(for: self)
+        guard let path = bundle.path(forResource:  mockfile.rawValue, ofType: "json") else {
+            return nil
+        }
+        return URL(fileURLWithPath: path)
+    }
+
+    static func data(from mockfile: Mockfiles) -> Data? {
+        guard let url = self.url(for: mockfile) else {
+            return nil
+        }
+        return try? Data(contentsOf: url)
+    }
+}
+
+
 func randomString(withLength length: Int) -> String {
 
     let letters: NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -23,15 +47,5 @@ func randomString(withLength length: Int) -> String {
     return randomString
 }
 
-enum Mockfiles: String {
-    case testFile
-
-    static func url(for mockfile: Mockfiles) -> URL {
-        switch mockfile {
-        case .testFile:
-            return Bundle.main.url(forResource: Mockfiles.testFile.rawValue, withExtension: "json")!
-        }
-    }
-}
 
 
