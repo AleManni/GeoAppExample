@@ -12,6 +12,7 @@ import Foundation
 
 enum Mockfiles: String {
     case countryList
+    case countryListCorrupted
 
 }
 
