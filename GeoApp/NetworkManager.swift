@@ -37,18 +37,33 @@ struct Endpoints {
     }
 }
 
-final class ConnectionManager {
-    static let session: URLSession = URLSession(configuration: URLSessionConfiguration.default)
+final class NetworkManager {
+    private static let session: URLSession = URLSession(configuration: URLSessionConfiguration.default)
 
+    public static func fetchCountryList(callback: @escaping (_ result: Result) -> ()) {
+    let constructor = Factory(CountryList.self)
+    let url = Endpoints.url(from: Endpoints.allCountries)
+    fetch(url: url, constructor: constructor, callback: { result in
+        callback(result)
+        })
+    }
 
-    static func fetch(url: URL?, constructor: DataConstructor, callback: @escaping (_ result: Result) -> ()) {
+    public static func fetchRegion(regionName: String, callback: @escaping (_ result: Result) -> ()) {
+    let constructor = Factory(CountryList.self)
+    let url = Endpoints.url(from: Endpoints.region(regionName))
+        fetch(url: url, constructor: constructor, callback: { result in
+            callback(result)
+        })
+    }
+
+    private static func fetch(url: URL?, constructor: DataConstructor, callback: @escaping (_ result: Result) -> ()) {
         guard let url = url else {
             callback(.error(.invalidURL))
             return
         }
         var urlRequest = URLRequest(url: url)
         urlRequest.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalCacheData
-        let task = session.dataTask(with: urlRequest, completionHandler: {
+        let task = self.session.dataTask(with: urlRequest, completionHandler: {
             (data, response, error) in
             if let error = error as NSError? {
                 callback(.error(.networkError(error: error)))
