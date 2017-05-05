@@ -55,7 +55,7 @@ class ErrorHandler: NSObject {
         alert.translatesAutoresizingMaskIntoConstraints = false
         constraintX = NSLayoutConstraint(item: alert, attribute: .centerXWithinMargins, relatedBy: .equal, toItem: sender.view, attribute: .centerXWithinMargins, multiplier: 1, constant: 0)
         constraintY = NSLayoutConstraint(item: alert, attribute: .centerYWithinMargins, relatedBy: .equal, toItem: sender.view, attribute: .centerYWithinMargins, multiplier: 1, constant: 0)
-        constraintWidth = NSLayoutConstraint(item: alert, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 0)
+        constraintWidth = NSLayoutConstraint(item: alert, attribute: .width, relatedBy: .equal, toItem: sender.view, attribute: .width, multiplier: 0.40, constant: 0)
         constraintHeight = NSLayoutConstraint(item: alert, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 0, constant: 150)
         sender.view.addConstraints([self.constraintX!, self.constraintY!, self.constraintWidth!, self.constraintHeight!])
 
