@@ -26,27 +26,73 @@ class CountryDetail: InstantiatableFromResponse {
     var isSelected: Bool = false
 
     required init?(_ response: AnyObject) {
-        guard response is [String: AnyObject] else {
-            return nil
+        guard response is [String: AnyObject],
+            let name = response["name"] as? String,
+            let population = response["population"] as? Int,
+            let countryCode = response["alpha3Code"] as? String,
+            let region = response["region"] as? String,
+            let capital = response["capital"] as? String,
+            let area = response["area"] as? Int,
+            let timeZones = response["timezones"] as? [String],
+            let nativeName = response["nativeName"] as? String,
+            let currenciesDict = response["currencies"] as? [[String: Any]],
+            let currencies = currenciesDict.values(of: "name") as? [String],
+            let callingCodes = response["callingCodes"] as? [String],
+            let languagesDict = response["languages"] as? [[String: Any]]
+            else {
+                return nil
         }
-        name = response["name"] as? String ?? ""
+        self.name = name
+        self.population = population
+        self.countryCode = countryCode
+        self.region = region
+        self.capital = capital
+        self.area = area
+        self.timeZones = timeZones
+        self.nativeName = nativeName
+        self.currencies = currencies
+        self.callingCodes = callingCodes
+
         translations = response["translations"] as? [String: String] ?? [:]
-        population = response["population"] as? Int ?? 0
-        countryCode = response["alpha3Code"] as? String ?? ""
-        region = response["region"] as? String ?? ""
+        borders = response["borders"] as? [String] ?? []
+        self.languages = languagesDict.values(of: "name") as? [String] ?? []
+
         if let altSpellings = response["altSpellings"] as? [String], !altSpellings.isEmpty {
             flagIconURL = URL(string: Endpoints.flagURLString(altSpellings[0]))
         }
-        capital = response["capital"] as? String ?? ""
-        area = response["area"] as? Int ?? 0
-        timeZones = response["timezones"] as? [String] ?? []
-        callingCodes = response["callingCodes"] as? [String] ?? []
-        let currenciesDict = response["currencies"] as? [[String: Any]]
-        currencies = currenciesDict?.values(of: "name") as? [String] ?? []
-        let languagesDict = response["languages"] as? [[String: Any]]
-        languages = languagesDict?.values(of: "name") as? [String] ?? []
-        nativeName = response["nativeName"] as? String ?? ""
-        borders = response["borders"] as? [String] ?? []
+    }
+
+    init(name: String,
+    translations: [String: String],
+    population: Int,
+    countryCode: String,
+    region: String,
+    flagIconURL: URL?,
+    capital: String,
+    area: Int,
+    timeZones: [String],
+    callingCodes: [String],
+    currencies: [String],
+    languages: [String],
+    nativeName: String,
+    borders: [String],
+    isSelected: Bool = false
+    ) {
+    self.name = name
+    self.translations = translations
+    self.population = population
+    self.countryCode = countryCode
+    self.region = region
+    self.flagIconURL = flagIconURL
+    self.capital = capital
+    self.area = area
+    self.timeZones = timeZones
+    self.callingCodes = callingCodes
+    self.currencies = currencies
+    self.languages = languages
+    self.nativeName = nativeName
+    self.borders = borders
+    self.isSelected = isSelected
     }
 }
 
