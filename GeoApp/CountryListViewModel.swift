@@ -19,25 +19,21 @@ struct CountryRepresentable {
 
     init?(_ country: CountryDetail) {
 
-        guard let nameString = country.name else {
-            return nil
-        }
-
-        if let countryNameLocalised = nameString.localisedName(country.translations) {
+        if let countryNameLocalised = country.name.localisedName(country.translations) {
             name = countryNameLocalised
         } else {
-            name = nameString
+            name = country.name
         }
 
-        if let populationInt = country.population, let value = country.population, value != 0 {
-            let populationByMillions = Double(populationInt)/1000000
+        if country.population != 0 {
+            let populationByMillions = Double(country.population)/1000000
             population = "Population: \(populationByMillions)M"
         } else {
             population = "Population: \(StyleManager.shared.stringMissing)"
         }
 
-        if let regionString = country.region, regionString.characters.count > 0 {
-            region = regionString
+        if country.region.characters.count > 0 {
+            region = country.region
         } else {
             region = "Region: \(StyleManager.shared.stringMissing)"
         }

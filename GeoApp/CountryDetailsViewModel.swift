@@ -19,37 +19,33 @@ struct CountryDetailsRepresentable {
 
     init(_ country: CountryDetail) {
 
-        nativeName = country.nativeName ?? "\(StyleManager.shared.stringMissing)"
+        nativeName = country.nativeName 
 
-        if let population = country.population {
-            let populationByMillions = Double(population)/1000000
+            let populationByMillions = Double(country.population)/1000000
             self.population = "Population: \(populationByMillions)M"
-        } else {
-            population = "Population: \(StyleManager.shared.stringMissing)"
-        }
 
         flagImageURL = country.flagIconURL
 
-        if let languages = country.languages, !languages.isEmpty {
-            self.languages = String().composeFromArray(languages).uppercased()
+        if !country.languages.isEmpty {
+            self.languages = String().composeFromArray(country.languages).uppercased()
         } else {
             languages = StyleManager.shared.stringMissing
         }
 
-        if let callingCodes = country.callingCodes, !callingCodes.isEmpty {
-            phoneLabel = String().composeFromArray(callingCodes)
+        if !country.callingCodes.isEmpty {
+            phoneLabel = String().composeFromArray(country.callingCodes)
         } else {
             phoneLabel = (StyleManager.shared.stringMissing)
         }
 
-        if let timeZones = country.timeZones, !timeZones.isEmpty {
-            timeZone = String().composeFromArray(timeZones)
+        if !country.timeZones.isEmpty {
+            timeZone = String().composeFromArray(country.timeZones)
         } else {
             timeZone = StyleManager.shared.stringMissing
         }
 
-        if let currencies = country.currencies, !currencies.isEmpty {
-            currency = String().composeFromArray(currencies)
+        if !country.currencies.isEmpty {
+            currency = String().composeFromArray(country.currencies)
         } else {
             currency = StyleManager.shared.stringMissing
         }

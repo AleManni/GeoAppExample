@@ -88,7 +88,7 @@ class CountryDetailsViewController: UIViewController {
     }
 
     private func setTitle() {
-        if let countryNameLocalised = selectedCountry?.name!.localisedName(self.selectedCountry?.translations) {
+        if let countryNameLocalised = selectedCountry?.name.localisedName(self.selectedCountry?.translations) {
             title = countryNameLocalised
         } else {
             title = selectedCountry?.name ?? ""
@@ -98,9 +98,7 @@ class CountryDetailsViewController: UIViewController {
     private func refreshViewModels(selectedContry: CountryDetail) {
         countryDetailsViewModel?.swapSource(selectedContry)
         capitalCityViewModel?.swapSource(selectedContry)
-        if let region = selectedContry.region {
-        countryRegionViewModel?.swapSource(region)
-        }
+        countryRegionViewModel?.swapSource(selectedContry.region)
         borderingCountriesViewModel?.swapSource(selectedContry)
     }
 }

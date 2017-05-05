@@ -17,7 +17,7 @@
     private var country: CountryDetail {
         didSet {
             if let countries = Store.shared.countries.list {
-                let countryBorders = country.borders ?? []
+                let countryBorders = country.borders 
                 var countriesArray: [CountryDetail] = []
                 countryBorders.forEach { countryCode in
                     if let country = countries.first(where: { $0.countryCode == countryCode }) {

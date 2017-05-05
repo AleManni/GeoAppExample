@@ -13,17 +13,8 @@ struct CapitalCityRepresentable {
     let region: String
 
     init(_ country: CountryDetail) {
-        if let capital = country.capital {
-            self.capital = capital
-        } else {
-            self.capital = StyleManager.shared.stringMissing
-        }
-
-        if let region = country.region {
-            self.region = region
-        } else {
-            self.region = StyleManager.shared.stringMissing
-        }
+            self.capital = country.capital
+            self.region = country.region
     }
 }
 

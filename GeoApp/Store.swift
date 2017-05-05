@@ -32,3 +32,5 @@ class Store {
     countries.list?.removeAll()
     }
 }
+
+// TODO: Implement data persistency (NSCoding/CoreData/Realm)

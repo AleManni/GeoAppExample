@@ -14,16 +14,9 @@ struct CountryRegionRepresentable {
     let regionName: String?
 
     init?(_ country: CountryDetail) {
-        guard let countryCode = country.countryCode else {
-            return nil
-        }
-        self.countryCode = countryCode.uppercased()
+        self.countryCode = country.countryCode.uppercased()
         flagImageURL = country.flagIconURL
-        if let region = country.region {
-        regionName = region.uppercased() + " COUNTRIES:"
-        } else {
-            regionName = ""
-        }
+        regionName = country.region.uppercased() + " COUNTRIES:"
     }
 }
 

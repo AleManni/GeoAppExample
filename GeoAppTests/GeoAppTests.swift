@@ -28,7 +28,6 @@ class GeoAppTests: XCTestCase {
     }
     
     //MARK: - Factory tests
-    // TODO: Extension for Equatable for the models so that you can compare them easily 
     
     func testFactory_1() {
         // GIVEN
