@@ -25,37 +25,39 @@ class CountryDetail: InstantiatableFromResponse {
     let borders: [String]
     var isSelected: Bool = false
 
-    required init?(_ response: AnyObject) {
+
+    required init?(_ response: AnyObject) throws {
         guard response is [String: AnyObject],
             let name = response["name"] as? String,
             let population = response["population"] as? Int,
             let countryCode = response["alpha3Code"] as? String,
             let region = response["region"] as? String,
             let capital = response["capital"] as? String,
-            let area = response["area"] as? Int,
-            let timeZones = response["timezones"] as? [String],
-            let nativeName = response["nativeName"] as? String,
-            let currenciesDict = response["currencies"] as? [[String: Any]],
-            let currencies = currenciesDict.values(of: "name") as? [String],
+            let languagesDict = response["languages"] as? [[String: Any]],
             let callingCodes = response["callingCodes"] as? [String],
-            let languagesDict = response["languages"] as? [[String: Any]]
+            let nativeName = response["nativeName"] as? String,
+            let timeZones = response["timezones"] as? [String],
+            var translations = response["translations"] as? [String: AnyObject?]
             else {
-                return nil
+                throw Errors.jsonError
         }
+        let currenciesDict = response["currencies"] as? [[String: Any]]
+        let currencies = currenciesDict?.values(of: "name") as? [String] ?? []
+        translations.forEach { if $0.value == nil { translations.removeValue(forKey: $0.key) } }
+
         self.name = name
         self.population = population
         self.countryCode = countryCode
         self.region = region
         self.capital = capital
-        self.area = area
+        self.area = response["area"] as? Int ?? 0
         self.timeZones = timeZones
         self.nativeName = nativeName
         self.currencies = currencies
         self.callingCodes = callingCodes
-
-        translations = response["translations"] as? [String: String] ?? [:]
-        borders = response["borders"] as? [String] ?? []
-        self.languages = languagesDict.values(of: "name") as? [String] ?? []
+        self.languages = languagesDict.values(of: "name") as? [String] ?? [""]
+        self.translations = translations as! [String: String]
+        self.borders = response["borders"] as? [String] ?? []
 
         if let altSpellings = response["altSpellings"] as? [String], !altSpellings.isEmpty {
             flagIconURL = URL(string: Endpoints.flagURLString(altSpellings[0]))
@@ -106,12 +108,12 @@ extension CountryDetail: Equatable {
         lhs.flagIconURL == rhs.flagIconURL &&
         lhs.capital == rhs.capital &&
         lhs.area == rhs.area &&
-            lhs.timeZones == rhs.timeZones &&
-        lhs.callingCodes == rhs.callingCodes &&
-        lhs.currencies == rhs.currencies &&
-        lhs.languages == rhs.languages &&
+        (lhs.timeZones ~ rhs.timeZones) &&
+        (lhs.callingCodes ~ rhs.callingCodes) &&
+        (lhs.currencies ~ rhs.currencies) &&
+        (lhs.languages ~ rhs.languages) &&
         lhs.nativeName == rhs.nativeName &&
-        lhs.borders == rhs.borders &&
+        (lhs.borders ~ rhs.borders) &&
         lhs.isSelected == rhs.isSelected
     }
 }

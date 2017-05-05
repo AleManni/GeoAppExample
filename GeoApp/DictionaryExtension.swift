@@ -8,7 +8,7 @@
 
 import Foundation
 
-extension Sequence where Iterator.Element == [String:Any] {
+extension Sequence where Iterator.Element == [String: Any] {
 
     func values(of key: String) -> [Any] {
         return self.flatMap {$0[key]}

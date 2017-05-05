@@ -38,7 +38,7 @@ struct Endpoints {
 }
 
 final class NetworkManager {
-    private static let session: URLSession = URLSession(configuration: URLSessionConfiguration.default)
+    private static let session = URLSession(configuration: URLSessionConfiguration.default)
 
     public static func fetchCountryList(callback: @escaping (_ result: Result) -> ()) {
     let constructor = Factory(CountryList.self)
