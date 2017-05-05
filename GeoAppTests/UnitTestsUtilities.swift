@@ -8,12 +8,14 @@
 
 import Foundation
 
+// Note: MockDataFactory and MockFiles will provide json data or a local url in order to test Factory and NetwworkManager classes
+
 enum Mockfiles: String {
     case countryList
 
 }
 
-class MockDataURLFactory {
+class MockDataFactory {
 
     static func url(for mockfile: Mockfiles) -> URL? {
         let bundle = Bundle(for: self)
@@ -31,6 +33,7 @@ class MockDataURLFactory {
     }
 }
 
+// MARK: - Other utils functions
 
 func randomString(withLength length: Int) -> String {
 

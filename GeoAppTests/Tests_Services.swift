@@ -18,22 +18,13 @@ class GeoAppTests: XCTestCase {
         super.tearDown()
     }
     
-    //MARK: - String extensions tests
-    
-    func testComposeFromArray() {
-        let stringsArray = ["Hello", "World"]
-        let string = ""
-        let composedString = string.composeFromArray(stringsArray)
-        XCTAssertTrue(composedString == "Hello World", "Composed string should be: Hello World, not \(composedString)")
-    }
-    
     //MARK: - Factory tests
     
     func testFactory_1() {
         // GIVEN
         var countryList: CountryList?
         let factory = Factory(CountryList.self)
-        guard let mockCountryListData = MockDataURLFactory.data(from: .countryList) else {
+        guard let mockCountryListData = MockDataFactory.data(from: .countryList) else {
             XCTFail("Failed loading data from json file")
             return
         }
