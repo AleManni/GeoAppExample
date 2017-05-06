@@ -46,7 +46,7 @@ class GeoAppTests: XCTestCase {
         let countriesFetched = countryList?.list?.flatMap { return $0.name }
         XCTAssertTrue(countriesFetched! ~ MockObjects.shared.countryListNames, "The fetched list does not contain all the expected countries")
         // Assert that countries have been instantiated as expected (will only check one)
-        XCTAssertEqual(countryList?.list?[0], MockObjects.shared.Afghanistan)
+        XCTAssertEqual(countryList?.list?[0], MockObjects.shared.afghanistan)
     }
 
     func testFactory_deserializeIncompleteJSON() {
