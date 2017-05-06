@@ -9,7 +9,6 @@
 import Foundation
 
 // Note: check if two arrays hold the same elements regardless to their order
-
 precedencegroup LeftAssociativePrecedence {
     associativity: left
 }

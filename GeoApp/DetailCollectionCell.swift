@@ -21,7 +21,7 @@ class DetailCollectionCell: UICollectionViewCell {
 
     private func populateWith(_ data: CountryRegionRepresentable) {
         countryCodeLabel.text = data.countryCode
-        flagImageView.setImageFromURL(data.flagImageURL, placeHolder: #imageLiteral(resourceName: "placeholder"))
+        flagImageView.setImageFromURL(data.flagImageURL, placeHolder: #imageLiteral(resourceName: "placeholder"), completion: nil)
     }
 
     private func formatCell() {

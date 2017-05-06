@@ -8,10 +8,10 @@
 
 import Foundation
 
+// Note: traverse multiple dictionaries in an array of dictionaries, extracting the values corresponding to the provided key
 extension Sequence where Iterator.Element == [String: Any] {
-
     func values(of key: String) -> [Any] {
-        return self.flatMap {$0[key]}
+        return self.flatMap { $0[key] }
     }
 }
 

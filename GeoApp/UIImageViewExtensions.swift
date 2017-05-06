@@ -10,7 +10,7 @@ import UIKit
 
 extension UIImageView {
 
-    func setImageFromURL(_ url: URL?, placeHolder: UIImage) {
+    func setImageFromURL(_ url: URL?, placeHolder: UIImage, completion: ((Bool) -> Void)?) {
         guard let url = url else {
             self.image = placeHolder
             return
@@ -22,8 +22,10 @@ extension UIImageView {
             DispatchQueue.main.async {
                 if let imageData = data as Data? {
                     self.image = UIImage(data: imageData) ?? placeHolder
+                    completion?(true)
                 } else {
                     self.image = placeHolder
+                    completion?(false)
                 }
             }
         })

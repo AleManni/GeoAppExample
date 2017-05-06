@@ -36,7 +36,7 @@ final class CountryDetailsView: UIView {
             return
         }
         if let url = data.flagImageURL {
-            flagImageView.setImageFromURL(url, placeHolder: #imageLiteral(resourceName: "placeholder"))
+            flagImageView.setImageFromURL(url, placeHolder: #imageLiteral(resourceName: "placeholder"), completion: nil)
         }
         nativeNameLabel.text = data.nativeName
         populationLabel.text = data.population
