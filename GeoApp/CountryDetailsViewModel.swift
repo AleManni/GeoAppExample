@@ -19,10 +19,11 @@ struct CountryDetailsRepresentable {
 
     init(_ country: CountryDetail) {
 
-        nativeName = country.nativeName 
+        nativeName = country.nativeName
 
-            let populationByMillions = Double(country.population)/1000000
-            self.population = "Population: \(populationByMillions)M"
+        let populationByMillions = Double(country.population)/1000000
+        let stringRepresentable = String(format: "%.3f", populationByMillions)
+        self.population = "Population: \(stringRepresentable)M"
 
         flagImageURL = country.flagIconURL
 

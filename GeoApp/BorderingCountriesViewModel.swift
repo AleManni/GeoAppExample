@@ -16,17 +16,23 @@
 
     private var country: CountryDetail {
         didSet {
-            if let countries = Store.shared.countries.list {
-                let countryBorders = country.borders 
-                var countriesArray: [CountryDetail] = []
-                countryBorders.forEach { countryCode in
-                    if let country = countries.first(where: { $0.countryCode == countryCode }) {
-                        countriesArray.append(country)
-                    }
-                }
-                self.borderingCountries = countriesArray
+        }
+    }
+
+    func populate(with countries: [CountryDetail]) {
+        let countryBorders = country.borders
+        var countriesArray: [CountryDetail] = []
+        countryBorders.forEach { countryCode in
+            if let country = countries.first(where: { $0.countryCode == countryCode }) {
+                countriesArray.append(country)
             }
-            loadData()
+        }
+        self.borderingCountries = countriesArray
+        if let borderingCountries = borderingCountries {
+            let representableList = borderingCountries.flatMap {
+                return CountryRepresentable($0)
+            }
+            self.delegate?.viewModelDidLoadData(data: representableList, viewModel: self)
         }
     }
 
@@ -38,11 +44,19 @@
     }
 
     func loadData() {
-        if let borderingCountries = borderingCountries {
-            let representableList = borderingCountries.flatMap {
-                return CountryRepresentable($0)
+        if let countries = Store.shared.countries.list {
+            populate(with: countries)
+        } else {
+            Store.shared.fetchAll() { result in
+                switch result {
+                case let .success(countries):
+                    self.populate(with: countries as! [CountryDetail])
+                    return
+                default:
+                    // silent fail
+                    return
+                }
             }
-            self.delegate?.viewModelDidLoadData(data: representableList, viewModel: self)
         }
     }
     

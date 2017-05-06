@@ -38,7 +38,7 @@ class CountryListViewController: UIViewController {
         let detailViewController = segue.destination as! CountryDetailsViewController
         detailViewController.countries = countryList.list
         }
-        viewModel.resetSectedState()
+        viewModel.resetSelectedState()
     }
 }
 

@@ -27,7 +27,8 @@ struct CountryRepresentable {
 
         if country.population != 0 {
             let populationByMillions = Double(country.population)/1000000
-            population = "Population: \(populationByMillions)M"
+            let stringRepresentable = String(format: "%.3f", populationByMillions)
+            population = "Population: \(stringRepresentable)M"
         } else {
             population = "Population: \(StyleManager.shared.stringMissing)"
         }
@@ -90,7 +91,7 @@ final class CountryListViewModel: ViewModel {
         refreshStore()
     }
 
-    func resetSectedState() {
+    func resetSelectedState() {
         loadedCountryList?.list?.forEach({ $0.isSelected = false })
     }
 }

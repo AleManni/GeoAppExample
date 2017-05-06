@@ -13,7 +13,7 @@ extension GeoAppTests {
 
     func testCountryDetail_initialisation() {
         // WHEN
-        let afghanistan = try? CountryDetail(MockObjects.shared.afghanistanRawDictionary as AnyObject)
+        let afghanistan = try? CountryDetail(MockObjects.shared.countryListRawDictionary[0] as AnyObject)
         // THEN
         // Check that the object has been initialised
         XCTAssertTrue(afghanistan != nil)
@@ -23,7 +23,7 @@ extension GeoAppTests {
 
     func testCountryDetail_initialisationFailed() {
         // GIVEN
-        var rawDictionary = MockObjects.shared.afghanistanRawDictionary
+        var rawDictionary = MockObjects.shared.countryListRawDictionary[0]
         rawDictionary["name"] = nil
         var afghanistan: CountryDetail?
         var error: Errors?
@@ -52,23 +52,23 @@ extension GeoAppTests {
 
     func testCountryList_initialisation() {
         // WHEN
-        let countryList = try? CountryList([MockObjects.shared.afghanistanRawDictionary as Dictionary<String, AnyObject>] as AnyObject)
+        let countryList = try? CountryList(MockObjects.shared.countryListRawDictionary as AnyObject)
         // THEN
         // Check that the object has been initialised with the correct number of countries
-        XCTAssertEqual(countryList??.list?.count, 1)
+        XCTAssertEqual(countryList??.list?.count, 2)
         // Check that the object .list contains the correct country
         XCTAssertEqual(countryList??.list?[0], MockObjects.shared.afghanistan, "The object has not been initialised with the correct country")
     }
 
     func testCountryList_initialisationFailed() {
         // GIVEN
-        var rawDictionary = MockObjects.shared.afghanistanRawDictionary
-        rawDictionary["name"] = nil
+        var rawDictionary = MockObjects.shared.countryListRawDictionary
+        rawDictionary[0]["name"] = nil
         var error: Errors?
         var countryList: CountryList?
         // WHEN
         do {
-            countryList = try CountryList([rawDictionary as Dictionary<String, AnyObject>] as AnyObject)
+            countryList = try CountryList(rawDictionary as AnyObject)
         } catch let returnedError {
             error = returnedError as? Errors
         }
