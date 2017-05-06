@@ -20,7 +20,7 @@ class GeoAppTests: XCTestCase {
     
     //MARK: - Factory tests
     
-    func testFactory_1() {
+    func testFactory_deserializeJSON() {
         // GIVEN
         var countryList: CountryList?
         let factory = Factory(CountryList.self)
@@ -49,7 +49,7 @@ class GeoAppTests: XCTestCase {
         XCTAssertEqual(countryList?.list?[0], MockObjects.shared.Afghanistan)
     }
 
-    func testFactory_2() {
+    func testFactory_deserializeIncompleteJSON() {
         // GIVEN
         var error: Errors?
         let factory = Factory(CountryList.self)
