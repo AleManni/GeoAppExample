@@ -11,7 +11,7 @@ import Foundation
 extension String {
     
     func localisedName(_ localisationDict: [String: String?]?) -> String? {
-        let languageLocale = ((Locale.current as NSLocale).object(forKey: NSLocale.Key(rawValue: Locale.preferredLanguages[0])) as AnyObject).lowercased
+        let languageLocale = (Locale.preferredLanguages[0] as String).lowercased()
         var localisedString: String?
         guard let dictionary = localisationDict else {
             return nil
@@ -22,7 +22,7 @@ extension String {
         if let key = stringKey, let string = dictionary[key] {
             localisedString = string
         }
-        return localisedString
+        return localisedString ?? self
     }
 
     func composeFromArray(_ array: [String]) -> String {
