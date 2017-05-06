@@ -141,8 +141,6 @@ extension GeoAppTests {
 
         // THEN
         XCTAssertFalse(array3 ~ array4, "The two arrays have not been assessed correctly by the operator")
-
     }
-
 }
 

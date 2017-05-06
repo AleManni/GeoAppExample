@@ -84,7 +84,7 @@ class GeoAppTests: XCTestCase {
     }
 
     //MARK: - Network manager tests
-    //Note - This set of tests keeps the API in check. This is important because we are using an external, unowned API that could change at any time
+    //Note - This set of tests keeps the API in check. This is fundamental because we are using an external, unowned API that could change at any time producing unexpected results. Ideally this set should be completed leveraging a mock API for offline testing (future implementation)
 
     func testNetworkManager_fetchCountryList() {
         var countryList = CountryList()
