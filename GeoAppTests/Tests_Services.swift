@@ -28,7 +28,6 @@ class GeoAppTests: XCTestCase {
             XCTFail("Failed loading data from json file")
             return
         }
-        let expectationForCallBack = XCTestExpectation()
 
         // WHEN
         factory.instantiateFromResponse(mockCountryListData, callback: { result in
@@ -39,7 +38,6 @@ class GeoAppTests: XCTestCase {
             case let .failure(error):
                 XCTFail(error.description)
             }
-            expectationForCallBack.fulfill()
     })
         //THEN
         // Assert that the list contains the expected number of countries
@@ -59,7 +57,6 @@ class GeoAppTests: XCTestCase {
             XCTFail("Failed loading data from json file")
             return
         }
-        let expectationForCallBack = XCTestExpectation()
 
         // WHEN
         factory.instantiateFromResponse(mockCountryListData, callback: { result in
@@ -70,7 +67,6 @@ class GeoAppTests: XCTestCase {
             case let .failure(resultError):
                 error = resultError
             }
-            expectationForCallBack.fulfill()
         })
         //THEN
         // Assert that the instantiaton failed 
@@ -87,32 +83,65 @@ class GeoAppTests: XCTestCase {
         }
     }
 
-    // TO BE CHECKED 
-    func testNetworkManager_1() {
-        // GIVEN
-        var countryList: CountryList?
-        let factory = Factory(CountryList.self)
-        guard let mockCountryListURL = MockDataFactory.url(for: .countryList) else {
-            XCTFail("Failed generating URL for json file")
-            return
-        }
-        let expectationForCallBack = XCTestExpectation()
+    //MARK: - Network manager tests
+    //Note - This set of tests keeps the API in check. This is important because we are using an external, unowned API that could change at any time
+
+    func testNetworkManager_fetchCountryList() {
+        var countryList = CountryList()
+        let expectationForCallBack = expectation(description: "Wait for NetworkManager callback")
 
         //WHEN
-        NetworkManager.fetch(url: mockCountryListURL, constructor: factory, callback: { result in
+        NetworkManager.fetchCountryList(callback: { result in
             switch result {
             case let .success(list):
-                countryList = list as? CountryList
+                countryList = list as! CountryList
+                expectationForCallBack.fulfill()
                 break
             case .error:
                 XCTFail("Network manager failed to fetch country list")
                 break
             }
-            expectationForCallBack.fulfill()
+
         })
 
-       // THEN
+        // THEN
+        waitForExpectations(timeout: 2, handler: { error in
+            if let error = error {
+                XCTFail("Error while waiting: \(error)")
+            }
+        })
         // Assert that the list contains the expected number of countries
-        XCTAssertEqual(countryList?.list?.count, 13)
+        XCTAssertEqual(countryList.list?.count, 250, "Expected 250 countries, returned \(String(describing: countryList.list?.count))")
     }
+
+    func testNetworkManager_fetchRegionCountryList() {
+        var regionCountryList = CountryList()
+        let expectationForCallBack = expectation(description: "Wait for NetworkManager callback")
+
+        //WHEN
+        NetworkManager.fetchRegion(regionName: "Asia") { result in
+            switch result {
+            case let .success(list):
+                regionCountryList = list as! CountryList
+                expectationForCallBack.fulfill()
+                break
+            case .error:
+                XCTFail("Network manager failed to fetch country list")
+                break
+            }
+        }
+
+        // THEN
+        waitForExpectations(timeout: 2, handler: { error in
+            if let error = error {
+                XCTFail("Error while waiting: \(error)")
+            }
+        })
+        // Assert that the list contains the expected number of countries
+        XCTAssertEqual(regionCountryList.list?.count, 50, "Expected 250 countries, returned \(String(describing: regionCountryList.list?.count))")
+    }
+
+    
+
+
 }
