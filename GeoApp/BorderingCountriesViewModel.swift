@@ -10,7 +10,7 @@
 
    final class BorderingCountriesViewModel: ViewModel {
     typealias T = CountryDetail
-    init<T>(_ data: T) where T : InstantiatableFromResponse {
+    init(_ data: InstantiatableFromResponse) {
         self.country = data as! CountryDetail
     }
 

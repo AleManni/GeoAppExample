@@ -27,7 +27,7 @@ final class RegionCountriesCollectionViewModel: ViewModel {
     private var regionName: String?
     weak var delegate: ViewModelDelegate?
 
-    init<T>(_ data: T) where T : InstantiatableFromResponse {
+    init(_ data: InstantiatableFromResponse) {
         let data = data as! CountryDetail
         regionName = data.region
     }

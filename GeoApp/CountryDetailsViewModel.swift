@@ -63,7 +63,7 @@ final class CountryDetailsViewModel: ViewModel {
         }
     }
 
-    init<T>(_ data: T) where T : InstantiatableFromResponse {
+    init(_ data: InstantiatableFromResponse) {
         self.country = data as! CountryDetail
     }
 

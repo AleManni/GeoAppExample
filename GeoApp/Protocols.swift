@@ -29,7 +29,7 @@ protocol ViewModelDelegate: class {
 }
 
 protocol ViewModel: class {
-    init<T: InstantiatableFromResponse>(_ data: T)
+    init(_ data: InstantiatableFromResponse)
 }
 
 

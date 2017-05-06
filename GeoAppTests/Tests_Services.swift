@@ -86,4 +86,33 @@ class GeoAppTests: XCTestCase {
             XCTFail("Error returned is of unexpected type")
         }
     }
+
+    // TO BE CHECKED 
+    func testNetworkManager_1() {
+        // GIVEN
+        var countryList: CountryList?
+        let factory = Factory(CountryList.self)
+        guard let mockCountryListURL = MockDataFactory.url(for: .countryList) else {
+            XCTFail("Failed generating URL for json file")
+            return
+        }
+        let expectationForCallBack = XCTestExpectation()
+
+        //WHEN
+        NetworkManager.fetch(url: mockCountryListURL, constructor: factory, callback: { result in
+            switch result {
+            case let .success(list):
+                countryList = list as? CountryList
+                break
+            case .error:
+                XCTFail("Network manager failed to fetch country list")
+                break
+            }
+            expectationForCallBack.fulfill()
+        })
+
+       // THEN
+        // Assert that the list contains the expected number of countries
+        XCTAssertEqual(countryList?.list?.count, 13)
+    }
 }

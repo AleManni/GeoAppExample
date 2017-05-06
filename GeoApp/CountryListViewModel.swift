@@ -46,7 +46,7 @@ final class CountryListViewModel: ViewModel {
 
     typealias T = CountryList
     
-    init<T>(_ data: T) where T : InstantiatableFromResponse {
+    init(_ data: InstantiatableFromResponse) {
         self.loadedCountryList = data as? CountryList
     }
 
