@@ -18,7 +18,7 @@ enum Mockfiles: String {
 
 class MockDataFactory {
 
-    static func url(for mockfile: Mockfiles) -> URL? {
+    private static func url(for mockfile: Mockfiles) -> URL? {
         let bundle = Bundle(for: self)
         guard let path = bundle.path(forResource:  mockfile.rawValue, ofType: "json") else {
             return nil
@@ -27,7 +27,7 @@ class MockDataFactory {
     }
 
     static func data(from mockfile: Mockfiles) -> Data? {
-        guard let url = self.url(for: mockfile) else {
+        guard let url = url(for: mockfile) else {
             return nil
         }
         return try? Data(contentsOf: url)

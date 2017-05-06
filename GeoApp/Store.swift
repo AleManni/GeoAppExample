@@ -28,7 +28,7 @@ class Store {
             })
         }
 
-    private func clear() {
+    func clear() {
     countries.list?.removeAll()
     }
 }

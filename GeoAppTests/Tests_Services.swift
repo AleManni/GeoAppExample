@@ -88,14 +88,14 @@ class GeoAppTests: XCTestCase {
 
     func testNetworkManager_fetchCountryList() {
         var countryList = CountryList()
-        let expectationForCallBack = expectation(description: "Wait for NetworkManager callback")
+        weak var expectationForCallBack = expectation(description: "Wait for NetworkManager callback")
 
         //WHEN
         NetworkManager.fetchCountryList(callback: { result in
             switch result {
             case let .success(list):
                 countryList = list as! CountryList
-                expectationForCallBack.fulfill()
+                expectationForCallBack?.fulfill()
                 break
             case .error:
                 XCTFail("Network manager failed to fetch country list")
@@ -116,14 +116,14 @@ class GeoAppTests: XCTestCase {
 
     func testNetworkManager_fetchRegionCountryList() {
         var regionCountryList = CountryList()
-        let expectationForCallBack = expectation(description: "Wait for NetworkManager callback")
+        weak var expectationForCallBack = expectation(description: "Wait for NetworkManager callback")
 
         //WHEN
         NetworkManager.fetchRegion(regionName: "Asia") { result in
             switch result {
             case let .success(list):
                 regionCountryList = list as! CountryList
-                expectationForCallBack.fulfill()
+                expectationForCallBack?.fulfill()
                 break
             case .error:
                 XCTFail("Network manager failed to fetch country list")
@@ -138,10 +138,37 @@ class GeoAppTests: XCTestCase {
             }
         })
         // Assert that the list contains the expected number of countries
-        XCTAssertEqual(regionCountryList.list?.count, 50, "Expected 250 countries, returned \(String(describing: regionCountryList.list?.count))")
+        XCTAssertEqual(regionCountryList.list?.count, 50, "Expected 50 countries, returned \(String(describing: regionCountryList.list?.count))")
     }
 
-    
+    //MARK: - Store tests
+    func testStore_fetchAndClear() {
+        weak var expectationForCallBack = expectation(description: "Wait for NetworkManager callback")
 
+        //WHEN
+        Store.shared.fetchAll() { result in
+            switch result {
+            case .success:
+                expectationForCallBack?.fulfill()
+                break
+            case .error:
+                XCTFail("Store failed to fetch country list")
+                break
+            }
+        }
 
+        // THEN
+        waitForExpectations(timeout: 2, handler: { error in
+            if let error = error {
+                XCTFail("Error while waiting: \(error)")
+            }
+        })
+        // Assert that the list contains the expected number of countries
+        XCTAssertEqual(Store.shared.countries.list?.count, 250, "Expected 250 countries, returned \(String(describing: Store.shared.countries.list?.count))")
+
+        //WHEN
+        Store.shared.clear()
+        //THEN
+        XCTAssertEqual(Store.shared.countries.list?.count, 0, "Expected 0 countries after clearing, still owning \(String(describing: Store.shared.countries.list?.count)) countries)")
+    }
 }
