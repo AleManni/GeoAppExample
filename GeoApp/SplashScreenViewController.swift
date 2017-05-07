@@ -27,7 +27,7 @@ class SplashScreenViewController: UIViewController {
                     self.dismissAndSegue()
                 }
                 break
-            case .error(let error):
+            case .failure(let error):
                 DispatchQueue.main.async {
                     self.indicator.stopAnimating()
                     ErrorHandler.handler.showError(error, sender: self, delegate: self, buttonTitle: "Retry")
