@@ -159,14 +159,18 @@ extension GeoAppTests {
         model.loadData()
 
         //THEN
-        waitForExpectations(timeout: 4, handler: { error in
+        waitForExpectations(timeout: 20, handler: { error in
             if let error = error {
                 XCTFail("Error while waiting: \(error)")
             }
         })
         // Assert that the correct representable object is passed to the delegate
-        XCTAssertTrue(delegate.loadedData is [CountryRegionRepresentable])
-        XCTAssertEqual((delegate.loadedData as! [CountryRegionRepresentable]).count, 50)
+        guard let loadedData = delegate.loadedData as? [CountryRegionRepresentable] else {
+            XCTFail("No loadedData of expected type has been passed to the delegate")
+            return
+        }
+
+        XCTAssertEqual(loadedData.count, 50)
     }
 
     func testCountryRegionRepresentable_initialisation() {
@@ -194,7 +198,7 @@ extension GeoAppTests {
         // WHEN
         model.loadData()
         // THEN
-        waitForExpectations(timeout: 10, handler: { error in
+        waitForExpectations(timeout: 20, handler: { error in
             if let error = error {
                 XCTFail("Error while waiting: \(error)")
             }

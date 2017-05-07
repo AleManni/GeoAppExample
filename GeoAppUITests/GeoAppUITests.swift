@@ -185,14 +185,20 @@ extension GeoAppUITests {
     func dismissAlert() {
         let cancelButton = self.app.alerts["Error"].buttons.element(boundBy: 0)
         if cancelButton.exists {
-            self.app.alerts["Error"].buttons["Retry"].tap()
+            cancelButton.tap()
             self.app.tap()
         }
     }
 
     func navigateToCountryList() {
-        while !countryListTableView.exists {
-            dismissAlert()
+        if !countryListTableView.exists {
+            while !countryListTableView.exists {
+                dismissAlert()
+            }
+        } else {
+            while !countryListTableView.isHittable {
+                dismissAlert()
+            }
         }
     }
 

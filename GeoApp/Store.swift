@@ -15,7 +15,7 @@ class Store {
     func fetchAll(completion: @escaping (Result) -> Void) {
         clear()
         
-        NetworkManager.fetchCountryList(callback: { result in
+        NetworkManager.fetchCountryList(completion: { result in
             switch result {
             case .success(let countryList):
                 if let countryList = countryList as? CountryList {

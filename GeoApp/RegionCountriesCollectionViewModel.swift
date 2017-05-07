@@ -41,7 +41,7 @@ final class RegionCountriesCollectionViewModel: ViewModel {
         }
         delegate?.viewModelIsLoading(viewModel: self)
 
-        NetworkManager.fetchRegion(regionName: regionName, callback: { result in
+        NetworkManager.fetchRegion(regionName: regionName, completion: { result in
             switch result {
             case .success(let countries):
             if let countries = countries as? CountryList, let list = countries.list {

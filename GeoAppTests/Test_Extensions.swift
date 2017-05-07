@@ -56,7 +56,7 @@ extension GeoAppTests {
         let imageView = UIImageView()
         let url = URL(string: "http://www.geognos.com/api/en/countries/flag/AM.png")
         let placeholder = #imageLiteral(resourceName: "placeholder")
-        weak var expectationForCallBack = expectation(description: "Wait for NetworkManager callback")
+        weak var expectationForCallBack = expectation(description: "Wait for NetworkManager completion")
 
         //WHEN
         imageView.setImageFromURL(url, placeHolder: placeholder) { completed in
@@ -79,7 +79,7 @@ extension GeoAppTests {
         let imageView = UIImageView()
         let url = URL(string: "http://www.geognos.com/api/en/countries/flag/AMGHLDK.png")
         let placeholder = #imageLiteral(resourceName: "placeholder")
-        weak var expectationForCallBack = expectation(description: "Wait for NetworkManager callback")
+        weak var expectationForCallBack = expectation(description: "Wait for NetworkManager completion")
 
         //WHEN
         imageView.setImageFromURL(url, placeHolder: placeholder) { completed in

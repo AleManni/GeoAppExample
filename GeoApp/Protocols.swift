@@ -18,7 +18,7 @@ public protocol InstantiatableFromResponse: class {
 }
 
 protocol DataConstructor: class {
-    func instantiateFromResponse(_ response: Data, callback: (DataConstructorResult) -> Void)
+    func instantiateFromResponse(_ response: Data, completion: (DataConstructorResult) -> Void)
     init(_ objectClass: InstantiatableFromResponse.Type)
 }
 

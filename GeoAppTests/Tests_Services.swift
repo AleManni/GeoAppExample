@@ -30,7 +30,7 @@ class GeoAppTests: XCTestCase {
         }
 
         // WHEN
-        factory.instantiateFromResponse(mockCountryListData, callback: { result in
+        factory.instantiateFromResponse(mockCountryListData, completion: { result in
             switch result {
             case let .success(object):
                 countryList = object as? CountryList
@@ -59,7 +59,7 @@ class GeoAppTests: XCTestCase {
         }
 
         // WHEN
-        factory.instantiateFromResponse(mockCountryListData, callback: { result in
+        factory.instantiateFromResponse(mockCountryListData, completion: { result in
             switch result {
             case .success(_):
                 XCTFail("Factory should not initialise objects whose json is incomplete")
@@ -88,16 +88,16 @@ class GeoAppTests: XCTestCase {
 
     func testNetworkManager_fetchCountryList() {
         var countryList = CountryList()
-        weak var expectationForCallBack = expectation(description: "Wait for NetworkManager callback")
+        weak var expectationForCallBack = expectation(description: "Wait for NetworkManager completion")
 
         //WHEN
-        NetworkManager.fetchCountryList(callback: { result in
+        NetworkManager.fetchCountryList(completion: { result in
             switch result {
             case let .success(list):
                 countryList = list as! CountryList
                 expectationForCallBack?.fulfill()
                 break
-            case .error:
+            case .failure:
                 XCTFail("Network manager failed to fetch country list")
                 break
             }
@@ -105,7 +105,7 @@ class GeoAppTests: XCTestCase {
         })
 
         // THEN
-        waitForExpectations(timeout: 2, handler: { error in
+        waitForExpectations(timeout: 20, handler: { error in
             if let error = error {
                 XCTFail("Error while waiting: \(error)")
             }
@@ -116,7 +116,7 @@ class GeoAppTests: XCTestCase {
 
     func testNetworkManager_fetchRegionCountryList() {
         var regionCountryList = CountryList()
-        weak var expectationForCallBack = expectation(description: "Wait for NetworkManager callback")
+        weak var expectationForCallBack = expectation(description: "Wait for NetworkManager completion")
 
         //WHEN
         NetworkManager.fetchRegion(regionName: "Asia") { result in
@@ -125,14 +125,14 @@ class GeoAppTests: XCTestCase {
                 regionCountryList = list as! CountryList
                 expectationForCallBack?.fulfill()
                 break
-            case .error:
+            case .failure:
                 XCTFail("Network manager failed to fetch country list")
                 break
             }
         }
 
         // THEN
-        waitForExpectations(timeout: 2, handler: { error in
+        waitForExpectations(timeout: 20, handler: { error in
             if let error = error {
                 XCTFail("Error while waiting: \(error)")
             }
@@ -143,7 +143,7 @@ class GeoAppTests: XCTestCase {
 
     //MARK: - Store tests
     func testStore_fetchAndClear() {
-        weak var expectationForCallBack = expectation(description: "Wait for NetworkManager callback")
+        weak var expectationForCallBack = expectation(description: "Wait for NetworkManager completion")
 
         //WHEN
         Store.shared.fetchAll() { result in
@@ -151,14 +151,14 @@ class GeoAppTests: XCTestCase {
             case .success:
                 expectationForCallBack?.fulfill()
                 break
-            case .error:
+            case .failure:
                 XCTFail("Store failed to fetch country list")
                 break
             }
         }
 
         // THEN
-        waitForExpectations(timeout: 2, handler: { error in
+        waitForExpectations(timeout: 20, handler: { error in
             if let error = error {
                 XCTFail("Error while waiting: \(error)")
             }

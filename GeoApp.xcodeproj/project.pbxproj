@@ -37,7 +37,6 @@
 		1DBDD22F1D531EF000D68877 /* GeoAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBDD22E1D531EF000D68877 /* GeoAppUITests.swift */; };
 		1DBF1B7F1D3796BF004BD057 /* CountryDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBF1B7E1D3796BF004BD057 /* CountryDetailsViewController.swift */; };
 		1DBF1B811D37F10B004BD057 /* DetailCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DBF1B801D37F10B004BD057 /* DetailCollectionCell.swift */; };
-		1DC13CDA1EAFE23200709832 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1DFCA26C1D3A10710003B223 /* Info.plist */; };
 		1DC13CDB1EAFE45900709832 /* Tests_Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFCA26A1D3A10710003B223 /* Tests_Services.swift */; };
 		1DC904861E9A408B00D1B5E5 /* CountryDetailsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC904851E9A408B00D1B5E5 /* CountryDetailsRootView.swift */; };
 		1DC904881E9A41A100D1B5E5 /* CountryDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DC904871E9A41A100D1B5E5 /* CountryDetailsView.swift */; };
@@ -307,14 +306,14 @@
 			name = SplashScreen;
 			sourceTree = "<group>";
 		};
-		1D9E45F91EAFD41A00B8B68A /* MockFiles */ = {
+		1D9E45F91EAFD41A00B8B68A /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
 				1D9E45FA1EAFD58E00B8B68A /* countryList.json */,
 				1D45187C1EBCB50E0060502D /* countryListCorrupted.json */,
 				1DA54ECB1EBC7E7D003FD17C /* MockObjects.swift */,
 			);
-			name = MockFiles;
+			name = Mocks;
 			sourceTree = "<group>";
 		};
 		1DBDD22D1D531EF000D68877 /* GeoAppUITests */ = {
@@ -330,7 +329,7 @@
 		1DFCA2691D3A10710003B223 /* GeoAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				1D9E45F91EAFD41A00B8B68A /* MockFiles */,
+				1D9E45F91EAFD41A00B8B68A /* Mocks */,
 				1DFCA26A1D3A10710003B223 /* Tests_Services.swift */,
 				1DA54EC91EBC6F5B003FD17C /* Test_Extensions.swift */,
 				1DA3140D1EBDEFC7005CCB8C /* Test_Models.swift */,
@@ -469,7 +468,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DC13CDA1EAFE23200709832 /* Info.plist in Resources */,
 				1D9E45FB1EAFD58E00B8B68A /* countryList.json in Resources */,
 				1D45187D1EBCB50E0060502D /* countryListCorrupted.json in Resources */,
 			);

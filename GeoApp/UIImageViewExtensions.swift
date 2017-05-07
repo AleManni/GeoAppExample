@@ -11,25 +11,18 @@ import UIKit
 extension UIImageView {
 
     func setImageFromURL(_ url: URL?, placeHolder: UIImage, completion: ((Bool) -> Void)?) {
-        guard let url = url else {
-            self.image = placeHolder
-            return
-        }
-        let session: URLSession = URLSession(configuration: URLSessionConfiguration.default)
-        let urlRequest = URLRequest(url: url)
-        let task = session.dataTask(with: urlRequest, completionHandler: {
-            (data, response, error) in
+        NetworkManager.fetchData(from: url) { result in
             DispatchQueue.main.async {
-                if let imageData = data as Data? {
-                    self.image = UIImage(data: imageData) ?? placeHolder
-                    completion?(true)
-                } else {
+                switch result {
+                case .failure:
                     self.image = placeHolder
                     completion?(false)
+                case let .success(data):
+                    self.image = UIImage(data: data) ?? placeHolder
+                    completion?(true)
                 }
             }
-        })
-        task.resume()
+        }
     }
 
     func setActive() {
