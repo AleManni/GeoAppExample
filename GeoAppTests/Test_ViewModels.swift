@@ -74,7 +74,7 @@ extension GeoAppTests {
         // THEN
         XCTAssertEqual(representable!.name, "NeverLand")
         XCTAssertEqual(representable!.population, "Population: 0.000M")
-        XCTAssertEqual(representable!.region, "Region: \(StyleManager.shared.stringMissing)")
+        XCTAssertEqual(representable!.region, "Blue sky")
         XCTAssertEqual(representable!.flagImageURL, URL(string: "http://www.geognos.com/api/en/countries/flag/NLD.png"))
     }
 
@@ -194,7 +194,7 @@ extension GeoAppTests {
         // WHEN
         model.loadData()
         // THEN
-        waitForExpectations(timeout: 40, handler: { error in
+        waitForExpectations(timeout: 10, handler: { error in
             if let error = error {
                 XCTFail("Error while waiting: \(error)")
             }
@@ -206,9 +206,10 @@ extension GeoAppTests {
             XCTFail("Delegate did not receive data from model")
             return
         }
-        XCTAssertEqual(loadedData.count, 2, "The number of countryRepresentable provided to the delegate is not correct. Expected 2, provided \(loadedData.count)")
+        XCTAssertEqual(loadedData.count, 6, "The number of countryRepresentable provided to the delegate is not correct. Expected 6, provided \(loadedData.count)")
         // Assert that the representable array contains the correct items
-        XCTAssertEqual(loadedData[0].name, "Afghanistan", "The first item provided to the delegate is not correct. Expected 'Afghanistan', provided \(loadedData[0].name)")
-        XCTAssertEqual(loadedData[1].name, "Armenia", "The first item provided to the delegate is not correct. Expected 'Armenia', provided \(loadedData[1].name)")
+        let expectedArray = ["Iran (Islamic Republic of)", "Pakistan", "Turkmenistan", "Uzbekistan", "Tajikistan", "China"]
+        let returnedArray = loadedData.map { $0.name }
+        XCTAssertTrue(returnedArray ~ expectedArray, "The array provided to the delegate does not contain the expected items")
     }
 }

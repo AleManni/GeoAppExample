@@ -9,17 +9,33 @@
    import Foundation
 
    final class BorderingCountriesViewModel: ViewModel {
-    typealias T = CountryDetail
+
+    private var country: CountryDetail
+    private var borderingCountries: [CountryDetail]?
+    weak var delegate: ViewModelDelegate?
+
     init(_ data: InstantiatableFromResponse) {
         self.country = data as! CountryDetail
     }
 
-    private var country: CountryDetail {
-        didSet {
+    func loadData() {
+        if let countries = Store.shared.countries.list, countries.count > 0 {
+            populate(with: countries)
+        } else {
+            Store.shared.fetchAll() { result in
+                switch result {
+                case .success:
+                    self.populate(with: Store.shared.countries.list!)
+                    return
+                case let .error(error):
+                    self.delegate?.viewModelDidFailWithError(error: error, viewModel: self)
+                    return
+                }
+            }
         }
     }
 
-    func populate(with countries: [CountryDetail]) {
+    private func populate(with countries: [CountryDetail]) {
         let countryBorders = country.borders
         var countriesArray: [CountryDetail] = []
         countryBorders.forEach { countryCode in
@@ -36,28 +52,9 @@
         }
     }
 
-    private var borderingCountries: [CountryDetail]?
-    weak var delegate: ViewModelDelegate?
-
     func swapSource(_ country: CountryDetail) {
         self.country = country
-    }
-
-    func loadData() {
-        if let countries = Store.shared.countries.list {
-            populate(with: countries)
-        } else {
-            Store.shared.fetchAll() { result in
-                switch result {
-                case let .success(countries):
-                    self.populate(with: countries as! [CountryDetail])
-                    return
-                default:
-                    // silent fail
-                    return
-                }
-            }
-        }
+        loadData()
     }
     
    }
