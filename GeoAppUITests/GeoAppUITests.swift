@@ -10,7 +10,7 @@ import XCTest
 
 
 class GeoAppUITests: XCTestCase {
-    // MARK : UITests common constants
+    // MARK: UITests common constants
     let waitTime: UInt32 = 2
     let app = XCUIApplication()
     var countryListTableView: XCUIElement {
@@ -38,6 +38,8 @@ class GeoAppUITests: XCTestCase {
         return app.otherElements["bordersView"]
     }
 
+    // MARK: UI Tests
+
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
@@ -46,18 +48,6 @@ class GeoAppUITests: XCTestCase {
         XCUIDevice.shared().orientation = .portrait
         navigateToCountryList()
     }
-
-    func navigateToCountryList() {
-        waitForElementToExist(countryListTableView)
-    }
-
-    func navigateToCountryDetails() {
-        let firstCell = countryListTableView.cells.element(boundBy: 0)
-        firstCell.tap()
-        sleep(waitTime)
-    }
-
-
 
     func testCountryListTableView() {
         let numberOfScolls = 5
@@ -186,6 +176,30 @@ class GeoAppUITests: XCTestCase {
         backButton.tap()
         sleep(waitTime)
         XCTAssertTrue(countryListTableView.isDisplayed, "CountryListTableView is not displayed upon tapping Back from details page")
+    }
+}
+
+// MARK: UI Navigation utilities
+extension GeoAppUITests {
+
+    func dismissAlert() {
+        let cancelButton = self.app.alerts["Error"].buttons.element(boundBy: 0)
+        if cancelButton.exists {
+            self.app.alerts["Error"].buttons["Retry"].tap()
+            self.app.tap()
+        }
+    }
+
+    func navigateToCountryList() {
+        while !countryListTableView.exists {
+            dismissAlert()
+        }
+    }
+
+    func navigateToCountryDetails() {
+        let firstCell = countryListTableView.cells.element(boundBy: 0)
+        firstCell.tap()
+        sleep(waitTime)
     }
 }
 
