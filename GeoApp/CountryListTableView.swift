@@ -41,6 +41,7 @@ class CountryListTableView: UIView {
         countriesTableView.delegate = self
         countriesTableView.dataSource = self
         countriesTableView.addSubview(refreshControl)
+        countriesTableView.accessibilityIdentifier = "countryListTableView"
     }
 
     func handleRefresh(_ refreshControl: UIRefreshControl) {

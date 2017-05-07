@@ -27,6 +27,7 @@ final class CountryDetailsView: UIView {
     @IBOutlet weak var separator: UIView!
 
     func initiate(data: CountryDetailsRepresentable?) {
+        setAccessibilityIdentifiers()
         populate(data: data)
         formatText()
     }
@@ -51,5 +52,9 @@ final class CountryDetailsView: UIView {
         let titlesArray = [languagesTitle, currencyTitle, phoneTitle, timeZoneTitle]
         StyleManager.shared.formatLabels(labelsArray as! [UILabel])
         StyleManager.shared.formatTitleLabels(titlesArray as! [UILabel])
+    }
+
+    private func setAccessibilityIdentifiers() {
+        nativeNameLabel.accessibilityIdentifier = "nativeNameLabel"
     }
 }

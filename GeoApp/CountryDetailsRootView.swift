@@ -27,6 +27,7 @@ final class CountryDetailsRootView: UIView {
         super.awakeFromNib()
         regionDetailViewHeightConstr.constant = 0
         neighbouringCountriesViewHeightConstr.constant = 0
+        setAccessibilityIdentifiers()
     }
 
     var countryDetailsData: CountryDetailsRepresentable? {
@@ -58,6 +59,14 @@ final class CountryDetailsRootView: UIView {
     fileprivate let topOffset = CGPoint(x: 0,  y: 0)
     fileprivate var bottomOffSet: CGPoint {
         return CGPoint(x: 0, y: countryDetailsView.bounds.size.height)
+    }
+
+    private func setAccessibilityIdentifiers() {
+        accessibilityIdentifier = "countryDetailsRootView"
+        countryDetailsView.accessibilityIdentifier = "countryDetailsView"
+        capitalCityView.accessibilityIdentifier = "capitalCityView"
+        regionDetailView.accessibilityIdentifier = "regionDetailView"
+        neighbouringCountriesView.accessibilityIdentifier = "borderingCountriesTableView"
     }
 }
 

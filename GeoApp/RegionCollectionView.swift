@@ -22,12 +22,17 @@ final class RegionCollectionView: UIView {
     }
 
     override func awakeFromNib() {
+        setUpAccessibilityIdentifiers()
         setUpView()
     }
 
     func setUpView() {
     StyleManager.shared.formatTitleLabels([regionDetailTitle])
     collectionView.dataSource = self
+    }
+
+    func setUpAccessibilityIdentifiers() {
+        collectionView.accessibilityIdentifier = "regionCollectionView"
     }
 }
 

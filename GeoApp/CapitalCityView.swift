@@ -68,6 +68,7 @@ class CapitalCityView: UIView, UIGestureRecognizerDelegate {
         super.awakeFromNib()
         regionView.addGestureRecognizer(tapRegion)
         bordersView.addGestureRecognizer(tapBorders)
+        setAccessibilityIdentifiers()
     }
 
     weak var delegate: CapitalCityViewDelegate?
@@ -108,6 +109,11 @@ class CapitalCityView: UIView, UIGestureRecognizerDelegate {
         default:
             break
         }
+    }
+
+    private func setAccessibilityIdentifiers() {
+        regionView.accessibilityIdentifier = "regionView"
+        bordersView.accessibilityIdentifier = "bordersView"
     }
 
     // ACTIONS
