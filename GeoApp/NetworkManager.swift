@@ -16,7 +16,7 @@ enum Result {
 struct Endpoints {
 
     private static let baseURL = "https://restcountries.eu/rest/v2"
-    
+
     static let allCountries = "/all"
 
     static func countryDetails(_ countryCode: String) -> String {
@@ -38,19 +38,18 @@ struct Endpoints {
 }
 
 final class NetworkManager {
-    private static let session = URLSession(configuration: URLSessionConfiguration.default)
 
     public static func fetchCountryList(callback: @escaping (_ result: Result) -> ()) {
-    let constructor = Factory(CountryList.self)
-    let url = Endpoints.url(from: Endpoints.allCountries)
-    fetch(url: url, constructor: constructor, callback: { result in
-        callback(result)
+        let constructor = Factory(CountryList.self)
+        let url = Endpoints.url(from: Endpoints.allCountries)
+        fetch(url: url, constructor: constructor, callback: { result in
+            callback(result)
         })
     }
 
     public static func fetchRegion(regionName: String, callback: @escaping (_ result: Result) -> ()) {
-    let constructor = Factory(CountryList.self)
-    let url = Endpoints.url(from: Endpoints.region(regionName))
+        let constructor = Factory(CountryList.self)
+        let url = Endpoints.url(from: Endpoints.region(regionName))
         fetch(url: url, constructor: constructor, callback: { result in
             callback(result)
         })
@@ -63,7 +62,13 @@ final class NetworkManager {
         }
         var urlRequest = URLRequest(url: url)
         urlRequest.cachePolicy = URLRequest.CachePolicy.reloadIgnoringLocalCacheData
-        let task = self.session.dataTask(with: urlRequest, completionHandler: {
+
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForResource = 2
+
+        let session = URLSession(configuration: configuration)
+
+        let task = session.dataTask(with: urlRequest, completionHandler: {
             (data, response, error) in
             if let error = error as NSError? {
                 callback(.failure(.networkError(error: error)))
