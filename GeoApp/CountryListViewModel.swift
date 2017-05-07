@@ -77,7 +77,7 @@ final class CountryListViewModel: ViewModel {
                 if let countryList = countryList as? CountryList {
                     self.loadedCountryList = countryList
                 }
-            case .error(let error):
+            case .failure(let error):
                 DispatchQueue.main.async {
                     self.delegate?.viewModelDidFailWithError(error: error, viewModel: self)
                 }

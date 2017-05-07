@@ -10,7 +10,7 @@ import Foundation
 
 enum Result {
     case success(InstantiatableFromResponse)
-    case error(Errors)
+    case failure(Errors)
 }
 
 struct Endpoints {
@@ -58,7 +58,7 @@ final class NetworkManager {
 
     private static func fetch(url: URL?, constructor: DataConstructor, callback: @escaping (_ result: Result) -> ()) {
         guard let url = url else {
-            callback(.error(.invalidURL))
+            callback(.failure(.invalidURL))
             return
         }
         var urlRequest = URLRequest(url: url)
@@ -66,17 +66,17 @@ final class NetworkManager {
         let task = self.session.dataTask(with: urlRequest, completionHandler: {
             (data, response, error) in
             if let error = error as NSError? {
-                callback(.error(.networkError(error: error)))
+                callback(.failure(.networkError(error: error)))
                 return
             }
             guard let responseData = data else {
-                callback(.error(.noData))
+                callback(.failure(.noData))
                 return
             }
             constructor.instantiateFromResponse(responseData, callback: { response in
                 switch response {
                 case .failure:
-                    callback(.error(.jsonError))
+                    callback(.failure(.jsonError))
                 case let .success(object):
                     callback(.success(object))
                 }

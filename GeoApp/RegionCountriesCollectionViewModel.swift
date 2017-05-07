@@ -53,7 +53,7 @@ final class RegionCountriesCollectionViewModel: ViewModel {
                 }
             }
                 return
-            case .error(let error):
+            case .failure(let error):
                 DispatchQueue.main.async {
                     self.delegate?.viewModelDidFailWithError(error: error, viewModel: self)
                 }

@@ -200,8 +200,6 @@
 				1D5525151E912C39009BAEB9 /* Protocols */,
 				1D55251C1E9170C2009BAEB9 /* Extensions */,
 				1D55251D1E9170F2009BAEB9 /* Services */,
-				1D1F00431D36AE9400E2EF2C /* ErrorHandler.swift */,
-				1D1F004B1D36AF9000E2EF2C /* StyleManager.swift */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -295,6 +293,8 @@
 				1D1F001D1D36577500E2EF2C /* NetworkManager.swift */,
 				1D55251A1E91447B009BAEB9 /* Factory.swift */,
 				1D6AF7CE1EA507D0009B2AE7 /* Store.swift */,
+				1D1F00431D36AE9400E2EF2C /* ErrorHandler.swift */,
+				1D1F004B1D36AF9000E2EF2C /* StyleManager.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";

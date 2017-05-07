@@ -22,8 +22,8 @@ class Store {
                     self.countries = countryList
                     completion(.success(countryList))
                     }
-            case .error(let error):
-                    completion(.error(error))
+            case .failure(let error):
+                    completion(.failure(error))
                 }
             })
         }

@@ -27,7 +27,7 @@
                 case .success:
                     self.populate(with: Store.shared.countries.list!)
                     return
-                case let .error(error):
+                case let .failure(error):
                     self.delegate?.viewModelDidFailWithError(error: error, viewModel: self)
                     return
                 }
