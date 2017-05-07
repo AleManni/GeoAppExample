@@ -45,8 +45,6 @@ struct CountryRepresentable {
 
 final class CountryListViewModel: ViewModel {
 
-    typealias T = CountryList
-    
     init(_ data: InstantiatableFromResponse) {
         self.loadedCountryList = data as? CountryList
     }

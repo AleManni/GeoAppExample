@@ -23,7 +23,6 @@ struct CountryRegionRepresentable {
 
 final class RegionCountriesCollectionViewModel: ViewModel {
 
-    typealias T = CountryDetail
     private var regionName: String?
     weak var delegate: ViewModelDelegate?
 

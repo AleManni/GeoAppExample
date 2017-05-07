@@ -55,8 +55,6 @@ struct CountryDetailsRepresentable {
 
 final class CountryDetailsViewModel: ViewModel {
 
-    typealias T = CountryDetail
-
     weak var delegate: ViewModelDelegate?
     private var country: CountryDetail {
         didSet {
