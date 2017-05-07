@@ -213,6 +213,7 @@ extension GeoAppUITests {
     }
 
     func navigateToCountryDetails() {
+        waitForElementToBeHittable(countryListTableView)
         let firstCell = countryListTableView.cells.element(boundBy: 0)
         firstCell.tap()
         sleep(waitTime)
