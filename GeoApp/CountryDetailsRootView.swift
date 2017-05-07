@@ -64,6 +64,7 @@ final class CountryDetailsRootView: UIView {
 extension CountryDetailsRootView: BorderingCountriesTableViewDelegate {
 
     func viewDidSelectCountry(countryName: String) {
+        capitalViewDidSelectBorders(false)
         delegate?.viewDidSelectCountry(countryName: countryName)
     }
 }
@@ -71,16 +72,17 @@ extension CountryDetailsRootView: BorderingCountriesTableViewDelegate {
 extension CountryDetailsRootView: CapitalCityViewDelegate {
 
     func capitalViewDidSelectRegion(_ didSelect: Bool) {
-        UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 4, initialSpringVelocity: 50, options: UIViewAnimationOptions(), animations: { () in
+        UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 4, initialSpringVelocity: 30, options: UIViewAnimationOptions(), animations: { () in
             self.regionDetailViewHeightConstr.constant = didSelect ? 135 : 0
             self.regionDetailView.separator.isHidden = !didSelect
             self.layoutIfNeeded() },
                        completion: {(finished: Bool) in
+                        self.regionDetailView.collectionView.contentOffset = CGPoint.zero
         })
     }
 
     func capitalViewDidSelectBorders(_ didSelect: Bool) {
-        UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 4, initialSpringVelocity: 50, options: UIViewAnimationOptions(), animations: { () in
+        UIView.animate(withDuration: 0.75, delay: 0, usingSpringWithDamping: 4, initialSpringVelocity: 30, options: UIViewAnimationOptions(), animations: { () in
             self.neighbouringCountriesViewHeightConstr.constant = didSelect ? self.neighbouringCountriesView.intrinsicHeight : 0
             if didSelect {
                 self.scrollView.setContentOffset(self.bottomOffSet, animated: true)
