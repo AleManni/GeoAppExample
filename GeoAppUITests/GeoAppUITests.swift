@@ -182,22 +182,32 @@ class GeoAppUITests: XCTestCase {
 // MARK: UI Navigation utilities
 extension GeoAppUITests {
 
-    func dismissAlert() {
+    // Note: network alert skip mechanism 
+    func dismissAlert() -> Bool {
         let cancelButton = self.app.alerts["Error"].buttons.element(boundBy: 0)
         if cancelButton.exists {
             cancelButton.tap()
             self.app.tap()
+            return true
+        } else {
+            return false
         }
     }
 
     func navigateToCountryList() {
         if !countryListTableView.exists {
             while !countryListTableView.exists {
-                dismissAlert()
+                let dismissed = dismissAlert()
+                if !dismissed {
+                    return
+                }
             }
         } else {
             while !countryListTableView.isHittable {
-                dismissAlert()
+                let dismissed = dismissAlert()
+                if !dismissed {
+                    return
+                }
             }
         }
     }
