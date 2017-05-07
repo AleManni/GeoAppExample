@@ -45,7 +45,7 @@ class SplashScreenViewController: UIViewController {
 }
 
 extension SplashScreenViewController: ErrorHandlerDelegate {
-    func viewDidCancel() {
+    func alertDidCancel() {
         indicator.startAnimating()
         populateStore()
     }

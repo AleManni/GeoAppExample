@@ -79,7 +79,7 @@ extension CountryListViewController: CountryListViewDelegate {
 }
 
 extension CountryListViewController: ErrorHandlerDelegate {
-    func viewDidCancel() {
+    func alertDidCancel() {
         viewModel.loadData()
     }
 }

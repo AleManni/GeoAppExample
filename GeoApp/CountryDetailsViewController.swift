@@ -140,6 +140,6 @@ extension CountryDetailsViewController: CountryListViewDelegate {
 }
 
 extension CountryDetailsViewController: ErrorHandlerDelegate {
-    func viewDidCancel() {
+    func alertDidCancel() {
     }
 }
