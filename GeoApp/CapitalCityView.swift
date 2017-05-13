@@ -127,8 +127,8 @@ class CapitalCityView: UIView, UIGestureRecognizerDelegate {
             regionLabel.textColor = .white
         } else {
             regionView.backgroundColor = .clear
-            regionTitle.textColor = .black
-            regionLabel.textColor = .black
+            regionTitle.textColor = Colors.standardBlue
+            regionLabel.textColor = Colors.standardBlue
             regionIconView.setInactive()
             regionArrowView.setInactive()
         }
@@ -145,8 +145,8 @@ class CapitalCityView: UIView, UIGestureRecognizerDelegate {
             bordersView.backgroundColor = .clear
             borderIconView.setInactive()
             borderArrowView.setInactive()
-            borderTitle.textColor = .black
-            borderLabel.textColor = .black
+            borderTitle.textColor = Colors.standardBlue
+            borderLabel.textColor = Colors.standardBlue
         }
     }
 }
