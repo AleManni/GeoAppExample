@@ -24,15 +24,4 @@ extension String {
         }
         return localisedString ?? self
     }
-
-    func composeFromArray(_ array: [String]) -> String {
-        var newString = ""
-        for item in array {
-        newString = newString + item
-            if newString != "" && item != array.last {
-               newString = newString + " "
-            }
-        }
-        return newString
-    }
 }

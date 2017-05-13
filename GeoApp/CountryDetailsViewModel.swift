@@ -28,25 +28,25 @@ struct CountryDetailsRepresentable {
         flagImageURL = country.flagIconURL
 
         if !country.languages.isEmpty {
-            self.languages = String().composeFromArray(country.languages).uppercased()
+            self.languages = country.languages.joined(separator: " ").uppercased()
         } else {
             languages = StyleManager.shared.stringMissing
         }
 
         if !country.callingCodes.isEmpty {
-            phoneLabel = String().composeFromArray(country.callingCodes)
+            phoneLabel = country.callingCodes.joined(separator: " ")
         } else {
             phoneLabel = (StyleManager.shared.stringMissing)
         }
 
         if !country.timeZones.isEmpty {
-            timeZone = String().composeFromArray(country.timeZones)
+            timeZone = country.timeZones.joined(separator: " ")
         } else {
             timeZone = StyleManager.shared.stringMissing
         }
 
         if !country.currencies.isEmpty {
-            currency = String().composeFromArray(country.currencies)
+            currency = country.currencies.joined(separator: " ")
         } else {
             currency = StyleManager.shared.stringMissing
         }

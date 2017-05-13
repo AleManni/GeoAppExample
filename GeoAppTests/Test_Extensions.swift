@@ -12,13 +12,6 @@ import XCTest
 extension GeoAppTests {
 
     //MARK: - String extensions tests
-    func testComposeFromArray() {
-        let stringsArray = ["Hello", "World"]
-        let string = ""
-        let composedString = string.composeFromArray(stringsArray)
-        XCTAssertTrue(composedString == "Hello World", "Composed string should be: Hello World, not \(composedString)")
-    }
-
     // Note: The following tests set assume the app has EN as preferred language
     func testLocalisedName_localisedStringExists() {
         // GIVEN
