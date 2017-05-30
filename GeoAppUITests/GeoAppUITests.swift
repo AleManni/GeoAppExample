@@ -50,7 +50,7 @@ class GeoAppUITests: XCTestCase {
     }
 
     func testCountryListTableView() {
-        let numberOfScolls = 5
+        let numberOfScrolls = 5
 
         navigateToCountryList()
         guard countryListTableView.isDisplayed else {
@@ -60,11 +60,11 @@ class GeoAppUITests: XCTestCase {
 
         XCTAssertTrue(countryListTableView.cells.count > 0, "CountryListTableView should not be empty!")
 
-        guard countryListTableView.swipe(.up, times: numberOfScolls) else {
+        guard countryListTableView.swipe(.up, times: numberOfScrolls) else {
             XCTFail("The table view  can not be scrolled up")
             return
         }
-        guard countryListTableView.swipe(.down, times: numberOfScolls) else {
+        guard countryListTableView.swipe(.down, times: numberOfScrolls) else {
             XCTFail("The table view  can not be scrolled down")
             return
         }
