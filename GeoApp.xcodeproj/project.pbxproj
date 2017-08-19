@@ -21,6 +21,10 @@
 		1D5026191E96C27A00DAD325 /* CountryListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5026181E96C27A00DAD325 /* CountryListTableView.swift */; };
 		1D5525171E912C4F009BAEB9 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5525161E912C4F009BAEB9 /* Protocols.swift */; };
 		1D55251B1E91447B009BAEB9 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D55251A1E91447B009BAEB9 /* Factory.swift */; };
+		1D5C11B91F376B8600619133 /* FetchCountryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C11B81F376B8600619133 /* FetchCountryOperation.swift */; };
+		1D5C11BB1F3778A000619133 /* StoreDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C11BA1F3778A000619133 /* StoreDownloader.swift */; };
+		1D5C11BD1F37835000619133 /* PrintCountryListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C11BC1F37835000619133 /* PrintCountryListOperation.swift */; };
+		1D5C11BF1F3798DE00619133 /* GAOperationsCoupler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C11BE1F3798DE00619133 /* GAOperationsCoupler.swift */; };
 		1D6AF7C51EA4A07D009B2AE7 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6AF7C41EA4A07D009B2AE7 /* DictionaryExtension.swift */; };
 		1D6AF7C81EA4E352009B2AE7 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6AF7C71EA4E352009B2AE7 /* SplashScreenViewController.swift */; };
 		1D6AF7CA1EA4E5EB009B2AE7 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6AF7C91EA4E5EB009B2AE7 /* Launch.storyboard */; };
@@ -28,6 +32,7 @@
 		1D6CDD691EA1439800B53371 /* UIColorExensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6CDD681EA1439800B53371 /* UIColorExensions.swift */; };
 		1D7249031EAE7FD700E1EDB9 /* UnitTestsUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7249021EAE7FD700E1EDB9 /* UnitTestsUtilities.swift */; };
 		1D7249081EAE81F800E1EDB9 /* JAMTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7249071EAE81F800E1EDB9 /* JAMTestHelper.swift */; };
+		1D9E37981F372A4500F3DD79 /* GAOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9E37971F372A4500F3DD79 /* GAOperation.swift */; };
 		1D9E45FB1EAFD58E00B8B68A /* countryList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D9E45FA1EAFD58E00B8B68A /* countryList.json */; };
 		1DA3140E1EBDEFC7005CCB8C /* Test_Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA3140D1EBDEFC7005CCB8C /* Test_Models.swift */; };
 		1DA314101EBE168E005CCB8C /* Test_ViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA3140F1EBE168E005CCB8C /* Test_ViewModels.swift */; };
@@ -87,6 +92,10 @@
 		1D5026181E96C27A00DAD325 /* CountryListTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryListTableView.swift; sourceTree = "<group>"; };
 		1D5525161E912C4F009BAEB9 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		1D55251A1E91447B009BAEB9 /* Factory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
+		1D5C11B81F376B8600619133 /* FetchCountryOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchCountryOperation.swift; sourceTree = "<group>"; };
+		1D5C11BA1F3778A000619133 /* StoreDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDownloader.swift; sourceTree = "<group>"; };
+		1D5C11BC1F37835000619133 /* PrintCountryListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintCountryListOperation.swift; sourceTree = "<group>"; };
+		1D5C11BE1F3798DE00619133 /* GAOperationsCoupler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GAOperationsCoupler.swift; sourceTree = "<group>"; };
 		1D6AF7C41EA4A07D009B2AE7 /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		1D6AF7C71EA4E352009B2AE7 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		1D6AF7C91EA4E5EB009B2AE7 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
@@ -94,6 +103,7 @@
 		1D6CDD681EA1439800B53371 /* UIColorExensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExensions.swift; sourceTree = "<group>"; };
 		1D7249021EAE7FD700E1EDB9 /* UnitTestsUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitTestsUtilities.swift; sourceTree = "<group>"; };
 		1D7249071EAE81F800E1EDB9 /* JAMTestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JAMTestHelper.swift; sourceTree = "<group>"; };
+		1D9E37971F372A4500F3DD79 /* GAOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GAOperation.swift; sourceTree = "<group>"; };
 		1D9E45FA1EAFD58E00B8B68A /* countryList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countryList.json; sourceTree = "<group>"; };
 		1DA3140D1EBDEFC7005CCB8C /* Test_Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Models.swift; sourceTree = "<group>"; };
 		1DA3140F1EBE168E005CCB8C /* Test_ViewModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_ViewModels.swift; sourceTree = "<group>"; };
@@ -199,6 +209,7 @@
 				1D5525151E912C39009BAEB9 /* Protocols */,
 				1D55251C1E9170C2009BAEB9 /* Extensions */,
 				1D55251D1E9170F2009BAEB9 /* Services */,
+				1D5C11B71F376B6200619133 /* Operations */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -296,6 +307,18 @@
 				1D1F004B1D36AF9000E2EF2C /* StyleManager.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		1D5C11B71F376B6200619133 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				1D9E37971F372A4500F3DD79 /* GAOperation.swift */,
+				1D5C11BE1F3798DE00619133 /* GAOperationsCoupler.swift */,
+				1D5C11B81F376B8600619133 /* FetchCountryOperation.swift */,
+				1D5C11BC1F37835000619133 /* PrintCountryListOperation.swift */,
+				1D5C11BA1F3778A000619133 /* StoreDownloader.swift */,
+			);
+			name = Operations;
 			sourceTree = "<group>";
 		};
 		1D6AF7C61EA4E339009B2AE7 /* SplashScreen */ = {
@@ -410,6 +433,7 @@
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = DY95X747ZU;
 						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
 					};
 					1DBDD22B1D531EF000D68877 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -484,9 +508,11 @@
 				1DEB8E1A1D36F059008EC2DA /* StringExtensions.swift in Sources */,
 				1D5026131E96C0B500DAD325 /* CountryListViewModel.swift in Sources */,
 				1D1F004E1D36D26900E2EF2C /* CountryList.swift in Sources */,
+				1D9E37981F372A4500F3DD79 /* GAOperation.swift in Sources */,
 				1D5026191E96C27A00DAD325 /* CountryListTableView.swift in Sources */,
 				1DC904941E9A591600D1B5E5 /* RegionCountriesCollectionViewModel.swift in Sources */,
 				1D1F00421D36A37900E2EF2C /* CountryListViewController.swift in Sources */,
+				1D5C11BD1F37835000619133 /* PrintCountryListOperation.swift in Sources */,
 				1DEB8E1C1D36F918008EC2DA /* CountryListTableViewCell.swift in Sources */,
 				1DBF1B811D37F10B004BD057 /* DetailCollectionCell.swift in Sources */,
 				1D6AF7C81EA4E352009B2AE7 /* SplashScreenViewController.swift in Sources */,
@@ -494,6 +520,8 @@
 				1DC904861E9A408B00D1B5E5 /* CountryDetailsRootView.swift in Sources */,
 				1D6CDD691EA1439800B53371 /* UIColorExensions.swift in Sources */,
 				1DC9048A1E9A41BF00D1B5E5 /* RegionCollectionView.swift in Sources */,
+				1D5C11B91F376B8600619133 /* FetchCountryOperation.swift in Sources */,
+				1D5C11BF1F3798DE00619133 /* GAOperationsCoupler.swift in Sources */,
 				1DE6C98C1D36FFB200D5ECE7 /* UIImageViewExtensions.swift in Sources */,
 				1D6AF7CF1EA507D0009B2AE7 /* Store.swift in Sources */,
 				1D1F00441D36AE9400E2EF2C /* ErrorHandler.swift in Sources */,
@@ -507,6 +535,7 @@
 				1DBF1B7F1D3796BF004BD057 /* CountryDetailsViewController.swift in Sources */,
 				1DC9048E1E9A453A00D1B5E5 /* CountryDetailsViewModel.swift in Sources */,
 				1DA54ECE1EBC83B6003FD17C /* CollectionsUtilities.swift in Sources */,
+				1D5C11BB1F3778A000619133 /* StoreDownloader.swift in Sources */,
 				1D1F004C1D36AF9000E2EF2C /* StyleManager.swift in Sources */,
 				1DC9048C1E9A41E400D1B5E5 /* BorderingCountriesTableView.swift in Sources */,
 				1D55251B1E91447B009BAEB9 /* Factory.swift in Sources */,
@@ -655,12 +684,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = DY95X747ZU;
 				INFOPLIST_FILE = GeoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "info-alessandromanni.com.GeoApp";
 				PRODUCT_NAME = GeoApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -670,12 +701,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = DY95X747ZU;
 				INFOPLIST_FILE = GeoApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "info-alessandromanni.com.GeoApp";
 				PRODUCT_NAME = GeoApp;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

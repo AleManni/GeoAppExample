@@ -10,12 +10,12 @@ import Foundation
 
 class Store {
     static let shared = Store()
-    private(set) var countries: CountryList = CountryList()
+    fileprivate(set) var countries: CountryList = CountryList()
+    private let downloader = StoreDownloader()
 
     func fetchAll(completion: @escaping (Result) -> Void) {
         clear()
-        
-        NetworkManager.fetchCountryList(completion: { result in
+        downloader.populateStore(completion: { result in
             switch result {
             case .success(let countryList):
                 if let countryList = countryList as? CountryList {
@@ -26,7 +26,7 @@ class Store {
                     completion(.failure(error))
                 }
             })
-        }
+    }
 
     func clear() {
     countries.list?.removeAll()
