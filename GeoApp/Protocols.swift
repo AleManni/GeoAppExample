@@ -14,7 +14,7 @@ public enum DataConstructorResult {
 }
 
 public protocol InstantiatableFromResponse: class {
-    init?(_ response: AnyObject) throws
+    init?(_ response: Any) throws
 }
 
 protocol DataConstructor: class {

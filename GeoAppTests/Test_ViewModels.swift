@@ -15,7 +15,7 @@ extension GeoAppTests {
 
     func testCountryListViewModel_initialisation() {
         // GIVEN
-        let countryListUnsafe = try? CountryList(MockObjects.shared.countryListRawDictionary as AnyObject)
+        let countryListUnsafe = try? CountryList(MockObjects.shared.countryListRawDictionary as Any)
         guard let countryList = countryListUnsafe else {
             XCTFail("Failed to initialise CountryList object")
             return
@@ -42,7 +42,7 @@ extension GeoAppTests {
 
     func testCountryListViewModel_delegation() {
         // GIVEN
-        let countryListUnsafe = try? CountryList(MockObjects.shared.countryListRawDictionary as AnyObject)
+        let countryListUnsafe = try? CountryList(MockObjects.shared.countryListRawDictionary as Any)
         guard let countryList = countryListUnsafe else {
             XCTFail("Failed to initialise CountryList object")
             return

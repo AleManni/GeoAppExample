@@ -26,8 +26,8 @@ class CountryDetail: InstantiatableFromResponse {
     var isSelected: Bool = false
 
 
-    required init?(_ response: AnyObject) throws {
-        guard response is [String: AnyObject],
+    required init?(_ response: Any) throws {
+        guard let response = response as? [String: AnyObject],
             let name = response["name"] as? String,
             let population = response["population"] as? Int,
             let countryCode = response["alpha3Code"] as? String,
@@ -37,7 +37,7 @@ class CountryDetail: InstantiatableFromResponse {
             let callingCodes = response["callingCodes"] as? [String],
             let nativeName = response["nativeName"] as? String,
             let timeZones = response["timezones"] as? [String],
-            var translations = response["translations"] as? [String: AnyObject?]
+            var translations = response["translations"] as? [String: Any?]
             else {
                 throw Errors.jsonError
         }

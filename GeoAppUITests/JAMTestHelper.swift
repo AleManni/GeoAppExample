@@ -51,7 +51,7 @@ extension XCTestCase {
         let spinnerQuery = XCUIApplication().activityIndicators
 
         let expression = { () -> Bool in
-            return (spinnerQuery.element.value! as AnyObject).intValue != 1
+            return (spinnerQuery.element.value! as Any).intValue != 1
         }
         waitFor(expression, failureMessage: "Timed out waiting for spinner to finish.")
     }

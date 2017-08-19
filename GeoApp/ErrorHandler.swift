@@ -14,6 +14,7 @@ public enum Errors: Error {
     case jsonError
     case networkError(error: NSError)
     case invalidURL
+    case operationError(GAOperationErrors)
 }
 
 extension Errors: CustomStringConvertible {
@@ -28,6 +29,8 @@ extension Errors: CustomStringConvertible {
             return (error.localizedDescription)
         case .invalidURL:
             return "The provided url is not valid"
+        case .operationError(let error):
+            return (error.localizedDescription)
         }
     }
 }

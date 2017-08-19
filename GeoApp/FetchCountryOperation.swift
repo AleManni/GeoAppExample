@@ -17,8 +17,8 @@ final class FetchCountryOperation : GAOperation {
                 self.operationFinalResult = .success(instantiatable)
                 self.operationCompletion(.success(instantiatable))
             case .failure(let error):
-                self.operationFinalResult = .error(error)
-                self.operationCompletion(.error(error))
+                self.operationFinalResult = .failure(error)
+                self.operationCompletion(.failure(error))
             }
             self.state = .Finished
         })

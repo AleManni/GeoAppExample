@@ -12,13 +12,13 @@ import Foundation
 class CountryList: InstantiatableFromResponse {
     var list: [CountryDetail]?
 
-    required init?(_ response: AnyObject) throws {
-        guard let response = response as? [[String: AnyObject]] else {
+    required init?(_ response: Any) throws {
+        guard let response = response as? [[String: Any]] else {
                 throw Errors.jsonError
             }
 
         list = try response.flatMap {
-            return try CountryDetail($0 as AnyObject)
+            return try CountryDetail($0 as Any)
         }
     }
 

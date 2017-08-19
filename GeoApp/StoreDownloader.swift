@@ -13,7 +13,6 @@ class StoreDownloader {
 
     var downloadResult: Result?
 
-
     lazy var storeDownloadQueue: OperationQueue = {
         let queue = OperationQueue()
         queue.name = "StoreDownloderQueue"
@@ -28,7 +27,7 @@ class StoreDownloader {
             if let countryList = countryList as? CountryList {
                 self.downloadResult = Result.success(countryList)
             }
-        case .error(let error):
+        case .failure(let error):
             self.storeDownloadQueue.cancelAllOperations()
             self.downloadResult = Result.failure(error)
         }
@@ -36,10 +35,10 @@ class StoreDownloader {
 
     lazy var printCountryListOperationResultClosure: (GAOperationFinalResult<Any>) -> Void = { result in
         switch result {
-        case .success(let list):
-            print(list)
-        case .error(let error):
+        case .failure(let error):
             print(error)
+        default:
+            return
         }
     }
 
@@ -51,13 +50,20 @@ class StoreDownloader {
         return PrintCountryListOperation(operationCompletion: self.printCountryListOperationResultClosure)
     }()
 
-    lazy var operationsCoupler: GAOperationsCoupler = {
-        return GAOperationsCoupler(finishedOperation: self.fetchAllCountriesOperation, startingOperation: self.printAllCountriesOperation)
+    let couplerTransformer: OperationTransformer = { input in
+        if let countryList = input as? CountryList,
+            let list = countryList.list.flatMap({ return $0.map { $0.name }}) {
+            return list
+        }
+        return nil
+    }
+
+    lazy var operationsCoupler: CouplerOperation = {
+        return CouplerOperation(finishedOperation: self.fetchAllCountriesOperation, startingOperation: self.printAllCountriesOperation, transformer: self.couplerTransformer)
     }()
 
     func populateStore(completion: @escaping (Result) -> Void) {
-        printAllCountriesOperation.addDependency(fetchAllCountriesOperation)
-        storeDownloadQueue.addOperations([fetchAllCountriesOperation, operationsCoupler.coupleOperation, printAllCountriesOperation], waitUntilFinished: true)
+        storeDownloadQueue.addOperations([fetchAllCountriesOperation, operationsCoupler, printAllCountriesOperation], waitUntilFinished: true)
         guard let downloadResult = self.downloadResult else {
             let error = Errors.noData
             completion(.failure(error))

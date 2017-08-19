@@ -13,7 +13,7 @@ extension GeoAppTests {
 
     func testCountryDetail_initialisation() {
         // WHEN
-        let afghanistan = try? CountryDetail(MockObjects.shared.countryListRawDictionary[0] as AnyObject)
+        let afghanistan = try? CountryDetail(MockObjects.shared.countryListRawDictionary[0] as Any)
         // THEN
         // Check that the object has been initialised
         XCTAssertTrue(afghanistan != nil)
@@ -29,7 +29,7 @@ extension GeoAppTests {
         var error: Errors?
         // WHEN
         do {
-            afghanistan = try CountryDetail(rawDictionary as AnyObject)
+            afghanistan = try CountryDetail(rawDictionary as Any)
         } catch let returnedError {
             error = returnedError as? Errors
         }
@@ -52,7 +52,7 @@ extension GeoAppTests {
 
     func testCountryList_initialisation() {
         // WHEN
-        let countryList = try? CountryList(MockObjects.shared.countryListRawDictionary as AnyObject)
+        let countryList = try? CountryList(MockObjects.shared.countryListRawDictionary as Any)
         // THEN
         // Check that the object has been initialised with the correct number of countries
         XCTAssertEqual(countryList??.list?.count, 2)
@@ -68,7 +68,7 @@ extension GeoAppTests {
         var countryList: CountryList?
         // WHEN
         do {
-            countryList = try CountryList(rawDictionary as AnyObject)
+            countryList = try CountryList(rawDictionary as Any)
         } catch let returnedError {
             error = returnedError as? Errors
         }

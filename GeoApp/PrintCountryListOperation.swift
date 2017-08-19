@@ -12,19 +12,20 @@ final class PrintCountryListOperation : GAOperation {
 
     override open func main() {
         super.main()
-        if let data = self.initialData {
-            switch data {
-            case .success(let countryList):
-                if let countryList = countryList as? CountryList,
-                    let list = countryList.list.flatMap({ return $0.map { $0.name }}) {
-                    self.operationFinalResult = .success(list)
-                    self.operationCompletion(.success(list))
-                }
-            case .error(let error):
-                self.operationFinalResult = .error(error)
-            }
+        if let data = self.initialData as? [String] {
+            print(data)
+            self.operationFinalResult = .success(data)
+            self.operationCompletion(.success(data))
             self.state = .Finished
+        } else {
+            if let data = self.initialData {
+                self.operationFinalResult = .failure(.operationError(.unexpectedInputDataType(data)))
+            } else {
+                self.operationFinalResult = .failure(.operationError(.initialDataMissing))
+            }
+            self.state = .Cancelled
         }
+        self.state = .Finished
     }
 }
 
