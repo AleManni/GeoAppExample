@@ -65,8 +65,7 @@ class StoreDownloader {
     func populateStore(completion: @escaping (Result) -> Void) {
         storeDownloadQueue.addOperations([fetchAllCountriesOperation, operationsCoupler, printAllCountriesOperation], waitUntilFinished: true)
         guard let downloadResult = self.downloadResult else {
-            let error = Errors.noData
-            completion(.failure(error))
+            completion(.failure(.noData))
             return
         }
         switch downloadResult {
