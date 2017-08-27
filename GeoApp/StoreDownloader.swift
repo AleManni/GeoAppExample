@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import LightOperations
 
 
 class StoreDownloader {
@@ -16,12 +17,11 @@ class StoreDownloader {
     lazy var storeDownloadQueue: OperationQueue = {
         let queue = OperationQueue()
         queue.name = "StoreDownloderQueue"
-        queue.maxConcurrentOperationCount = 1
         queue.qualityOfService = .background
         return queue
     }()
 
-    lazy var fetchAllCountriesOperationClosure: (GAOperationFinalResult<Any>) -> Void = {  result in
+    lazy var fetchAllCountriesOperationClosure: (OperationFinalResult<Any>) -> Void = {  result in
         switch result {
         case .success(let countryList):
             if let countryList = countryList as? CountryList {
@@ -29,11 +29,11 @@ class StoreDownloader {
             }
         case .failure(let error):
             self.storeDownloadQueue.cancelAllOperations()
-            self.downloadResult = Result.failure(error)
+            self.downloadResult = Result.failure(.operationError(.networkError(error)))
         }
     }
 
-    lazy var printCountryListOperationResultClosure: (GAOperationFinalResult<Any>) -> Void = { result in
+    lazy var printCountryListOperationResultClosure: (OperationFinalResult<Any>) -> Void = { result in
         switch result {
         case .failure(let error):
             print(error)

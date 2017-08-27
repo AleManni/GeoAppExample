@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D1C7EE51F530C2100B9B3AA /* LightOperations.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DDA368D1F52F20800F3E3CA /* LightOperations.framework */; };
 		1D1F001C1D36577500E2EF2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F001B1D36577500E2EF2C /* AppDelegate.swift */; };
 		1D1F001E1D36577500E2EF2C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1F001D1D36577500E2EF2C /* NetworkManager.swift */; };
 		1D1F00211D36577500E2EF2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D1F001F1D36577500E2EF2C /* Main.storyboard */; };
@@ -24,7 +25,6 @@
 		1D5C11B91F376B8600619133 /* FetchCountryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C11B81F376B8600619133 /* FetchCountryOperation.swift */; };
 		1D5C11BB1F3778A000619133 /* StoreDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C11BA1F3778A000619133 /* StoreDownloader.swift */; };
 		1D5C11BD1F37835000619133 /* PrintCountryListOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C11BC1F37835000619133 /* PrintCountryListOperation.swift */; };
-		1D5C11BF1F3798DE00619133 /* CouplerOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5C11BE1F3798DE00619133 /* CouplerOperation.swift */; };
 		1D6AF7C51EA4A07D009B2AE7 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6AF7C41EA4A07D009B2AE7 /* DictionaryExtension.swift */; };
 		1D6AF7C81EA4E352009B2AE7 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6AF7C71EA4E352009B2AE7 /* SplashScreenViewController.swift */; };
 		1D6AF7CA1EA4E5EB009B2AE7 /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D6AF7C91EA4E5EB009B2AE7 /* Launch.storyboard */; };
@@ -32,7 +32,6 @@
 		1D6CDD691EA1439800B53371 /* UIColorExensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6CDD681EA1439800B53371 /* UIColorExensions.swift */; };
 		1D7249031EAE7FD700E1EDB9 /* UnitTestsUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7249021EAE7FD700E1EDB9 /* UnitTestsUtilities.swift */; };
 		1D7249081EAE81F800E1EDB9 /* JAMTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7249071EAE81F800E1EDB9 /* JAMTestHelper.swift */; };
-		1D9E37981F372A4500F3DD79 /* GAOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9E37971F372A4500F3DD79 /* GAOperation.swift */; };
 		1D9E45FB1EAFD58E00B8B68A /* countryList.json in Resources */ = {isa = PBXBuildFile; fileRef = 1D9E45FA1EAFD58E00B8B68A /* countryList.json */; };
 		1DA3140E1EBDEFC7005CCB8C /* Test_Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA3140D1EBDEFC7005CCB8C /* Test_Models.swift */; };
 		1DA314101EBE168E005CCB8C /* Test_ViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DA3140F1EBE168E005CCB8C /* Test_ViewModels.swift */; };
@@ -95,7 +94,6 @@
 		1D5C11B81F376B8600619133 /* FetchCountryOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FetchCountryOperation.swift; sourceTree = "<group>"; };
 		1D5C11BA1F3778A000619133 /* StoreDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoreDownloader.swift; sourceTree = "<group>"; };
 		1D5C11BC1F37835000619133 /* PrintCountryListOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrintCountryListOperation.swift; sourceTree = "<group>"; };
-		1D5C11BE1F3798DE00619133 /* CouplerOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CouplerOperation.swift; sourceTree = "<group>"; };
 		1D6AF7C41EA4A07D009B2AE7 /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryExtension.swift; sourceTree = "<group>"; };
 		1D6AF7C71EA4E352009B2AE7 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		1D6AF7C91EA4E5EB009B2AE7 /* Launch.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
@@ -103,7 +101,6 @@
 		1D6CDD681EA1439800B53371 /* UIColorExensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExensions.swift; sourceTree = "<group>"; };
 		1D7249021EAE7FD700E1EDB9 /* UnitTestsUtilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitTestsUtilities.swift; sourceTree = "<group>"; };
 		1D7249071EAE81F800E1EDB9 /* JAMTestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JAMTestHelper.swift; sourceTree = "<group>"; };
-		1D9E37971F372A4500F3DD79 /* GAOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GAOperation.swift; sourceTree = "<group>"; };
 		1D9E45FA1EAFD58E00B8B68A /* countryList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = countryList.json; sourceTree = "<group>"; };
 		1DA3140D1EBDEFC7005CCB8C /* Test_Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_Models.swift; sourceTree = "<group>"; };
 		1DA3140F1EBE168E005CCB8C /* Test_ViewModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Test_ViewModels.swift; sourceTree = "<group>"; };
@@ -124,6 +121,7 @@
 		1DC904911E9A589900D1B5E5 /* CapitalCityViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapitalCityViewModel.swift; sourceTree = "<group>"; };
 		1DC904931E9A591600D1B5E5 /* RegionCountriesCollectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionCountriesCollectionViewModel.swift; sourceTree = "<group>"; };
 		1DC904951E9A593E00D1B5E5 /* BorderingCountriesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderingCountriesViewModel.swift; sourceTree = "<group>"; };
+		1DDA368D1F52F20800F3E3CA /* LightOperations.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LightOperations.framework; path = "../../../../Users/ale_manni/Library/Developer/Xcode/DerivedData/GeoApp-hcjhtiecpbrtwecnpizatnpofgls/Build/Products/Debug-iphonesimulator/LightOperations/LightOperations.framework"; sourceTree = "<group>"; };
 		1DE6C98B1D36FFB200D5ECE7 /* UIImageViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtensions.swift; sourceTree = "<group>"; };
 		1DEB8E151D36EB7A008EC2DA /* CountryListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CountryListTableViewCell.xib; sourceTree = "<group>"; };
 		1DEB8E191D36F059008EC2DA /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
@@ -131,6 +129,12 @@
 		1DFCA2681D3A10710003B223 /* GeoAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DFCA26A1D3A10710003B223 /* Tests_Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_Services.swift; sourceTree = "<group>"; };
 		1DFCA26C1D3A10710003B223 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		483717E03E45C5B5BC11FEFE /* Pods-GeoAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoAppTests/Pods-GeoAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		6B28FF8CFDD41664EAE47C5F /* Pods-GeoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoAppTests/Pods-GeoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9596D681A288D227C8174AB8 /* Pods-GeoAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoAppUITests/Pods-GeoAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BAE9638A434500E7E8291DDD /* Pods-GeoAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoAppUITests/Pods-GeoAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D2FA3D5AFA017F849E5D5141 /* Pods-GeoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoApp/Pods-GeoApp.release.xcconfig"; sourceTree = "<group>"; };
+		E5E3D826CEC988E29367C2C8 /* Pods-GeoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoApp/Pods-GeoApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D1C7EE51F530C2100B9B3AA /* LightOperations.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +170,8 @@
 				1DFCA2691D3A10710003B223 /* GeoAppTests */,
 				1DBDD22D1D531EF000D68877 /* GeoAppUITests */,
 				1D1F00191D36577500E2EF2C /* Products */,
+				C55DF51F07D050CDE17C7B5E /* Pods */,
+				4DF3DEE468C8C204A350FE07 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -312,8 +319,6 @@
 		1D5C11B71F376B6200619133 /* Operations */ = {
 			isa = PBXGroup;
 			children = (
-				1D9E37971F372A4500F3DD79 /* GAOperation.swift */,
-				1D5C11BE1F3798DE00619133 /* CouplerOperation.swift */,
 				1D5C11B81F376B8600619133 /* FetchCountryOperation.swift */,
 				1D5C11BC1F37835000619133 /* PrintCountryListOperation.swift */,
 				1D5C11BA1F3778A000619133 /* StoreDownloader.swift */,
@@ -363,6 +368,27 @@
 			path = GeoAppTests;
 			sourceTree = "<group>";
 		};
+		4DF3DEE468C8C204A350FE07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DDA368D1F52F20800F3E3CA /* LightOperations.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C55DF51F07D050CDE17C7B5E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E5E3D826CEC988E29367C2C8 /* Pods-GeoApp.debug.xcconfig */,
+				D2FA3D5AFA017F849E5D5141 /* Pods-GeoApp.release.xcconfig */,
+				6B28FF8CFDD41664EAE47C5F /* Pods-GeoAppTests.debug.xcconfig */,
+				483717E03E45C5B5BC11FEFE /* Pods-GeoAppTests.release.xcconfig */,
+				BAE9638A434500E7E8291DDD /* Pods-GeoAppUITests.debug.xcconfig */,
+				9596D681A288D227C8174AB8 /* Pods-GeoAppUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -370,9 +396,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D1F00351D36577500E2EF2C /* Build configuration list for PBXNativeTarget "GeoApp" */;
 			buildPhases = (
+				B1549028BE7777846AEA412B /* [CP] Check Pods Manifest.lock */,
 				1D1F00141D36577500E2EF2C /* Sources */,
 				1D1F00151D36577500E2EF2C /* Frameworks */,
 				1D1F00161D36577500E2EF2C /* Resources */,
+				BF38C61C367FA575AE6A84D0 /* [CP] Embed Pods Frameworks */,
+				D179EF2A3460D297C077F098 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -387,9 +416,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DBDD2351D531EF100D68877 /* Build configuration list for PBXNativeTarget "GeoAppUITests" */;
 			buildPhases = (
+				2C67B1926BEF11065FBB76F0 /* [CP] Check Pods Manifest.lock */,
 				1DBDD2281D531EF000D68877 /* Sources */,
 				1DBDD2291D531EF000D68877 /* Frameworks */,
 				1DBDD22A1D531EF000D68877 /* Resources */,
+				1212CF756E7F42C57E08D6E1 /* [CP] Embed Pods Frameworks */,
+				96C668923547FF9C2EEB7774 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -405,9 +437,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DFCA26F1D3A10720003B223 /* Build configuration list for PBXNativeTarget "GeoAppTests" */;
 			buildPhases = (
+				C1BEF4F91A759A926A4AA89B /* [CP] Check Pods Manifest.lock */,
 				1DFCA2641D3A10710003B223 /* Sources */,
 				1DFCA2651D3A10710003B223 /* Frameworks */,
 				1DFCA2661D3A10710003B223 /* Resources */,
+				3706F802F7F8B4DB18BBF59E /* [CP] Embed Pods Frameworks */,
+				DB2101C69A0BA702B0C2A3F6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -499,6 +534,156 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1212CF756E7F42C57E08D6E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GeoAppUITests/Pods-GeoAppUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2C67B1926BEF11065FBB76F0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GeoAppUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3706F802F7F8B4DB18BBF59E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GeoAppTests/Pods-GeoAppTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96C668923547FF9C2EEB7774 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GeoAppUITests/Pods-GeoAppUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1549028BE7777846AEA412B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GeoApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF38C61C367FA575AE6A84D0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GeoApp/Pods-GeoApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/LightOperations/LightOperations.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LightOperations.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GeoApp/Pods-GeoApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C1BEF4F91A759A926A4AA89B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GeoAppTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D179EF2A3460D297C077F098 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GeoApp/Pods-GeoApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB2101C69A0BA702B0C2A3F6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GeoAppTests/Pods-GeoAppTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1D1F00141D36577500E2EF2C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -508,7 +693,6 @@
 				1DEB8E1A1D36F059008EC2DA /* StringExtensions.swift in Sources */,
 				1D5026131E96C0B500DAD325 /* CountryListViewModel.swift in Sources */,
 				1D1F004E1D36D26900E2EF2C /* CountryList.swift in Sources */,
-				1D9E37981F372A4500F3DD79 /* GAOperation.swift in Sources */,
 				1D5026191E96C27A00DAD325 /* CountryListTableView.swift in Sources */,
 				1DC904941E9A591600D1B5E5 /* RegionCountriesCollectionViewModel.swift in Sources */,
 				1D1F00421D36A37900E2EF2C /* CountryListViewController.swift in Sources */,
@@ -521,7 +705,6 @@
 				1D6CDD691EA1439800B53371 /* UIColorExensions.swift in Sources */,
 				1DC9048A1E9A41BF00D1B5E5 /* RegionCollectionView.swift in Sources */,
 				1D5C11B91F376B8600619133 /* FetchCountryOperation.swift in Sources */,
-				1D5C11BF1F3798DE00619133 /* CouplerOperation.swift in Sources */,
 				1DE6C98C1D36FFB200D5ECE7 /* UIImageViewExtensions.swift in Sources */,
 				1D6AF7CF1EA507D0009B2AE7 /* Store.swift in Sources */,
 				1D1F00441D36AE9400E2EF2C /* ErrorHandler.swift in Sources */,
@@ -682,6 +865,7 @@
 		};
 		1D1F00361D36577500E2EF2C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5E3D826CEC988E29367C2C8 /* Pods-GeoApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -699,6 +883,7 @@
 		};
 		1D1F00371D36577500E2EF2C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2FA3D5AFA017F849E5D5141 /* Pods-GeoApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -716,6 +901,7 @@
 		};
 		1DBDD2331D531EF100D68877 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAE9638A434500E7E8291DDD /* Pods-GeoAppUITests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = DY95X747ZU;
 				INFOPLIST_FILE = GeoAppUITests/Info.plist;
@@ -729,6 +915,7 @@
 		};
 		1DBDD2341D531EF100D68877 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9596D681A288D227C8174AB8 /* Pods-GeoAppUITests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = DY95X747ZU;
 				INFOPLIST_FILE = GeoAppUITests/Info.plist;
@@ -742,6 +929,7 @@
 		};
 		1DFCA2701D3A10720003B223 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6B28FF8CFDD41664EAE47C5F /* Pods-GeoAppTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = DY95X747ZU;
@@ -756,6 +944,7 @@
 		};
 		1DFCA2711D3A10720003B223 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 483717E03E45C5B5BC11FEFE /* Pods-GeoAppTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = DY95X747ZU;

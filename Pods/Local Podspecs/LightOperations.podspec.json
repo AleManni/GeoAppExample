@@ -1,0 +1,24 @@
+{
+  "name": "LightOperations",
+  "platforms": {
+    "ios": "9.0"
+  },
+  "summary": "Light framework for asynchronous operations and operation queues",
+  "requires_arc": true,
+  "version": "1.0.4",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Alessandro Manni": "ale_manni@icloud.com"
+  },
+  "homepage": "https://github.com/AleManni/LightOperations",
+  "social_media_url": "https://github.com/AleManni/LightOperations.git",
+  "source": {
+    "git": "https://github.com/AleManni/LightOperations.git",
+    "tag": "v1.0.4"
+  },
+  "module_name": "LightOperations",
+  "source_files": "LightOperations/**/*.{swift}"
+}

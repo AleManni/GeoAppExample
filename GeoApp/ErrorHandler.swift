@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import LightOperations
 import UIKit
 
 public enum Errors: Error {
@@ -14,7 +15,7 @@ public enum Errors: Error {
     case jsonError
     case networkError(error: NSError)
     case invalidURL
-    case operationError(GAOperationErrors)
+    case operationError(OperationError)
 }
 
 extension Errors: CustomStringConvertible {

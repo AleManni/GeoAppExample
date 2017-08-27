@@ -1,0 +1,6 @@
+framework module LightOperations {
+  umbrella header "LightOperations-umbrella.h"
+
+  export *
+  module * { export * }
+}

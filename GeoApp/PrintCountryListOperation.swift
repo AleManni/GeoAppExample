@@ -6,9 +6,9 @@
 //  Copyright © 2017 Alessandro Manni. All rights reserved.
 //
 
-import Foundation
+import LightOperations
 
-final class PrintCountryListOperation : GAOperation {
+final class PrintCountryListOperation : LightOperation {
 
     override open func main() {
         super.main()
@@ -16,16 +16,16 @@ final class PrintCountryListOperation : GAOperation {
             print(data)
             self.operationFinalResult = .success(data)
             self.operationCompletion(.success(data))
-            self.state = .Finished
+            self.state = .finished
         } else {
             if let data = self.initialData {
-                self.operationFinalResult = .failure(.operationError(.unexpectedInputDataType(data)))
+                self.operationFinalResult = .failure(.unexpectedInputType(data))
             } else {
-                self.operationFinalResult = .failure(.operationError(.initialDataMissing))
+                self.operationFinalResult = .failure(.inputDataMissing)
             }
-            self.state = .Cancelled
+            self.state = .cancelled
         }
-        self.state = .Finished
+        self.state = .finished
     }
 }
 

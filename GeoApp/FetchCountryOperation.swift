@@ -6,8 +6,9 @@
 //  Copyright © 2017 Alessandro Manni. All rights reserved.
 //
 
+import LightOperations
 
-final class FetchCountryOperation : GAOperation {
+final class FetchCountryOperation: LightOperation {
 
     override open func main() {
         super.main()
@@ -17,10 +18,10 @@ final class FetchCountryOperation : GAOperation {
                 self.operationFinalResult = .success(instantiatable)
                 self.operationCompletion(.success(instantiatable))
             case .failure(let error):
-                self.operationFinalResult = .failure(error)
-                self.operationCompletion(.failure(error))
+                self.operationFinalResult = .failure(.networkError(error))
+                self.operationCompletion(.failure(.networkError(error)))
             }
-            self.state = .Finished
+            self.state = .finished
         })
     }
 }
