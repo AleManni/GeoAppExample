@@ -1,5 +1,5 @@
 PODS:
-  - LightOperations (1.0.4)
+  - LightOperations (1.0.5)
 
 DEPENDENCIES:
   - LightOperations (from `https://github.com/AleManni/LightOperations`)
@@ -10,11 +10,11 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   LightOperations:
-    :commit: aa3e0ff65ec9a338a26ff0104b91feae72c14796
+    :commit: ccc9e11f80ac7ef513a4872b80ff07e79f50df29
     :git: https://github.com/AleManni/LightOperations
 
 SPEC CHECKSUMS:
-  LightOperations: ca51e13cd0db8d64b96986decfd9402b0b555f92
+  LightOperations: 76950efa1867f42720936a3b97e27f833bcafb3e
 
 PODFILE CHECKSUM: 30299f70d907b450f7b6e2520889256d139d2cc1
 

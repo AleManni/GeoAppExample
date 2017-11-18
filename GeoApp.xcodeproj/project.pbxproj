@@ -55,6 +55,9 @@
 		1DEB8E161D36EB7A008EC2DA /* CountryListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DEB8E151D36EB7A008EC2DA /* CountryListTableViewCell.xib */; };
 		1DEB8E1A1D36F059008EC2DA /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB8E191D36F059008EC2DA /* StringExtensions.swift */; };
 		1DEB8E1C1D36F918008EC2DA /* CountryListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DEB8E1B1D36F918008EC2DA /* CountryListTableViewCell.swift */; };
+		5062E30FE9C7B2AFFFE72D29 /* Pods_GeoAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C57D3C9A5E54BF8CFA7321D4 /* Pods_GeoAppUITests.framework */; };
+		6A18C3B0C142DA041D829852 /* Pods_GeoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABB18C2E382525820787DACE /* Pods_GeoApp.framework */; };
+		F695D7EF8B320C9188782EA9 /* Pods_GeoAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C344A4FBA41B575D0211EBB7 /* Pods_GeoAppTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,7 +135,10 @@
 		483717E03E45C5B5BC11FEFE /* Pods-GeoAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoAppTests/Pods-GeoAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		6B28FF8CFDD41664EAE47C5F /* Pods-GeoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoAppTests/Pods-GeoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9596D681A288D227C8174AB8 /* Pods-GeoAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoAppUITests/Pods-GeoAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		ABB18C2E382525820787DACE /* Pods_GeoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAE9638A434500E7E8291DDD /* Pods-GeoAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoAppUITests/Pods-GeoAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C344A4FBA41B575D0211EBB7 /* Pods_GeoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C57D3C9A5E54BF8CFA7321D4 /* Pods_GeoAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2FA3D5AFA017F849E5D5141 /* Pods-GeoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeoApp/Pods-GeoApp.release.xcconfig"; sourceTree = "<group>"; };
 		E5E3D826CEC988E29367C2C8 /* Pods-GeoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GeoApp/Pods-GeoApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1D1C7EE51F530C2100B9B3AA /* LightOperations.framework in Frameworks */,
+				6A18C3B0C142DA041D829852 /* Pods_GeoApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5062E30FE9C7B2AFFFE72D29 /* Pods_GeoAppUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F695D7EF8B320C9188782EA9 /* Pods_GeoAppTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +381,9 @@
 			isa = PBXGroup;
 			children = (
 				1DDA368D1F52F20800F3E3CA /* LightOperations.framework */,
+				ABB18C2E382525820787DACE /* Pods_GeoApp.framework */,
+				C344A4FBA41B575D0211EBB7 /* Pods_GeoAppTests.framework */,
+				C57D3C9A5E54BF8CFA7321D4 /* Pods_GeoAppUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
