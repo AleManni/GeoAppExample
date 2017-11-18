@@ -44,7 +44,7 @@ class CountryListTableView: UIView {
         countriesTableView.accessibilityIdentifier = "countryListTableView"
     }
 
-    func handleRefresh(_ refreshControl: UIRefreshControl) {
+    @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         indicator.stopAnimating()
         data = []
         delegate?.viewDidRequestDataUpdate()

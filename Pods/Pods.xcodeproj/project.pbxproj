@@ -38,34 +38,34 @@
 		108946683527EAAF4D7E7C521C235B94 /* Pods-GeoApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GeoApp-umbrella.h"; sourceTree = "<group>"; };
 		15CCED5DE8D6CF7A545F57B09506CCF5 /* Pods-GeoAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GeoAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		19627DAFCC3BE4352FEC673F751614AF /* Pods-GeoAppTests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GeoAppTests-frameworks.sh"; sourceTree = "<group>"; };
-		1AA2373FD9369C4FD3658FF9952F36B8 /* Pods-GeoAppTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-GeoAppTests.modulemap"; sourceTree = "<group>"; };
+		1AA2373FD9369C4FD3658FF9952F36B8 /* Pods-GeoAppTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GeoAppTests.modulemap"; sourceTree = "<group>"; };
 		1AF94C4C1523A9AF8A01F507ED114C11 /* Pods-GeoAppUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GeoAppUITests-umbrella.h"; sourceTree = "<group>"; };
 		1DE72A1C589CA2D6185F16BCB20782EC /* Pods-GeoApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GeoApp-frameworks.sh"; sourceTree = "<group>"; };
 		27A64F45588DA4D7E997DF2CA4D98721 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		33B96D81448CA6C1EBF1F44C34996D78 /* Pods_GeoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GeoAppTests.framework; path = "Pods-GeoAppTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		33B96D81448CA6C1EBF1F44C34996D78 /* Pods_GeoAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		417A77614A5252A76D8D517F2711B84C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		417B684C5D67B2605B27BCA13290ACB9 /* Pods-GeoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GeoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		460C0140123269EC2E88EE63664B3C07 /* LightOperations-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LightOperations-umbrella.h"; sourceTree = "<group>"; };
 		4A55B26DA30D9AA040A520E26CD12816 /* Pods-GeoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GeoApp.release.xcconfig"; sourceTree = "<group>"; };
 		50A81B54F1FC00C061256FA1721704E2 /* Pods-GeoAppTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-GeoAppTests-umbrella.h"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		6691EA2E4062866BA46689BF15FB2CFD /* Pods_GeoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GeoApp.framework; path = "Pods-GeoApp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		74F0A41CDD15D8BEBC54E082631FF786 /* Pods-GeoAppUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-GeoAppUITests.modulemap"; sourceTree = "<group>"; };
+		6691EA2E4062866BA46689BF15FB2CFD /* Pods_GeoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74F0A41CDD15D8BEBC54E082631FF786 /* Pods-GeoAppUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GeoAppUITests.modulemap"; sourceTree = "<group>"; };
 		76D445BA51C6ACF884CE978E786F97EC /* Pods-GeoAppTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GeoAppTests-dummy.m"; sourceTree = "<group>"; };
 		773FA8A881B0FA995987B0CB488F27C2 /* LightOperations-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LightOperations-prefix.pch"; sourceTree = "<group>"; };
 		77C7F62E4D96146F4FCEC5A0652A0A02 /* LightOperations-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LightOperations-dummy.m"; sourceTree = "<group>"; };
 		78045DF3B93215C68C3CCBF580C023A8 /* Pods-GeoAppTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GeoAppTests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		811A9084A7CB88D5A0A9A5CD784CD51F /* Pods-GeoAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GeoAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		82721ED617299F59151545CB33A62AF1 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		83770EEFEE92660E2DCE3C1B12EED693 /* LightOperations.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = LightOperations.modulemap; sourceTree = "<group>"; };
-		8E5EAA98A9EF174013BE84A35B5186DF /* Pods-GeoApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-GeoApp.modulemap"; sourceTree = "<group>"; };
+		83770EEFEE92660E2DCE3C1B12EED693 /* LightOperations.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = LightOperations.modulemap; sourceTree = "<group>"; };
+		8E5EAA98A9EF174013BE84A35B5186DF /* Pods-GeoApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-GeoApp.modulemap"; sourceTree = "<group>"; };
 		8EBD37A1C168FD96B9DC4DE85B16DDBF /* OperationsCoupler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OperationsCoupler.swift; path = LightOperations/OperationsCoupler.swift; sourceTree = "<group>"; };
-		8F05D47F4A2373A94B50B0728027A7BC /* Pods_GeoAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_GeoAppUITests.framework; path = "Pods-GeoAppUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		8F05D47F4A2373A94B50B0728027A7BC /* Pods_GeoAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GeoAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		94EF192BE006DD86A09597AFE2651E43 /* LightOperations.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LightOperations.xcconfig; sourceTree = "<group>"; };
 		9725AB06421841156430CE317F0B4F1D /* Pods-GeoAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GeoAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		993915E3AB5B231D20D6E361B57ECB0A /* Pods-GeoAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-GeoAppUITests.release.xcconfig"; sourceTree = "<group>"; };
-		9B18EB0454B9AC4D66181C264C1D4FB5 /* LightOperations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = LightOperations.framework; path = LightOperations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B18EB0454B9AC4D66181C264C1D4FB5 /* LightOperations.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LightOperations.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E1C9598109CC7F97510535EA764E65A /* Pods-GeoAppUITests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-GeoAppUITests-resources.sh"; sourceTree = "<group>"; };
 		BA39FEE6657049BEFB53F6791594E4D3 /* Pods-GeoAppUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-GeoAppUITests-dummy.m"; sourceTree = "<group>"; };
 		BE8ABD470F4E9D974E567983DEEF96A9 /* Pods-GeoApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-GeoApp-acknowledgements.markdown"; sourceTree = "<group>"; };
@@ -185,7 +185,6 @@
 				8EBD37A1C168FD96B9DC4DE85B16DDBF /* OperationsCoupler.swift */,
 				551AF80AA00F41D024CD8EDCB3A14F98 /* Support Files */,
 			);
-			name = LightOperations;
 			path = LightOperations;
 			sourceTree = "<group>";
 		};
@@ -365,7 +364,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0910;
+				TargetAttributes = {
+					A6A09EA5DBA4FEF1CB8ECDB2EBB0A05B = {
+						LastSwiftMigration = 0910;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -483,7 +487,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -491,15 +497,21 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",
@@ -604,7 +616,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -612,14 +626,20 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",
@@ -633,6 +653,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -704,7 +725,8 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -811,7 +833,8 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

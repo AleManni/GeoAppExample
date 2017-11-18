@@ -33,7 +33,7 @@ struct CountryRepresentable {
             population = "Population: \(StyleManager.shared.stringMissing)"
         }
 
-        if country.region.characters.count > 0 {
+        if country.region.count > 0 {
             region = country.region
         } else {
             region = "Region: \(StyleManager.shared.stringMissing)"

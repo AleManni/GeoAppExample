@@ -45,7 +45,7 @@ class GeoAppUITests: XCTestCase {
         continueAfterFailure = false
         app.launch()
         waitForElementToExist(app)
-        XCUIDevice.shared().orientation = .portrait
+        XCUIDevice.shared.orientation = .portrait
         navigateToCountryList()
     }
 

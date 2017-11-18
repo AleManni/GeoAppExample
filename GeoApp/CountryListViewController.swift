@@ -20,11 +20,9 @@ class CountryListViewController: UIViewController {
         return viewModel
     }()
 
-   // var selectedCountry: CountryDetail?
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Colors.standardBlue, NSFontAttributeName: StyleManager.Fonts().titleLarge]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: Colors.standardBlue, NSAttributedStringKey.font: StyleManager.Fonts().titleLarge]
         title = "Countries"
         rootView.setUpView()
         rootView.delegate = self

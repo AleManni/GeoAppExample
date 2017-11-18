@@ -75,7 +75,7 @@ class CountryDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         rootView.delegate = self
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: Colors.standardBlue, NSFontAttributeName: StyleManager.Fonts().titleLarge]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: Colors.standardBlue, NSAttributedStringKey.font: StyleManager.Fonts().titleLarge]
         setTitle()
         populateViewModels()
     }

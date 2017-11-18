@@ -51,7 +51,7 @@ extension XCTestCase {
         let spinnerQuery = XCUIApplication().activityIndicators
 
         let expression = { () -> Bool in
-            return (spinnerQuery.element.value! as Any).intValue != 1
+          return ((spinnerQuery.element.value! as Any) as AnyObject).intValue != 1
         }
         waitFor(expression, failureMessage: "Timed out waiting for spinner to finish.")
     }
@@ -79,7 +79,7 @@ extension XCTestCase {
             if (Date.timeIntervalSinceReferenceDate - startTime > 120.0) {
                 raiseTimeOutException(failureMessage)
             }
-            CFRunLoopRunInMode(CFRunLoopMode.defaultMode, 0.1, Bool(0))
+          CFRunLoopRunInMode(CFRunLoopMode.defaultMode, 0.1, Bool(truncating: 0))
         }
     }
 
