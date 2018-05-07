@@ -17,7 +17,7 @@ class CountryList: InstantiatableFromResponse {
                 throw Errors.jsonError
             }
 
-        list = try response.flatMap {
+      list = try response.compactMap {
             return try CountryDetail($0 as Any)
         }
     }

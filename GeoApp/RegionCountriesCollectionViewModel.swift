@@ -45,7 +45,7 @@ final class RegionCountriesCollectionViewModel: ViewModel {
             switch result {
             case .success(let countries):
             if let countries = countries as? CountryList, let list = countries.list {
-                let representableList = list.flatMap {
+              let representableList = list.compactMap {
                     return CountryRegionRepresentable($0)
                 }
                 DispatchQueue.main.async {

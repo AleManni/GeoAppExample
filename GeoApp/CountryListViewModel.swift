@@ -60,7 +60,7 @@ final class CountryListViewModel: ViewModel {
     func loadData() {
         delegate?.viewModelIsLoading(viewModel: self)
         if let countryList = loadedCountryList?.list, !countryList.isEmpty {
-            let representableList = countryList.flatMap {
+          let representableList = countryList.compactMap {
                 return CountryRepresentable($0)
             }
             self.delegate?.viewModelDidLoadData(data: representableList, viewModel: self)

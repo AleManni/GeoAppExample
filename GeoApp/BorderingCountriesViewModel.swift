@@ -45,7 +45,7 @@
         }
         self.borderingCountries = countriesArray
         if let borderingCountries = borderingCountries {
-            let representableList = borderingCountries.flatMap {
+          let representableList = borderingCountries.compactMap {
                 return CountryRepresentable($0)
             }
             self.delegate?.viewModelDidLoadData(data: representableList, viewModel: self)
