@@ -42,11 +42,17 @@ class StoreDownloader {
         }
     }
 
-    lazy var fetchAllCountriesOperation: FetchCountryOperation = {
+    lazy var fetchAllCountriesOperation: FetchCountryOperation? = { [weak self] in
+      guard let `self` = self else {
+        return nil
+      }
         return FetchCountryOperation(operationCompletion: self.fetchAllCountriesOperationClosure)
     }()
 
-    lazy var printAllCountriesOperation: PrintCountryListOperation = {
+  lazy var printAllCountriesOperation: PrintCountryListOperation? = { [weak self] in
+    guard let `self` = self else {
+    return nil
+    }
         return PrintCountryListOperation(operationCompletion: self.printCountryListOperationResultClosure)
     }()
 
@@ -59,17 +65,22 @@ class StoreDownloader {
     }
 
     lazy var operationsCoupler: CouplerOperation? = { [weak self ] in
-      guard let unownedSelf = self else {
+      guard let `self` = self,
+      let countryFetch = self.fetchAllCountriesOperation,
+      let printCountries = self.printAllCountriesOperation
+      else {
         return nil
       }
-        return CouplerOperation(finishedOperation: unownedSelf.fetchAllCountriesOperation, startingOperation: unownedSelf.printAllCountriesOperation, transformer: unownedSelf.couplerTransformer)
+        return CouplerOperation(finishedOperation: countryFetch, startingOperation: printCountries, transformer: self.couplerTransformer)
     }()
 
     func populateStore(completion: @escaping (Result) -> Void) {
-      guard let coupler = operationsCoupler else {
+      guard let coupler = operationsCoupler,
+        let countryFetch = self.fetchAllCountriesOperation,
+        let printCountries = self.printAllCountriesOperation else {
         return
       }
-        storeDownloadQueue.addOperations([fetchAllCountriesOperation, coupler, printAllCountriesOperation], waitUntilFinished: true)
+        storeDownloadQueue.addOperations([countryFetch, coupler, printCountries], waitUntilFinished: true)
         guard let downloadResult = self.downloadResult else {
             completion(.failure(.noData))
             return

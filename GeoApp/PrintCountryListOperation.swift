@@ -10,7 +10,7 @@ import LightOperations
 
 final class PrintCountryListOperation : LightOperation {
 
-    override open func main() {
+    override open func main() { 
         super.main()
         if let data = self.initialData as? [String] {
             print(data)

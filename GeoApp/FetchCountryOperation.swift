@@ -12,16 +12,16 @@ final class FetchCountryOperation: LightOperation {
 
     override open func main() {
         super.main()
-        NetworkManager.fetchCountryList(completion: { result in
+        NetworkManager.fetchCountryList(completion: { [weak self] result in
             switch result {
             case .success(let instantiatable):
-                self.operationFinalResult = .success(instantiatable)
-                self.operationCompletion(.success(instantiatable))
+                self?.operationFinalResult = .success(instantiatable)
+                self?.operationCompletion(.success(instantiatable))
             case .failure(let error):
-                self.operationFinalResult = .failure(.networkError(error))
-                self.operationCompletion(.failure(.networkError(error)))
+                self?.operationFinalResult = .failure(.networkError(error))
+                self?.operationCompletion(.failure(.networkError(error)))
             }
-            self.state = .finished
+            self?.state = .finished
         })
     }
 }
