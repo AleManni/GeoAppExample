@@ -11,11 +11,11 @@ import LightOperations
 import UIKit
 
 public enum Errors: Error {
-    case noData
-    case jsonError
-    case networkError(error: NSError)
-    case invalidURL
-    case operationError(OperationError)
+  case noData
+  case jsonError(Error?)
+  case networkError(error: NSError)
+  case invalidURL
+  case operationError(OperationError)
 }
 
 extension Errors: CustomStringConvertible {

@@ -9,27 +9,48 @@
 import Foundation
 
 public enum DataConstructorResult {
-    case success(InstantiatableFromResponse)
-    case failure(Errors)
+    case success(Decodable)
+    case failure(Error)
 }
 
-public protocol InstantiatableFromResponse: class {
-    init?(_ response: Any) throws
+public enum OperationResult<T> {
+  case success(T)
+  case failure(Error?)
+
+  var type: T.Type {
+    return T.self
+  }
 }
 
-protocol DataConstructor: class {
-    func instantiateFromResponse(_ response: Data, completion: (DataConstructorResult) -> Void)
-    init(_ objectClass: InstantiatableFromResponse.Type)
+protocol DataConstructor {
+  associatedtype NetworkType: Decodable
 }
 
-protocol ViewModelDelegate: class {
+extension DataConstructor {
+
+  func instantiateFromResponse(_ response: Data, completion: (DataConstructorResult) -> Void)  {
+    do {
+      let decoder = JSONDecoder()
+      let networkModel = try decoder.decode(NetworkType.self, from: response)
+      completion(.success(networkModel))
+    } catch let parsingError {
+      completion(.failure(parsingError))
+      return
+    }
+  }
+}
+
+public protocol ViewModelDelegate: class {
     func viewModelIsLoading(viewModel: ViewModel)
     func viewModelDidLoadData<T>(data: T, viewModel: ViewModel)
     func viewModelDidFailWithError(error: Errors, viewModel: ViewModel)
 }
 
-protocol ViewModel: class {
-    init(_ data: InstantiatableFromResponse)
+public protocol ViewModel: class {
+  weak var delegate: ViewModelDelegate? { get set }
+
+  func loadData()
+  func repositoryDidFetchResult<T>(_ result: OperationResult<T>)
 }
 
 

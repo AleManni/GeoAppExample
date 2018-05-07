@@ -9,7 +9,7 @@
 import Foundation
 
 enum Result {
-    case success(InstantiatableFromResponse)
+    case success(Decodable)
     case failure(Errors)
 }
 
@@ -22,24 +22,26 @@ struct Endpoints {
 
     private static let baseURL = "https://restcountries.eu/rest/v2"
 
-    static let allCountries = "/all"
-
-    static func countryDetails(_ countryCode: String) -> String {
-        return "/alpha/\(countryCode)"
-    }
-
-    static func region(_ regionName: String) -> String {
-        return "/region/\(regionName)"
-    }
-
-    static func flagURLString(_ countryCode: String) -> String {
-        let code = countryCode.uppercased()
-        return "http://www.geognos.com/api/en/countries/flag/\(code).png"
-    }
-
     static func url(from endpoint: String) -> URL? {
         return URL(string: baseURL + endpoint)
     }
+
+  //TODO: Move all these below inthe related API
+
+  static let allCountries = "/all"
+
+  static func countryDetails(_ countryCode: String) -> String {
+    return "/alpha/\(countryCode)"
+  }
+
+  static func region(_ regionName: String) -> String {
+    return "/region/\(regionName)"
+  }
+
+  static func flagURLString(_ countryCode: String) -> String {
+    let code = countryCode.uppercased()
+    return "http://www.geognos.com/api/en/countries/flag/\(code).png"
+  }
 }
 
 final class NetworkManager {
@@ -50,22 +52,6 @@ final class NetworkManager {
         let session = URLSession(configuration: configuration)
         return session
     }()
-
-    public static func fetchCountryList(completion: @escaping (_ result: Result) -> ()) {
-        let constructor = Factory(CountryList.self)
-        let url = Endpoints.url(from: Endpoints.allCountries)
-        fetch(url: url, constructor: constructor, completion: { result in
-            completion(result)
-        })
-    }
-
-    public static func fetchRegion(regionName: String, completion: @escaping (_ result: Result) -> ()) {
-        let constructor = Factory(CountryList.self)
-        let url = Endpoints.url(from: Endpoints.region(regionName))
-        fetch(url: url, constructor: constructor, completion: { result in
-            completion(result)
-        })
-    }
 
     public static func fetchData(from url: URL?, completion: @escaping (_ result: GenericDataResult) -> ()) {
         guard let url = url else {
@@ -90,7 +76,7 @@ final class NetworkManager {
         task.resume()
     }
 
-    private static func fetch(url: URL?, constructor: DataConstructor, completion: @escaping (_ result: Result) -> ()) {
+  private static func fetch<T: Decodable>(url: URL?, constructor: Factory<T>, completion: @escaping (_ result: Result) -> ()) {
         guard let url = url else {
             completion(.failure(.invalidURL))
             return
@@ -110,8 +96,8 @@ final class NetworkManager {
             }
             constructor.instantiateFromResponse(responseData, completion: { response in
                 switch response {
-                case .failure:
-                    completion(.failure(.jsonError))
+                case .failure (let error):
+                    completion(.failure(.jsonError(error)))
                 case let .success(object):
                     completion(.success(object))
                 }
@@ -119,4 +105,21 @@ final class NetworkManager {
         })
         task.resume()
     }
+
+  //TODO: Move these two functions in the related API
+  public static func fetchCountryList(completion: @escaping (_ result: Result) -> ()) {
+    let constructor = Factory<CountryListNetworkModel>()
+    let url = Endpoints.url(from: Endpoints.allCountries)
+    fetch(url: url, constructor: constructor, completion: { result in
+      completion(result)
+    })
+  }
+
+  public static func fetchRegion(regionName: String, completion: @escaping (_ result: Result) -> ()) {
+    let constructor = Factory<CountryListNetworkModel>()
+    let url = Endpoints.url(from: Endpoints.region(regionName))
+    fetch(url: url, constructor: constructor, completion: { result in
+      completion(result)
+    })
+  }
 }
